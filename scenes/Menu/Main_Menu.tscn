@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://dh8b3n051ubbv" path="res://Sprites/Fonts/MainFont.TTF" id="2_t8dpg"]
 [ext_resource type="Texture2D" uid="uid://c11h04f5p83ry" path="res://Sprites/Backgrounds/MainSpace_Background.png" id="3_21vot"]
 [ext_resource type="AudioStream" uid="uid://egg81frtoxxt" path="res://audio/Tame Impala - Nangs (Original Instrumental).mp3" id="4_ec0ct"]
-[ext_resource type="Script" uid="uid://dhd21hwxt6e2r" path="res://Scripts/Menu/Main/audio_control.gd" id="5_m17uk"]
+[ext_resource type="Script" uid="uid://dhd21hwxt6e2r" path="res://Scripts/audio_control.gd" id="5_m17uk"]
 [ext_resource type="Script" uid="uid://b33wv112jwaoh" path="res://Scripts/Menu/Main/fullscreen_control.gd" id="6_dnggf"]
 [ext_resource type="Script" uid="uid://b33kh6nsorqq5" path="res://Scripts/Menu/Main/armadietto.gd" id="7_7q4lt"]
 [ext_resource type="Script" uid="uid://blniingo8w2rp" path="res://Scripts/AnimationsAddOn/MainMenuAnimations/ship_spawner.gd" id="8_0edrc"]
@@ -29,10 +29,8 @@ default_font = ExtResource("2_t8dpg")
 texture = ExtResource("3_21vot")
 modulate_color = Color(0.707967, 0.707967, 0.707967, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pcxhq"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pknk"]
-bg_color = Color(0.0467422, 0.398286, 0.496106, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7it8"]
+bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -49,14 +47,16 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7it8"]
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pknk"]
+bg_color = Color(0.0467422, 0.398286, 0.496106, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pcxhq"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_wt6vc"]
 color = Color(1, 1, 1, 1)
@@ -70,8 +70,8 @@ grow_begin = -300.0
 grow_end = 300.0
 thickness = 0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cc4n5"]
-bg_color = Color(0.0467422, 0.398286, 0.496106, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmst4"]
+bg_color = Color(1, 1, 1, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -88,8 +88,8 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmst4"]
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cc4n5"]
+bg_color = Color(0.0467422, 0.398286, 0.496106, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -137,15 +137,15 @@ light_mask = 2
 visibility_layer = 2
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_pcxhq")
-theme_override_styles/hover = SubResource("StyleBoxFlat_6pknk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_i0m7l")
 theme_override_styles/normal = SubResource("StyleBoxFlat_d7it8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i0m7l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6pknk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pcxhq")
 text = "Gioca"
 
 [node name="Button2" type="Button" parent="MainButtons"]
@@ -155,9 +155,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = SubResource("StyleBoxFlat_6pknk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_i0m7l")
 theme_override_styles/normal = SubResource("StyleBoxFlat_d7it8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i0m7l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6pknk")
 text = "Armadietto"
 
 [node name="Button3" type="Button" parent="MainButtons"]
@@ -167,9 +167,9 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = SubResource("StyleBoxFlat_6pknk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_i0m7l")
 theme_override_styles/normal = SubResource("StyleBoxFlat_d7it8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i0m7l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6pknk")
 text = "Opzioni"
 
 [node name="Label" type="Label" parent="."]
@@ -244,7 +244,7 @@ text = "Schermo intero
 script = ExtResource("6_dnggf")
 
 [node name="Armadietto" type="Panel" parent="."]
-layout_mode = 2
+layout_mode = 0
 offset_left = 460.0
 offset_top = 365.0
 offset_right = 690.0
@@ -338,9 +338,9 @@ grow_vertical = 0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nmst4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
 text = "Indietro"
 
 [node name="Skin" type="Panel" parent="Armadietto"]
@@ -410,13 +410,13 @@ grow_vertical = 0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nmst4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
 text = "Indietro"
 
 [node name="Label" type="Label" parent="Armadietto"]
-layout_mode = 2
+layout_mode = 0
 offset_left = -46.0
 offset_top = -112.0
 offset_right = 281.0
@@ -426,7 +426,7 @@ theme_override_font_sizes/font_size = 40
 text = "Armadietto"
 
 [node name="Costumi" type="Button" parent="Armadietto"]
-layout_mode = 2
+layout_mode = 0
 offset_left = -46.0
 offset_top = -67.0
 offset_right = 281.0
@@ -436,13 +436,13 @@ grow_vertical = 0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 28
-theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nmst4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
 text = "Navicelle"
 
 [node name="Upgrades" type="Button" parent="Armadietto"]
-layout_mode = 2
+layout_mode = 0
 offset_left = -46.0
 offset_top = -34.0
 offset_right = 281.0
@@ -452,9 +452,9 @@ grow_vertical = 0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 28
-theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nmst4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
 text = "Miglioramenti"
 
 [node name="Gioca" type="Panel" parent="."]
@@ -500,9 +500,9 @@ grow_vertical = 0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = SubResource("StyleBoxFlat_6pknk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_i0m7l")
 theme_override_styles/normal = SubResource("StyleBoxFlat_d7it8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i0m7l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6pknk")
 text = "Indietro"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Gioca"]
@@ -523,7 +523,7 @@ layout_mode = 2
 texture_normal = ExtResource("10_0ss7m")
 
 [node name="Back" type="Button" parent="."]
-layout_mode = 2
+layout_mode = 0
 offset_left = 414.0
 offset_top = 364.0
 offset_right = 741.0
@@ -533,9 +533,9 @@ grow_vertical = 0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nmst4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
 text = "Indietro"
 
 [node name="ShipSpawner" type="Node2D" parent="."]

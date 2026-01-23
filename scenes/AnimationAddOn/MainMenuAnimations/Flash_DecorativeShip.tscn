@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dfvhu177u261k"]
 
-[ext_resource type="Script" uid="uid://suh1foivkrsg" path="res://Scripts/AnimationsAddOn/MainMenuAnimations/Flash_DecorativeShip.gd" id="1_ciisw"]
+[ext_resource type="Script" uid="uid://drgj7huen5gl7" path="res://Scripts/AnimationsAddOn/MainMenuAnimations/ship_properties.gd" id="1_s5vb1"]
 [ext_resource type="Texture2D" uid="uid://bgihe4opj0och" path="res://Sprites/Spaceships/Players/Flash_Player.png" id="2_6kivd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rpv1t"]
@@ -40,7 +40,7 @@ animations = [{
 }]
 
 [node name="DecorativeShip2" type="Node2D"]
-script = ExtResource("1_ciisw")
+script = ExtResource("1_s5vb1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

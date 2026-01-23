@@ -1,5 +1,5 @@
 extends Button
-class_name SkinItem
+#class_name SkinItem
 
 @export var item_name: String
 @export var item_texture: Texture

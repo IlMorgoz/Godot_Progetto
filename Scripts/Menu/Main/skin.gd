@@ -12,7 +12,3 @@ func _on_seleziona_2_pressed() -> void:
 
 func _on_back_pressed() -> void:
 	nodo.turn_on(self)
-
-
-func _on_seleziona_2_toggled(toggled_on: bool) -> void:
-	pass # Replace with function body.

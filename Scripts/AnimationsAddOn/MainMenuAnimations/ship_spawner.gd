@@ -17,6 +17,7 @@ func _ready() -> void:
 	$Timer.timeout.connect(_on_timer_timeout)
 	$Timer.start()
 
+
 func _on_timer_timeout():
 	# Scegli una scena a caso dall'array
 	var chosen_scene = SHIP_SCENES[randi() % SHIP_SCENES.size()]

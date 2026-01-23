@@ -69,7 +69,7 @@ func start_next_wave():
 			var group_count := get_tree().get_nodes_in_group("enemies").size()
 			print("Attendo fine ondata %d — is_spawning: %s  group_enemies: %d  enemies_alive: %d  to_spawn: %d"
 				% [current_wave, str(is_spawning), group_count, enemies_alive, enemies_to_spawn])
-aaaaaaaaasds		await get_tree().process_frame
+		await get_tree().process_frame
 
 	await get_tree().create_timer(0.08).timeout
 

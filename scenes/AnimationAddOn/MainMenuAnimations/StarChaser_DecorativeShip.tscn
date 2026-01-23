@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bagpnf82dgyyt"]
 
-[ext_resource type="Script" uid="uid://b3j05xrt18crb" path="res://Scripts/AnimationsAddOn/MainMenuAnimations/StarChaser_DecorativeShip.gd" id="1_enard"]
+[ext_resource type="Script" uid="uid://drgj7huen5gl7" path="res://Scripts/AnimationsAddOn/MainMenuAnimations/ship_properties.gd" id="1_nujo5"]
 [ext_resource type="Texture2D" uid="uid://dlq7ua5g3asiw" path="res://Sprites/Spaceships/Players/StarChaser_Player.png" id="2_33vgf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3654n"]
@@ -40,7 +40,7 @@ animations = [{
 }]
 
 [node name="DecorativeShip" type="Node2D"]
-script = ExtResource("1_enard")
+script = ExtResource("1_nujo5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

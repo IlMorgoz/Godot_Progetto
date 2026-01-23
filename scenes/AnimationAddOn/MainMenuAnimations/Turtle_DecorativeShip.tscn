@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dllxrooa76e43"]
 
-[ext_resource type="Script" uid="uid://cmeo15wghnkqx" path="res://Scripts/AnimationsAddOn/MainMenuAnimations/Turtle_DecorativeShip.gd" id="1_ncp54"]
+[ext_resource type="Script" uid="uid://drgj7huen5gl7" path="res://Scripts/AnimationsAddOn/MainMenuAnimations/ship_properties.gd" id="1_apnxd"]
 [ext_resource type="Texture2D" uid="uid://h31d0ju3sw2e" path="res://Sprites/Spaceships/Enemies/Turtle.png" id="2_bjsqy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ck5f0"]
@@ -19,7 +19,7 @@ animations = [{
 }]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_ncp54")
+script = ExtResource("1_apnxd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

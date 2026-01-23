@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b2wxfvlvpe0fn"]
 
-[ext_resource type="Script" uid="uid://drgj7huen5gl7" path="res://Scripts/AnimationsAddOn/MainMenuAnimations/Aqua_DecorativeShip.gd" id="1_7ml6e"]
+[ext_resource type="Script" uid="uid://drgj7huen5gl7" path="res://Scripts/AnimationsAddOn/MainMenuAnimations/ship_properties.gd" id="1_7ml6e"]
 [ext_resource type="Texture2D" uid="uid://cxj1muflo6mfi" path="res://Sprites/Spaceships/Players/Acqua.png" id="2_vy1qw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rufc8"]

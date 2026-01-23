@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://j61ro872s6jv"]
 
-[ext_resource type="Script" uid="uid://b25ul2uxl4f6x" path="res://Scripts/AnimationsAddOn/MainMenuAnimations/PurpleDevil_DecorativeShip.gd" id="1_t8gcm"]
+[ext_resource type="Script" uid="uid://drgj7huen5gl7" path="res://Scripts/AnimationsAddOn/MainMenuAnimations/ship_properties.gd" id="1_fwq57"]
 [ext_resource type="Texture2D" uid="uid://b3bge8nll82wl" path="res://Sprites/Spaceships/Enemies/PurpleDevil.png" id="2_spxon"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_44unp"]
@@ -40,7 +40,7 @@ animations = [{
 }]
 
 [node name="Devil" type="Node2D"]
-script = ExtResource("1_t8gcm")
+script = ExtResource("1_fwq57")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

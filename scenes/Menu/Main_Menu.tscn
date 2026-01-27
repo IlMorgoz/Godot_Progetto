@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cigms1jlsw4t1" path="res://Scripts/Menu/Main/Main_Menu.gd" id="1_8bt37"]
 [ext_resource type="FontFile" uid="uid://dh8b3n051ubbv" path="res://Sprites/Fonts/MainFont.TTF" id="2_t8dpg"]
-[ext_resource type="Texture2D" uid="uid://c11h04f5p83ry" path="res://Sprites/Backgrounds/MainSpace_Background.png" id="3_21vot"]
+[ext_resource type="Script" uid="uid://rm3ba3elfhw0" path="res://Scripts/Menu/Main/Repetition.gd" id="3_5664y"]
+[ext_resource type="Texture2D" uid="uid://bc4xmb6vpums4" path="res://Sprites/Backgrounds/Main_Background2.png" id="4_apcd8"]
 [ext_resource type="AudioStream" uid="uid://egg81frtoxxt" path="res://audio/Tame Impala - Nangs (Original Instrumental).mp3" id="4_ec0ct"]
 [ext_resource type="Script" uid="uid://dhd21hwxt6e2r" path="res://Scripts/audio_control.gd" id="5_m17uk"]
 [ext_resource type="Script" uid="uid://b33wv112jwaoh" path="res://Scripts/Menu/Main/fullscreen_control.gd" id="6_dnggf"]
@@ -24,10 +25,6 @@
 
 [sub_resource type="Theme" id="Theme_lrj6p"]
 default_font = ExtResource("2_t8dpg")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wtbl3"]
-texture = ExtResource("3_21vot")
-modulate_color = Color(0.707967, 0.707967, 0.707967, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7it8"]
 bg_color = Color(1, 1, 1, 1)
@@ -107,14 +104,15 @@ grow_vertical = 2
 theme = SubResource("Theme_lrj6p")
 script = ExtResource("1_8bt37")
 
-[node name="Background" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_wtbl3")
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(1332.2, 0)
+script = ExtResource("3_5664y")
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+texture_filter = 1
+position = Vector2(762, 325)
+scale = Vector2(0.242, 0.242)
+texture = ExtResource("4_apcd8")
 
 [node name="MainButtons" type="VBoxContainer" parent="."]
 light_mask = 2

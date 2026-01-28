@@ -31,7 +31,7 @@ func _ready() -> void:
 	_update_monete_label()
 
 func _update_monete_label():
-	monete_label.text = "Stelle: %d" % MoneteManager.monete_stella
+	monete_label.text = ": %d" % MoneteManager.monete_stella
 
 func _on_start_pressed():
 	main_buttons.visible = false

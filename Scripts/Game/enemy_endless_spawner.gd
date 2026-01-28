@@ -6,7 +6,6 @@ const SCREEN_HEIGHT = 648
 
 func _ready() -> void:
 	randomize()
-	$Timer.timeout.connect(_on_timer_timeout)
 	$Timer.start()
 
 func _on_timer_timeout():

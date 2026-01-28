@@ -10,7 +10,6 @@ func _ready():
 	$Timer.wait_time = SPAWN_INTERVAL
 	$Timer.autostart = true
 	$Timer.one_shot = false
-	$Timer.timeout.connect(_on_timer_timeout)
 	$Timer.start()
 
 func _on_timer_timeout():

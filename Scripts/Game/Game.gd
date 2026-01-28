@@ -77,7 +77,7 @@ func _update_timer_label():
 
 func _update_monete_label():
 	if monete_label:
-		monete_label.text = "Stelle: %d" % MoneteManager.monete_stella
+		monete_label.text = ": %d" % MoneteManager.monete_stella
 
 func _game_over():
 	print("Gioco terminato! Monete: %d" % MoneteManager.monete_stella)

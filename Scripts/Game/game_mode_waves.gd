@@ -147,4 +147,4 @@ func _give_wave_reward(wave: int) -> void:
 
 func _update_monete_label() -> void:
 	if monete_label:
-		monete_label.text = "Stelle: %d" % MoneteManager.monete_stella
+		monete_label.text = ": %d" % MoneteManager.monete_stella

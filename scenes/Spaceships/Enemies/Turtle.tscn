@@ -35,7 +35,7 @@ autoplay = "default"
 rotation = 1.56428
 shape = SubResource("CapsuleShape2D_o3d5o")
 
-[node name="HealtBar" parent="." instance=ExtResource("2_3hha8")]
+[node name="HealthBar" parent="." instance=ExtResource("2_3hha8")]
 offset_left = -10.0
 offset_top = -19.0
 offset_right = 11.0

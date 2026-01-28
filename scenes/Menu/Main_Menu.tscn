@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c316ek4x22v2p"]
+[gd_scene format=3 uid="uid://c316ek4x22v2p"]
 
 [ext_resource type="Script" uid="uid://cigms1jlsw4t1" path="res://Scripts/Menu/Main/Main_Menu.gd" id="1_8bt37"]
 [ext_resource type="FontFile" uid="uid://dh8b3n051ubbv" path="res://Sprites/Fonts/MainFont.TTF" id="2_t8dpg"]
@@ -9,10 +9,7 @@
 [ext_resource type="Script" uid="uid://b33wv112jwaoh" path="res://Scripts/Menu/Main/fullscreen_control.gd" id="6_dnggf"]
 [ext_resource type="Script" uid="uid://b33kh6nsorqq5" path="res://Scripts/Menu/Main/armadietto.gd" id="7_7q4lt"]
 [ext_resource type="Script" uid="uid://blniingo8w2rp" path="res://Scripts/AnimationsAddOn/MainMenuAnimations/ship_spawner.gd" id="8_0edrc"]
-[ext_resource type="Texture2D" uid="uid://djn4upbon1o26" path="res://Sprites/Buttons/game1.png" id="8_vx55k"]
 [ext_resource type="Script" uid="uid://bphev5uy11o6" path="res://Scripts/Menu/Main/miglioramenti.gd" id="9_dsoak"]
-[ext_resource type="Texture2D" uid="uid://271bqqkgliq5" path="res://Sprites/Buttons/game2.png" id="9_mi1sd"]
-[ext_resource type="Texture2D" uid="uid://dobsahcqhupdu" path="res://Sprites/Buttons/game3.png" id="10_0ss7m"]
 [ext_resource type="Texture2D" uid="uid://4w1bvcgvv88n" path="res://Sprites/Buttons/Button_enabled_3x.png" id="10_yx677"]
 [ext_resource type="Texture2D" uid="uid://36bnpyemjad3" path="res://Sprites/Buttons/Button_disabled_3x.png" id="11_pfocr"]
 [ext_resource type="Texture2D" uid="uid://bx3pgdgf1rwwp" path="res://Sprites/Buttons/Button_enabled_spd.png" id="12_x26ma"]
@@ -22,6 +19,10 @@
 [ext_resource type="Script" uid="uid://c7jot6njhhrem" path="res://Scripts/Menu/Main/skin.gd" id="16_1xdl7"]
 [ext_resource type="Texture2D" uid="uid://byu5j8qpj1hv8" path="res://Sprites/Buttons/ship1_background.png" id="16_ptjyf"]
 [ext_resource type="Texture2D" uid="uid://5ys73oi10ejs" path="res://Sprites/Buttons/ship2_background(1).png" id="17_5664y"]
+[ext_resource type="Texture2D" uid="uid://cxgl0xyw04b2u" path="res://Sprites/Buttons/Game2_SS.png" id="19_ptjyf"]
+[ext_resource type="Texture2D" uid="uid://dn3yky45vvisx" path="res://Sprites/Buttons/Game1_SS.png" id="20_5664y"]
+[ext_resource type="Texture2D" uid="uid://cfv01qyvlvmes" path="res://Sprites/Buttons/Game3_SS.png" id="21_5664y"]
+[ext_resource type="Texture2D" uid="uid://bbyeqi7qtdcrq" path="res://Sprites/Buttons/pngtree-star-pixel-png-image_21050156-removebg-preview.png" id="23_apcd8"]
 
 [sub_resource type="Theme" id="Theme_lrj6p"]
 default_font = ExtResource("2_t8dpg")
@@ -94,7 +95,409 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
 
-[node name="MainMenu" type="Control"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3u5k"]
+atlas = ExtResource("20_5664y")
+region = Rect2(0, 0, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovcr3"]
+atlas = ExtResource("20_5664y")
+region = Rect2(333, 0, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ruoky"]
+atlas = ExtResource("20_5664y")
+region = Rect2(666, 0, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53i6l"]
+atlas = ExtResource("20_5664y")
+region = Rect2(999, 0, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrj5r"]
+atlas = ExtResource("20_5664y")
+region = Rect2(1332, 0, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btqrr"]
+atlas = ExtResource("20_5664y")
+region = Rect2(1665, 0, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kdwv"]
+atlas = ExtResource("20_5664y")
+region = Rect2(0, 666, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ry5io"]
+atlas = ExtResource("20_5664y")
+region = Rect2(333, 666, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3bdy"]
+atlas = ExtResource("20_5664y")
+region = Rect2(666, 666, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blvb8"]
+atlas = ExtResource("20_5664y")
+region = Rect2(999, 666, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07gde"]
+atlas = ExtResource("20_5664y")
+region = Rect2(1332, 666, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7w8b"]
+atlas = ExtResource("20_5664y")
+region = Rect2(1665, 666, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdcap"]
+atlas = ExtResource("20_5664y")
+region = Rect2(0, 1332, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eexsu"]
+atlas = ExtResource("20_5664y")
+region = Rect2(333, 1332, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oljyk"]
+atlas = ExtResource("20_5664y")
+region = Rect2(666, 1332, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tt4x"]
+atlas = ExtResource("20_5664y")
+region = Rect2(999, 1332, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45imo"]
+atlas = ExtResource("20_5664y")
+region = Rect2(1332, 1332, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8b4x"]
+atlas = ExtResource("20_5664y")
+region = Rect2(1665, 1332, 333, 666)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g8qkf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3u5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovcr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ruoky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53i6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrj5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btqrr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kdwv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ry5io")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3bdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_blvb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07gde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7w8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdcap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eexsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oljyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tt4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45imo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8b4x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5664y"]
+atlas = ExtResource("19_ptjyf")
+region = Rect2(0, 0, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apcd8"]
+atlas = ExtResource("19_ptjyf")
+region = Rect2(333, 0, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbop2"]
+atlas = ExtResource("19_ptjyf")
+region = Rect2(666, 0, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3361"]
+atlas = ExtResource("19_ptjyf")
+region = Rect2(999, 0, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt8s7"]
+atlas = ExtResource("19_ptjyf")
+region = Rect2(1332, 0, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3t1e"]
+atlas = ExtResource("19_ptjyf")
+region = Rect2(1665, 0, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ppkp"]
+atlas = ExtResource("19_ptjyf")
+region = Rect2(0, 666, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsoon"]
+atlas = ExtResource("19_ptjyf")
+region = Rect2(333, 666, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_geude"]
+atlas = ExtResource("19_ptjyf")
+region = Rect2(666, 666, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj7oi"]
+atlas = ExtResource("19_ptjyf")
+region = Rect2(999, 666, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjjdh"]
+atlas = ExtResource("19_ptjyf")
+region = Rect2(1332, 666, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7ovf"]
+atlas = ExtResource("19_ptjyf")
+region = Rect2(1665, 666, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iogir"]
+atlas = ExtResource("19_ptjyf")
+region = Rect2(0, 1332, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pl4r"]
+atlas = ExtResource("19_ptjyf")
+region = Rect2(333, 1332, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32yn3"]
+atlas = ExtResource("19_ptjyf")
+region = Rect2(666, 1332, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjfmo"]
+atlas = ExtResource("19_ptjyf")
+region = Rect2(999, 1332, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fcup"]
+atlas = ExtResource("19_ptjyf")
+region = Rect2(1332, 1332, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8h0x"]
+atlas = ExtResource("19_ptjyf")
+region = Rect2(1665, 1332, 333, 666)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ruoky"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5664y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apcd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbop2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3361")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bt8s7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3t1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ppkp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsoon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_geude")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uj7oi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjjdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7ovf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iogir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5pl4r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32yn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjfmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fcup")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8h0x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8qkf"]
+atlas = ExtResource("21_5664y")
+region = Rect2(0, 0, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5d21"]
+atlas = ExtResource("21_5664y")
+region = Rect2(333, 0, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylujd"]
+atlas = ExtResource("21_5664y")
+region = Rect2(666, 0, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkrwu"]
+atlas = ExtResource("21_5664y")
+region = Rect2(999, 0, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewuh8"]
+atlas = ExtResource("21_5664y")
+region = Rect2(1332, 0, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gd504"]
+atlas = ExtResource("21_5664y")
+region = Rect2(1665, 0, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7p5k1"]
+atlas = ExtResource("21_5664y")
+region = Rect2(0, 666, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ggcy"]
+atlas = ExtResource("21_5664y")
+region = Rect2(333, 666, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtu0j"]
+atlas = ExtResource("21_5664y")
+region = Rect2(666, 666, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6rqr"]
+atlas = ExtResource("21_5664y")
+region = Rect2(999, 666, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbm8j"]
+atlas = ExtResource("21_5664y")
+region = Rect2(1332, 666, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmtik"]
+atlas = ExtResource("21_5664y")
+region = Rect2(1665, 666, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bv0q6"]
+atlas = ExtResource("21_5664y")
+region = Rect2(0, 1332, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrww1"]
+atlas = ExtResource("21_5664y")
+region = Rect2(333, 1332, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87wu6"]
+atlas = ExtResource("21_5664y")
+region = Rect2(666, 1332, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4q3f"]
+atlas = ExtResource("21_5664y")
+region = Rect2(999, 1332, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1sx67"]
+atlas = ExtResource("21_5664y")
+region = Rect2(1332, 1332, 333, 666)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq8ct"]
+atlas = ExtResource("21_5664y")
+region = Rect2(1665, 1332, 333, 666)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vuxrx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8qkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5d21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylujd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkrwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewuh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gd504")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7p5k1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ggcy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtu0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6rqr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbm8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmtik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bv0q6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrww1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87wu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4q3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1sx67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lq8ct")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="MainMenu" type="Control" unique_id=1947665875]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -104,17 +507,17 @@ grow_vertical = 2
 theme = SubResource("Theme_lrj6p")
 script = ExtResource("1_8bt37")
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=2144513771]
 repeat_size = Vector2(1332.2, 0)
 script = ExtResource("3_5664y")
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=308732386]
 texture_filter = 1
 position = Vector2(762, 325)
 scale = Vector2(0.242, 0.242)
 texture = ExtResource("4_apcd8")
 
-[node name="MainButtons" type="VBoxContainer" parent="."]
+[node name="MainButtons" type="VBoxContainer" parent="." unique_id=1695438600]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -130,7 +533,7 @@ offset_bottom = 71.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button1" type="Button" parent="MainButtons"]
+[node name="Button1" type="Button" parent="MainButtons" unique_id=1285798801]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 2
@@ -146,7 +549,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_6pknk")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_pcxhq")
 text = "Gioca"
 
-[node name="Button2" type="Button" parent="MainButtons"]
+[node name="Button2" type="Button" parent="MainButtons" unique_id=1970172077]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 2
@@ -158,7 +561,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_i0m7l")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6pknk")
 text = "Armadietto"
 
-[node name="Button3" type="Button" parent="MainButtons"]
+[node name="Button3" type="Button" parent="MainButtons" unique_id=932690230]
 light_mask = 2
 visibility_layer = 2
 layout_mode = 2
@@ -170,28 +573,26 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_i0m7l")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6pknk")
 text = "Opzioni"
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1722811284]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -62.0
-offset_top = 50.0
-offset_right = 69.0
-offset_bottom = 73.0
+offset_left = 382.0
+offset_top = 629.0
+offset_right = 577.0
+offset_bottom = 652.0
 grow_horizontal = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 40
 theme_override_fonts/font = ExtResource("2_t8dpg")
-theme_override_font_sizes/font_size = 60
-text = "Tempera Biscotti"
+text = "©MEMBERS ONLY"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=356308363]
 stream = ExtResource("4_ec0ct")
 autoplay = true
 bus = &"Music"
 
-[node name="Options" type="Panel" parent="."]
+[node name="Options" type="Panel" parent="." unique_id=1171406860]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -205,7 +606,7 @@ offset_bottom = 111.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Options" unique_id=1033948118]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -219,13 +620,13 @@ offset_bottom = 62.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Options/VBoxContainer"]
+[node name="Label" type="Label" parent="Options/VBoxContainer" unique_id=1671644421]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Opzioni"
 horizontal_alignment = 1
 
-[node name="AudioControl" type="HSlider" parent="Options/VBoxContainer"]
+[node name="AudioControl" type="HSlider" parent="Options/VBoxContainer" unique_id=1524789636]
 layout_mode = 2
 theme_override_styles/slider = SubResource("StyleBoxLine_wt6vc")
 theme_override_styles/grabber_area = SubResource("StyleBoxLine_uxoih")
@@ -235,13 +636,13 @@ value = 1.0
 script = ExtResource("5_m17uk")
 audio_bus_name = "Music"
 
-[node name="FullscreenControl" type="CheckButton" parent="Options/VBoxContainer"]
+[node name="FullscreenControl" type="CheckButton" parent="Options/VBoxContainer" unique_id=1056573104]
 layout_mode = 2
 text = "Schermo intero
 "
 script = ExtResource("6_dnggf")
 
-[node name="Armadietto" type="Panel" parent="."]
+[node name="Armadietto" type="Panel" parent="." unique_id=310373314]
 layout_mode = 0
 offset_left = 460.0
 offset_top = 365.0
@@ -251,7 +652,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("7_7q4lt")
 
-[node name="Miglioramenti" type="Panel" parent="Armadietto"]
+[node name="Miglioramenti" type="Panel" parent="Armadietto" unique_id=212013024]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -266,7 +667,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9_dsoak")
 
-[node name="Label" type="Label" parent="Armadietto/Miglioramenti"]
+[node name="Label" type="Label" parent="Armadietto/Miglioramenti" unique_id=758715876]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -279,7 +680,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
 text = "Miglioramenti"
 
-[node name="Upgrade1" type="CheckButton" parent="Armadietto/Miglioramenti"]
+[node name="Upgrade1" type="CheckButton" parent="Armadietto/Miglioramenti" unique_id=735224241]
 layout_mode = 0
 offset_left = 43.0
 offset_top = 78.5
@@ -290,7 +691,7 @@ theme_override_icons/unchecked = ExtResource("11_pfocr")
 text = "
 "
 
-[node name="Upgrade2" type="CheckButton" parent="Armadietto/Miglioramenti"]
+[node name="Upgrade2" type="CheckButton" parent="Armadietto/Miglioramenti" unique_id=543490884]
 layout_mode = 0
 offset_left = 245.0
 offset_top = 83.0
@@ -300,7 +701,7 @@ theme_override_colors/icon_disabled_color = Color(0.996078, 0, 0, 1)
 theme_override_icons/checked = ExtResource("12_x26ma")
 theme_override_icons/unchecked = ExtResource("13_lwwlo")
 
-[node name="Button" type="Button" parent="Armadietto/Miglioramenti"]
+[node name="Button" type="Button" parent="Armadietto/Miglioramenti" unique_id=522177018]
 z_index = 1
 layout_mode = 0
 offset_left = 49.0
@@ -310,7 +711,7 @@ offset_bottom = 213.0
 theme_override_icons/icon = ExtResource("14_fb642")
 theme_override_styles/normal = SubResource("StyleBoxLine_allfm")
 
-[node name="Button2" type="Button" parent="Armadietto/Miglioramenti"]
+[node name="Button2" type="Button" parent="Armadietto/Miglioramenti" unique_id=531309757]
 z_index = 2
 layout_mode = 0
 offset_left = 251.0
@@ -320,7 +721,7 @@ offset_bottom = 214.0
 theme_override_icons/icon = ExtResource("15_agrvx")
 theme_override_styles/normal = SubResource("StyleBoxLine_allfm")
 
-[node name="Ritorno" type="Button" parent="Armadietto/Miglioramenti"]
+[node name="Ritorno" type="Button" parent="Armadietto/Miglioramenti" unique_id=565849994]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -341,7 +742,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
 text = "Indietro"
 
-[node name="Skin" type="Panel" parent="Armadietto"]
+[node name="Skin" type="Panel" parent="Armadietto" unique_id=2057082505]
 layout_mode = 0
 offset_left = -100.0
 offset_top = -155.0
@@ -349,7 +750,7 @@ offset_right = 329.0
 offset_bottom = 152.0
 script = ExtResource("16_1xdl7")
 
-[node name="Label" type="Label" parent="Armadietto/Skin"]
+[node name="Label" type="Label" parent="Armadietto/Skin" unique_id=1834958635]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -362,7 +763,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
 text = "Navicelle"
 
-[node name="Seleziona" type="Button" parent="Armadietto/Skin"]
+[node name="Seleziona" type="Button" parent="Armadietto/Skin" unique_id=862201303]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -377,7 +778,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_icons/icon = ExtResource("16_ptjyf")
 
-[node name="Seleziona2" type="Button" parent="Armadietto/Skin"]
+[node name="Seleziona2" type="Button" parent="Armadietto/Skin" unique_id=1433369228]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -392,7 +793,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_icons/icon = ExtResource("17_5664y")
 
-[node name="Back" type="Button" parent="Armadietto/Skin"]
+[node name="Back" type="Button" parent="Armadietto/Skin" unique_id=1580077535]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -413,7 +814,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
 text = "Indietro"
 
-[node name="Label" type="Label" parent="Armadietto"]
+[node name="Label" type="Label" parent="Armadietto" unique_id=580380742]
 layout_mode = 0
 offset_left = -46.0
 offset_top = -112.0
@@ -423,7 +824,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
 text = "Armadietto"
 
-[node name="Costumi" type="Button" parent="Armadietto"]
+[node name="Costumi" type="Button" parent="Armadietto" unique_id=139431671]
 layout_mode = 0
 offset_left = -46.0
 offset_top = -67.0
@@ -439,7 +840,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
 text = "Navicelle"
 
-[node name="Upgrades" type="Button" parent="Armadietto"]
+[node name="Upgrades" type="Button" parent="Armadietto" unique_id=323238705]
 layout_mode = 0
 offset_left = -46.0
 offset_top = -34.0
@@ -455,7 +856,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
 text = "Miglioramenti"
 
-[node name="Gioca" type="Panel" parent="."]
+[node name="Gioca" type="Panel" parent="." unique_id=2011787286]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -469,7 +870,7 @@ offset_bottom = 110.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Gioca"]
+[node name="Label" type="Label" parent="Gioca" unique_id=1613031764]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -482,7 +883,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 40
 text = "Seleziona partita"
 
-[node name="Back" type="Button" parent="Gioca"]
+[node name="Back" type="Button" parent="Gioca" unique_id=32800569]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -503,24 +904,48 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_i0m7l")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6pknk")
 text = "Indietro"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Gioca"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Gioca" unique_id=1745307490]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Mod1" type="TextureButton" parent="Gioca/HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("8_vx55k")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Gioca/HBoxContainer" unique_id=1033113763]
+position = Vector2(54, 126)
+scale = Vector2(0.38, 0.38)
+sprite_frames = SubResource("SpriteFrames_g8qkf")
+autoplay = "default"
 
-[node name="Mod2" type="TextureButton" parent="Gioca/HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("9_mi1sd")
+[node name="Mod1" type="TextureButton" parent="Gioca/HBoxContainer/AnimatedSprite2D" unique_id=1991020150]
+offset_left = -163.1579
+offset_top = -328.94736
+offset_right = 165.78943
+offset_bottom = 328.94736
 
-[node name="Mod3" type="TextureButton" parent="Gioca/HBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("10_0ss7m")
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Gioca/HBoxContainer" unique_id=1720359926]
+position = Vector2(187, 126.00003)
+scale = Vector2(0.38, 0.38)
+sprite_frames = SubResource("SpriteFrames_ruoky")
+autoplay = "default"
 
-[node name="Back" type="Button" parent="."]
+[node name="Mod2" type="TextureButton" parent="Gioca/HBoxContainer/AnimatedSprite2D2" unique_id=1559462338]
+offset_left = -160.5263
+offset_top = -331.579
+offset_right = 163.1579
+offset_bottom = 323.68417
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Gioca/HBoxContainer" unique_id=1244914620]
+position = Vector2(320, 126)
+scale = Vector2(0.38, 0.38)
+sprite_frames = SubResource("SpriteFrames_vuxrx")
+autoplay = "default"
+
+[node name="Mod3" type="TextureButton" parent="Gioca/HBoxContainer/AnimatedSprite2D3" unique_id=1347105814]
+offset_left = -157.89478
+offset_top = -328.94736
+offset_right = 168.42102
+offset_bottom = 331.57895
+
+[node name="Back" type="Button" parent="." unique_id=1504927406]
 layout_mode = 0
 offset_left = 414.0
 offset_top = 364.0
@@ -536,18 +961,45 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
 text = "Indietro"
 
-[node name="ShipSpawner" type="Node2D" parent="."]
+[node name="ShipSpawner" type="Node2D" parent="." unique_id=78565655]
 script = ExtResource("8_0edrc")
 
-[node name="Timer" type="Timer" parent="ShipSpawner"]
+[node name="Timer" type="Timer" parent="ShipSpawner" unique_id=457339942]
 wait_time = 3.0
 autostart = true
 
-[node name="MoneteLabel" type="Label" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1451309919]
+texture_filter = 1
+position = Vector2(26, 18)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("23_apcd8")
+
+[node name="MoneteLabel" type="Label" parent="." unique_id=629084866]
+texture_filter = 1
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 17.0
-text = "Stelle: 0"
+offset_left = 52.0
+offset_top = 4.0
+offset_right = 166.0
+offset_bottom = 21.0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(1, 0.81960785, 0.1254902, 1)
+text = ": 0"
+
+[node name="Label2" type="Label" parent="." unique_id=1785242075]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -375.5
+offset_top = 100.0
+offset_right = 389.5
+offset_bottom = 161.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 40
+theme_override_fonts/font = ExtResource("2_t8dpg")
+theme_override_font_sizes/font_size = 60
+text = "Tempera Biscotti"
 
 [connection signal="pressed" from="MainButtons/Button1" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MainButtons/Button2" to="." method="_on_settings2_pressed"]
@@ -566,7 +1018,7 @@ text = "Stelle: 0"
 [connection signal="pressed" from="Armadietto/Costumi" to="Armadietto" method="_on_costumi_pressed"]
 [connection signal="pressed" from="Armadietto/Upgrades" to="Armadietto" method="_on_upgrades_pressed"]
 [connection signal="pressed" from="Gioca/Back" to="." method="_on_back_options_pressed"]
-[connection signal="pressed" from="Gioca/HBoxContainer/Mod1" to="." method="_on_mod_1_pressed"]
-[connection signal="pressed" from="Gioca/HBoxContainer/Mod2" to="." method="_on_mod_2_pressed"]
-[connection signal="pressed" from="Gioca/HBoxContainer/Mod3" to="." method="_on_mod_3_pressed"]
+[connection signal="pressed" from="Gioca/HBoxContainer/AnimatedSprite2D/Mod1" to="." method="_on_mod_1_pressed"]
+[connection signal="pressed" from="Gioca/HBoxContainer/AnimatedSprite2D2/Mod2" to="." method="_on_mod_2_pressed"]
+[connection signal="pressed" from="Gioca/HBoxContainer/AnimatedSprite2D3/Mod3" to="." method="_on_mod_3_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_options_pressed"]

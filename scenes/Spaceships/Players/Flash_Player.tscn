@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ofrn844vkfue"]
+[gd_scene format=3 uid="uid://ofrn844vkfue"]
 
 [ext_resource type="Texture2D" uid="uid://bgihe4opj0och" path="res://Sprites/Spaceships/Players/Flash_Player.png" id="1_7chrc"]
 [ext_resource type="Script" uid="uid://bixqfy2lc8hma" path="res://Scripts/Spaceships/Players/Flash_Player.gd" id="1_bvtfc"]
@@ -41,19 +41,19 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j20sa"]
 
-[node name="NavicellaExtra1" type="CharacterBody2D"]
+[node name="NavicellaExtra1" type="CharacterBody2D" unique_id=1075683889]
 script = ExtResource("1_bvtfc")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1640175725]
 texture_filter = 1
 rotation = 1.57974
 sprite_frames = SubResource("SpriteFrames_cips0")
 autoplay = "default"
 frame_progress = 0.11585
 
-[node name="ShootyPart" type="Node2D" parent="."]
+[node name="ShootyPart" type="Node2D" parent="." unique_id=1564542415]
 texture_filter = 1
 position = Vector2(11, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=641841565]
 shape = SubResource("CircleShape2D_j20sa")

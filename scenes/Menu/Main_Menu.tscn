@@ -814,6 +814,12 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
 text = "Indietro"
 
+[node name="Seleziona3" type="Button" parent="Armadietto/Skin" unique_id=1640363329]
+layout_mode = 0
+offset_left = 434.0
+offset_right = 578.0
+offset_bottom = 307.0
+
 [node name="Label" type="Label" parent="Armadietto" unique_id=580380742]
 layout_mode = 0
 offset_left = -46.0
@@ -864,9 +870,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -201.0
-offset_top = -158.0
+offset_top = -110.0
 offset_right = 201.0
-offset_bottom = 110.0
+offset_bottom = 158.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -991,9 +997,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -375.5
-offset_top = 100.0
+offset_top = 84.0
 offset_right = 389.5
-offset_bottom = 161.0
+offset_bottom = 145.0
 grow_horizontal = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 40
@@ -1015,6 +1021,7 @@ text = "Tempera Biscotti"
 [connection signal="pressed" from="Armadietto/Skin/Seleziona" to="Armadietto/Skin" method="_on_seleziona_pressed"]
 [connection signal="pressed" from="Armadietto/Skin/Seleziona2" to="Armadietto/Skin" method="_on_seleziona_2_pressed"]
 [connection signal="pressed" from="Armadietto/Skin/Back" to="Armadietto/Skin" method="_on_back_pressed"]
+[connection signal="pressed" from="Armadietto/Skin/Seleziona3" to="Armadietto/Skin" method="_on_seleziona_3_pressed"]
 [connection signal="pressed" from="Armadietto/Costumi" to="Armadietto" method="_on_costumi_pressed"]
 [connection signal="pressed" from="Armadietto/Upgrades" to="Armadietto" method="_on_upgrades_pressed"]
 [connection signal="pressed" from="Gioca/Back" to="." method="_on_back_options_pressed"]

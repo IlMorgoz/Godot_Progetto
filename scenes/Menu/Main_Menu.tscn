@@ -37,7 +37,7 @@ shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i0m7l"]
-bg_color = Color(0.0103343, 0.182604, 0.233814, 1)
+bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -46,7 +46,7 @@ shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pknk"]
-bg_color = Color(0.0467422, 0.398286, 0.496106, 1)
+bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -57,10 +57,10 @@ shadow_offset = Vector2(0, 3.4)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pcxhq"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_wt6vc"]
-color = Color(1, 1, 1, 1)
 thickness = 6
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_uxoih"]
+color = Color(1, 1, 1, 1)
 thickness = 6
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_allfm"]
@@ -78,7 +78,7 @@ shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqffm"]
-bg_color = Color(0.0103343, 0.182604, 0.233814, 1)
+bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -87,7 +87,7 @@ shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cc4n5"]
-bg_color = Color(0.0467422, 0.398286, 0.496106, 1)
+bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -540,8 +540,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_d7it8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_i0m7l")
@@ -736,6 +736,8 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_nmst4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")

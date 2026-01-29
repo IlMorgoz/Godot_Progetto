@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3bge8nll82wl"
-path="res://.godot/imported/PurpleDevil.png-93dc44a53c289af89e6502981375bc0a.ctex"
+uid="uid://bj8lh5f0drppt"
+path="res://.godot/imported/AsteroidExplode.png-29ace693477e35c79f5aeecc21d31537.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Spaceships/Enemies/PurpleDevil.png"
-dest_files=["res://.godot/imported/PurpleDevil.png-93dc44a53c289af89e6502981375bc0a.ctex"]
+source_file="res://Sprites/Asteroids/AsteroidExplode.png"
+dest_files=["res://.godot/imported/AsteroidExplode.png-29ace693477e35c79f5aeecc21d31537.ctex"]
 
 [params]
 

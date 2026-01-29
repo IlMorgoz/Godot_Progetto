@@ -56,10 +56,10 @@ func _on_back_options_pressed() -> void:
 	main_buttons.visible=true
 	
 func _on_mod_1_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/Game/Game.tscn")
+	FadeTransition.change_scene("res://scenes/Game/Game.tscn")
 
 func _on_mod_2_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/Game/game_mode_waves.tscn")
+	FadeTransition.change_scene("res://scenes/Game/game_mode_waves.tscn")
 
 func _on_mod_3_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/Game/Game_Endless.tscn")
+	FadeTransition.change_scene("res://scenes/Game/Game_Endless.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cgvw14xt7tjt4"]
+[gd_scene format=3 uid="uid://cgvw14xt7tjt4"]
 
 [ext_resource type="FontFile" uid="uid://dh8b3n051ubbv" path="res://Sprites/Fonts/MainFont.TTF" id="1_iy6rb"]
 [ext_resource type="Script" uid="uid://c82owqxjurl6w" path="res://Scripts/Menu/paused_menu.gd" id="2_1ywy5"]
@@ -7,26 +7,6 @@
 
 [sub_resource type="Theme" id="Theme_m35f2"]
 default_font = ExtResource("1_iy6rb")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vjopu"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdlx5"]
-bg_color = Color(0.0467422, 0.398286, 0.496106, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
-shadow_offset = Vector2(0, 3.4)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sbwlh"]
-bg_color = Color(0.0103343, 0.182604, 0.233814, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_size = 5
-shadow_offset = Vector2(0, 3.4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3l8u"]
 bg_color = Color(1, 1, 1, 1)
@@ -37,8 +17,8 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11vn1"]
-bg_color = Color(0.0467422, 0.398286, 0.496106, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sbwlh"]
+bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -46,8 +26,8 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssl74"]
-bg_color = Color(0.0103343, 0.182604, 0.233814, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdlx5"]
+bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -64,14 +44,31 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssl74"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11vn1"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_kcb10"]
-color = Color(1, 1, 1, 1)
 thickness = 6
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_endom"]
 thickness = 6
 
-[node name="PausedMenu" type="Control"]
+[node name="PausedMenu" type="Control" unique_id=1311087529]
 process_mode = 3
 visible = false
 layout_mode = 3
@@ -83,7 +80,7 @@ grow_vertical = 2
 theme = SubResource("Theme_m35f2")
 script = ExtResource("2_1ywy5")
 
-[node name="MainButtons" type="VBoxContainer" parent="."]
+[node name="MainButtons" type="VBoxContainer" parent="." unique_id=749002355]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -97,49 +94,47 @@ offset_bottom = 71.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="MainButtons"]
+[node name="Label" type="Label" parent="MainButtons" unique_id=1105992810]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Pausa
 "
 horizontal_alignment = 1
 
-[node name="ResumeBtn" type="Button" parent="MainButtons"]
+[node name="ResumeBtn" type="Button" parent="MainButtons" unique_id=319328875]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/focus = SubResource("StyleBoxEmpty_vjopu")
-theme_override_styles/hover = SubResource("StyleBoxFlat_mdlx5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_sbwlh")
 theme_override_styles/normal = SubResource("StyleBoxFlat_q3l8u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sbwlh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mdlx5")
 text = "Riprendi
 "
 
-[node name="SettingsBtn" type="Button" parent="MainButtons"]
+[node name="SettingsBtn" type="Button" parent="MainButtons" unique_id=82814692]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = SubResource("StyleBoxFlat_mdlx5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_sbwlh")
 theme_override_styles/normal = SubResource("StyleBoxFlat_q3l8u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sbwlh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mdlx5")
 text = "Impostazioni"
 
-[node name="QuitBtn" type="Button" parent="MainButtons"]
+[node name="QuitBtn" type="Button" parent="MainButtons" unique_id=923474968]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = SubResource("StyleBoxFlat_mdlx5")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_sbwlh")
 theme_override_styles/normal = SubResource("StyleBoxFlat_q3l8u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sbwlh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mdlx5")
 text = "Abbandona"
 
-[node name="Options" type="Panel" parent="."]
+[node name="Options" type="Panel" parent="." unique_id=1058135716]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -153,7 +148,7 @@ offset_bottom = 111.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Options"]
+[node name="Label" type="Label" parent="Options" unique_id=1124061227]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -170,7 +165,7 @@ theme_override_font_sizes/font_size = 40
 text = "Opzioni"
 horizontal_alignment = 1
 
-[node name="Back" type="Button" parent="Options"]
+[node name="Back" type="Button" parent="Options" unique_id=1297637197]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -184,13 +179,15 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
-theme_override_styles/hover = SubResource("StyleBoxFlat_11vn1")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ssl74")
 theme_override_styles/normal = SubResource("StyleBoxFlat_1ityy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ssl74")
+theme_override_styles/hover = SubResource("StyleBoxFlat_11vn1")
 text = "Indietro"
 
-[node name="AudioControl" type="HSlider" parent="Options"]
+[node name="AudioControl" type="HSlider" parent="Options" unique_id=1381989626]
 layout_mode = 0
 offset_left = 58.0
 offset_top = 47.0
@@ -204,7 +201,7 @@ value = 1.0
 script = ExtResource("3_mgbf7")
 audio_bus_name = "Music"
 
-[node name="FullscreenControl" type="CheckButton" parent="Options"]
+[node name="FullscreenControl" type="CheckButton" parent="Options" unique_id=1502598097]
 layout_mode = 0
 offset_left = 53.0
 offset_top = 121.0

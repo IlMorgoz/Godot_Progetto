@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var turtle_spawner = $TurtleSpawner
+# Non serve più chiamare l'AsteroidSpawner qui, fa tutto da solo!
 
 func _ready() -> void:
 	randomize()
@@ -16,6 +17,5 @@ func _spawn_player() -> void:
 	player.position = get_viewport().get_visible_rect().size / 2
 	add_child(player)
 	
-	# Aggiungi al gruppo "player" per i nemici
 	if not player.is_in_group("player"):
 		player.add_to_group("player")

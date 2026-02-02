@@ -16,7 +16,13 @@ func _ready() -> void:
 	$MainButtons/Button3.z_index = 10
 	$Label.z_index = 10
 	
+	# --- CORREZIONE QUI ---
+	# Resettiamo il volume a 0 (massimo) prima di riprodurre, 
+	# nel caso fosse rimasto basso da un precedente fade out.
+	musica.volume_db = 0 
 	musica.play()
+	# ----------------------
+	
 	# Impostazioni visibilità
 	main_buttons.visible = true
 	options.visible = false
@@ -56,10 +62,21 @@ func _on_back_options_pressed() -> void:
 	main_buttons.visible=true
 	
 func _on_mod_1_pressed() -> void:
+	fade_out_music(0.5) # Consiglio una durata più breve (0.5s) per transizioni rapide
 	FadeTransition.change_scene("res://scenes/Game/Game.tscn")
 
 func _on_mod_2_pressed() -> void:
+	fade_out_music(0.5)
 	FadeTransition.change_scene("res://scenes/Game/game_mode_waves.tscn")
-
+	
 func _on_mod_3_pressed() -> void:
+	fade_out_music(0.5)
 	FadeTransition.change_scene("res://scenes/Game/Game_Endless.tscn")
+	
+# --- FUNZIONE CORRETTA ---
+func fade_out_music(duration: float = 1.0):
+	var tween = create_tween()
+	# Abbassa il volume a -80 (silenzio) nel tempo indicato
+	tween.tween_property(musica, "volume_db", -80.0, duration)
+	# Solo QUANDO HA FINITO, ferma il player
+	tween.tween_callback(musica.stop)

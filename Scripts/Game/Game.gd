@@ -14,8 +14,10 @@ var rewarded_minutes := []
 @onready var time_label: Label = $GameTimer/TimeLabel
 @onready var monete_label: Label = $MoneteLabel
 @onready var spawner: Node = $EnemySpawner
+@onready var musica: AudioStreamPlayer = $AudioStreamPlayer
 
 func _ready():
+	musica.play()
 	# Setup iniziale
 	_update_monete_label()
 	if time_label:
@@ -34,7 +36,6 @@ func _ready():
 	# Avvia gioco
 	game_timer.start()
 	spawner.set_process(true)
-
 
 func _spawn_selected_player():
 	var player_scene = Global.get_selected_player_scene()

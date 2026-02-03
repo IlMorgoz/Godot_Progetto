@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const SPEED = 500
-var bullet_scene = preload("res://scenes/Bullets/Bullet_Yellow_Flesh.tscn")
+var bullet_scene = preload("res://scenes/Bullets/Player/Bullet_Yellow_Flesh.tscn")
 
 @onready var Shooty_part = $ShootyPart
 

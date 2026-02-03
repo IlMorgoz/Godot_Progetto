@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # 🔹 Configurazione sparo
 const FIRE_RATE = 0.8 # secondi
-var bullet_scene = preload("res://scenes/Bullets/Bullet_Yellow_StarChaser.tscn")
+var bullet_scene = preload("res://scenes/Bullets/Player/Bullet_Yellow_StarChaser.tscn")
 
 # 🔹 4 punti di sparo
 @onready var Shooty_part1 = $Ninja_ShootyPart1

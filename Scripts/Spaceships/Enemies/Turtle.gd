@@ -13,7 +13,7 @@ const FIRE_RATE = 2
 var time_since_last_shot := 0.0
 
 # Proiettile
-var bullet_scene = preload("res://scenes/Bullets/Bullet_Yellow_Turtle.tscn")
+var bullet_scene = preload("res://scenes/Bullets/Enemies/Bullet_Yellow_Turtle.tscn")
 
 # --------------------
 func _ready():

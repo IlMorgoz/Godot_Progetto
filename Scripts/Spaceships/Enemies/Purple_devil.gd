@@ -4,11 +4,15 @@ signal died
 
 # Componenti
 @onready var healthbar = $HealtBar
+
+@onready var Shooty_part = $ShootyPart
+@onready var Shooty_part2 = $ShootyPart2
+@onready var Shooty_part3 = $ShootyPart3
 var player: Node2D = null
 
 # Parametri UFO
 const SPEED = 250
-const SHOOT_INTERVAL = 2.0
+const SHOOT_INTERVAL = 4.0
 var health: int = 6
 
 var velocity_dir: Vector2 = Vector2.ZERO
@@ -16,7 +20,7 @@ var change_dir_timer: Timer
 var shoot_timer: Timer
 
 # Proiettile UFO
-var BulletScene = preload("res://scenes/Bullets/Enemies/Bullet_Yellow_Ufo.tscn")
+var BulletScene = preload("res://scenes/Bullets/Bullet_Yellow_Ufo.tscn")
 var ExplosionScene = preload("res://scenes/AnimationAddOn/Explosion.tscn")
 
 func _ready():
@@ -72,11 +76,16 @@ func _set_random_direction():
 func _on_shoot_timeout():
 	if player == null:
 		return
-	var bullet = BulletScene.instantiate()
-	bullet.global_position = global_position
-	bullet.direction = (player.global_position - global_position).normalized()
-	get_parent().add_child(bullet)
+	spawn_bullet(Shooty_part)
+	spawn_bullet(Shooty_part2)
+	spawn_bullet(Shooty_part3)
 
+func spawn_bullet(part: Node2D):
+	var bullet = BulletScene.instantiate()
+	bullet.global_position = part.global_position
+	bullet.direction = transform.x.normalized()
+	get_tree().get_current_scene().add_child(bullet)
+	
 func take_damage(amount: int) -> void:
 	health -= amount
 	healthbar.health = health

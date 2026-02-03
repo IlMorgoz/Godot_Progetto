@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b2aslkxdyxq1y"]
+[gd_scene format=3 uid="uid://c7v7snseiukdg"]
 
-[ext_resource type="Script" uid="uid://d4e2yh3mop6l1" path="res://Scripts/Bullets/Bullet_Yellow_StarChaser.gd" id="1_u2v2t"]
+[ext_resource type="Script" uid="uid://bgoie0121jca4" path="res://Scripts/Bullets/BulletScript.gd" id="1_qmi6e"]
 [ext_resource type="Texture2D" uid="uid://cqm27ttym1pab" path="res://Sprites/Bullets/Bullet_Yellow.png" id="2_bgdsu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q7w3a"]
@@ -22,25 +22,25 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Bullet" type="Area2D"]
-script = ExtResource("1_u2v2t")
+[node name="Bullet" type="Area2D" unique_id=1731803272]
+script = ExtResource("1_qmi6e")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.75)
-rotation = 6.38025
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1421011259]
+rotation = 6.2831855
 shape = SubResource("CapsuleShape2D_q7w3a")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=762585427]
+modulate = Color(0.9253279, 0.8489983, 0.9358628, 1)
+self_modulate = Color(0.7042666, 0.00037628622, 0.7042618, 1)
 texture_filter = 1
-position = Vector2(0, -1.13687e-13)
-rotation = -1.55584
+rotation = -1.5707964
 scale = Vector2(0.19958, 0.206522)
 sprite_frames = SubResource("SpriteFrames_oqi6d")
 autoplay = "default"
 frame_progress = 0.488664
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-rotation = -1.56061
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1079892328]
+rotation = -1.5707964
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

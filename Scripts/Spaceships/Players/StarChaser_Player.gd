@@ -3,7 +3,7 @@ extends CharacterBody2D
 const BASE_SPEED = 100
 const EXTRA_SPEED = 100
 const FIRE_RATE = 1.0 # secondi
-var bullet_scene = preload("res://scenes/Bullets/Bullet_Yellow_StarChaser.tscn")
+var bullet_scene = preload("res://scenes/Bullets/Player/Bullet_Yellow_StarChaser.tscn")
 
 @onready var Shooty_part = $ShootyPart
 @onready var Shooty_part2 = $ShootyPart2

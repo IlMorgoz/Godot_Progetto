@@ -17,4 +17,4 @@ mono_crash.*.json
 
 #music files
  *.wav
- 
+ audio/Main Screen.wav

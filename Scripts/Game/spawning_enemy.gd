@@ -1,22 +1,23 @@
 extends Node2D
+
 const ENEMY = preload("res://scenes/Spaceships/Enemies/Kamikaze.tscn")
 
 @onready var anim = $AnimationPlayer
 
 func _ready():
 	anim.play("spawn")
-	anim.animation_finished.connect(_on_spawn_finished)
+	# Non serve connettere il segnale, ci pensa l'AnimationPlayer a chiamare le funzioni
 
-func _on_spawn_finished(anim_name: String):
-	if anim_name == "spawn":
-		var enemy = ENEMY.instantiate()
-		enemy.position = global_position
-		
-		# Prendi il nodo Player dalla scena corrente
-		var player_node = get_tree().get_current_scene().get_node("Player")
-		
-		# Assegna il riferimento al nemico
-		enemy.player = player_node
-		
-		get_parent().add_child(enemy)
-		queue_free()
+# Questa funzione viene chiamata dall'AnimationPlayer al momento giusto
+func spawn_enemy():
+	var enemy = ENEMY.instantiate()
+	enemy.global_position = global_position
+	
+	# Nota: Non serve assegnare 'enemy.player' qui manualmente, 
+	# perché lo script del Kamikaze lo cerca da solo nel suo _ready usando i gruppi.
+	
+	get_parent().add_child(enemy)
+
+# Questa funzione viene chiamata dall'AnimationPlayer alla fine per pulire
+func kill():
+	queue_free()

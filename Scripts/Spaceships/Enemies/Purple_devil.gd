@@ -11,16 +11,19 @@ signal died
 var player: Node2D = null
 
 # Parametri UFO
-const SPEED = 250
-const SHOOT_INTERVAL = 4.0
-var health: int = 6
+const SPEED = 300.0 # Velocità di inseguimento dell'orbita
+const SHOOT_INTERVAL = 2.0
+var health: int = 10
 
-var velocity_dir: Vector2 = Vector2.ZERO
-var change_dir_timer: Timer
+# Parametri Movimento Circolare
+var orbit_radius: float = 350.0  # Raggio medio (distanza dal player)
+var rotation_speed: float = 1.0  # Velocità di rotazione in radianti al secondo
+var current_angle: float = 0.0
+
 var shoot_timer: Timer
 
 # Proiettile UFO
-var BulletScene = preload("res://scenes/Bullets/Bullet_Yellow_Ufo.tscn")
+var BulletScene = preload("res://scenes/Bullets/Enemies/Bullet_Purple_Devil.tscn")
 var ExplosionScene = preload("res://scenes/AnimationAddOn/Explosion.tscn")
 
 func _ready():
@@ -31,13 +34,9 @@ func _ready():
 	var players = get_tree().get_nodes_in_group("player")
 	if players.size() > 0:
 		player = players[0]
-
-	# Timer cambio direzione
-	change_dir_timer = Timer.new()
-	change_dir_timer.one_shot = true
-	add_child(change_dir_timer)
-	change_dir_timer.timeout.connect(_on_change_dir_timeout)
-	_start_new_change_timer()
+		# Calcola l'angolo iniziale basato sulla posizione di spawn
+		# così non "scatta" a zero quando appare
+		current_angle = (global_position - player.global_position).angle()
 
 	# Timer sparo
 	shoot_timer = Timer.new()
@@ -47,31 +46,33 @@ func _ready():
 	add_child(shoot_timer)
 	shoot_timer.timeout.connect(_on_shoot_timeout)
 
-	# Direzione iniziale
-	_set_random_direction()
-
 func _physics_process(delta: float) -> void:
-	velocity = velocity_dir * SPEED
-	move_and_slide()
+	if player == null:
+		return
 
-func _on_change_dir_timeout():
-	_set_random_direction()
-	_start_new_change_timer()
-
-func _start_new_change_timer():
-	change_dir_timer.wait_time = randf_range(2.0, 5.0)
-	change_dir_timer.start()
-
-func _set_random_direction():
-	if player != null:
-		var dir_to_player = (player.global_position - global_position).normalized()
-		var angle_offset = randf_range(-PI/4, PI/4) # ±45°
-		velocity_dir = dir_to_player.rotated(angle_offset)
+	# 1. Aggiorna l'angolo di rotazione
+	current_angle += rotation_speed * delta
+	
+	# 2. Calcola la posizione target sul cerchio attorno al player
+	# Formula: Centro + Vettore(cos, sin) * Raggio
+	var offset = Vector2(cos(current_angle), sin(current_angle)) * orbit_radius
+	var target_position = player.global_position + offset
+	
+	# 3. Muovi il nemico verso quella posizione target
+	# Usiamo velocity per mantenere la fisica corretta (collisioni etc.)
+	var direction = global_position.direction_to(target_position)
+	var distance = global_position.distance_to(target_position)
+	
+	# Se siamo lontani dal punto dell'orbita, andiamo veloci, se siamo vicini rallentiamo (effetto fluido)
+	if distance > 10.0:
+		velocity = direction * SPEED
 	else:
-		var angle = randf() * TAU
-		velocity_dir = Vector2(cos(angle), sin(angle))
-
-	look_at(global_position + velocity_dir)
+		velocity = direction * distance # Rallenta quando arriva in posizione perfetta
+	
+	move_and_slide()
+	
+	# 4. Guarda sempre verso il player (per sparare giusto)
+	look_at(player.global_position)
 
 func _on_shoot_timeout():
 	if player == null:
@@ -83,7 +84,12 @@ func _on_shoot_timeout():
 func spawn_bullet(part: Node2D):
 	var bullet = BulletScene.instantiate()
 	bullet.global_position = part.global_position
-	bullet.direction = transform.x.normalized()
+	# Usa transform.x perché il nemico sta già guardando il player grazie a look_at() nel process
+	bullet.direction = transform.x.normalized() 
+	
+	# Assegna lo "shooter" per gestire il fuoco amico (se hai implementato quella logica)
+	# bullet.shooter = self 
+	
 	get_tree().get_current_scene().add_child(bullet)
 	
 func take_damage(amount: int) -> void:

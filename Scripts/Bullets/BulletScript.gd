@@ -12,25 +12,25 @@ func _ready() -> void:
 	var bullet_name = scene_file_path.get_file().get_basename()
 	
 	if (bullet_name == "Ninja"):
-		set_parameters(500, 1)
+		set_parameters(550, 1)
 		is_it_player = false # È un proiettile del giocatore!
 	elif (bullet_name == "Bullet_Purple_Devil"):
-		set_parameters(350, 2)
+		set_parameters(800, 3)
 		is_it_player = false # È un proiettile nemico
 	elif (bullet_name == "Bullet_Yellow_Ufo"):
-		set_parameters(500, 3)
+		set_parameters(700, 2)
 		is_it_player = false
 	elif (bullet_name == "Bullet_Yellow_Turtle"):
-		set_parameters(600, 6)
+		set_parameters(450, 4)
 		is_it_player = false
 	elif (bullet_name == "Bullet_Yellow_Flesh"):
-		set_parameters(500, 3)
+		set_parameters(750, 2)
 		is_it_player = true
 	elif (bullet_name == "Bullet_Yellow_StarChaser"):
-		set_parameters(500, 2)
+		set_parameters(750, 2)
 		is_it_player = true
 	elif (bullet_name == "Bullet_Yellow_Aqua"):
-		set_parameters(500, 3)
+		set_parameters(750, 2)
 		is_it_player = true
 		
 	rotation = direction.angle()

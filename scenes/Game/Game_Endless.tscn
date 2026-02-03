@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://sx7lxirvh3vf" path="res://Scripts/Game/enemy_endless_spawner.gd" id="7_dwhnb"]
 [ext_resource type="Script" uid="uid://db33baxe03if3" path="res://Scripts/Game/turtle_spawner.gd" id="8_2mg1e"]
 [ext_resource type="Script" uid="uid://cl0fkviigoipd" path="res://Scripts/Game/asteroid_spawner.gd" id="8_uny1n"]
+[ext_resource type="Script" uid="uid://bjio47c8l06d3" path="res://Scripts/Game/purple_devil_spawner.gd" id="9_25krs"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qeqn8"]
 texture = ExtResource("1_hofhg")
@@ -82,6 +83,14 @@ script = ExtResource("8_uny1n")
 wait_time = 15.0
 autostart = true
 
+[node name="PurpleDevilSpawner" type="Node2D" parent="." unique_id=331859440]
+script = ExtResource("9_25krs")
+
+[node name="EventPurpleDevil" type="Timer" parent="PurpleDevilSpawner" unique_id=689633618]
+wait_time = 17.5
+autostart = true
+
 [connection signal="timeout" from="NinjaSpawner/Timer" to="NinjaSpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="TurtleSpawner/Timer" to="TurtleSpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="AsteroidSpawner/EventAsteroidTimer" to="AsteroidSpawner" method="_on_event_asteroid_timer_timeout"]
+[connection signal="timeout" from="PurpleDevilSpawner/EventPurpleDevil" to="PurpleDevilSpawner" method="_on_event_purple_devil_timeout"]

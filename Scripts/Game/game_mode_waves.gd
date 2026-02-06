@@ -30,13 +30,17 @@ func _ready() -> void:
 
 func _spawn_player() -> void:
 	var player_scene = Global.get_selected_player_scene()
-	if not player_scene:
-		push_error("Global.selected_ship_scene is null!")
-		return
+	if not player_scene: return
 	var player = player_scene.instantiate()
-	player.name = "Player"
 	player.position = get_viewport().get_visible_rect().size / 2
 	add_child(player)
+	
+	# Assumiamo che il player abbia un segnale "died" o "tree_exited"
+	if player.has_signal("died"):
+		player.died.connect(_on_player_died)
+	else:
+		# Fallback se non hai un segnale custom: controlliamo quando esce dall'albero
+		player.tree_exited.connect(_on_player_died)
 
 func start_next_wave():
 	if current_wave >= max_waves:
@@ -120,10 +124,13 @@ func _on_wave_finished() -> void:
 		if wave_label:
 			wave_label.text = "Gioco completato!"
 			wave_label.visible = true
-		var t = get_tree().create_timer(3.0)
-		t.timeout.connect(func():
-			get_tree().change_scene_to_file("res://scenes/Menu/Main_Menu.tscn")
-		)
+			
+		# --- SALVATAGGIO VITTORIA ---
+		ScoreManager.check_and_save_record("mode_2", current_wave)
+		# ----------------------------
+		
+		await get_tree().create_timer(3.0).timeout
+		get_tree().change_scene_to_file("res://scenes/Menu/Main_Menu.tscn")
 	else:
 		if wave_label:
 			wave_label.text = "Ondata %d completata!" % current_wave
@@ -134,6 +141,14 @@ func _on_wave_finished() -> void:
 				wave_label.visible = false
 			start_next_wave()
 		)
+
+func _on_player_died():
+	print("Player morto all'ondata: ", current_wave)
+	# Salviamo l'ondata corrente (o current_wave - 1 se vuoi contare solo le completate)
+	ScoreManager.check_and_save_record("mode_2", current_wave)
+	
+	await get_tree().create_timer(2.0).timeout
+	get_tree().change_scene_to_file("res://scenes/Menu/Main_Menu.tscn")
 
 func _give_wave_reward(wave: int) -> void:
 	if wave in rewarded_waves:

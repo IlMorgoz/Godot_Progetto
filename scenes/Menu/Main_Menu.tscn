@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://dh8b3n051ubbv" path="res://Sprites/Fonts/MainFont.TTF" id="2_t8dpg"]
 [ext_resource type="Script" uid="uid://rm3ba3elfhw0" path="res://Scripts/Menu/Main/Repetition.gd" id="3_5664y"]
 [ext_resource type="Texture2D" uid="uid://bc4xmb6vpums4" path="res://Sprites/Backgrounds/Main_Background2.png" id="4_apcd8"]
-[ext_resource type="AudioStream" uid="uid://ouiu7k5obf5v" path="res://audio/Main Screen.wav" id="5_bbop2"]
+[ext_resource type="AudioStream" uid="uid://egg81frtoxxt" path="res://audio/Tame Impala - Nangs (Original Instrumental).mp3" id="5_bbop2"]
 [ext_resource type="Script" uid="uid://dhd21hwxt6e2r" path="res://Scripts/audio_control.gd" id="5_m17uk"]
 [ext_resource type="Script" uid="uid://b33wv112jwaoh" path="res://Scripts/Menu/Main/fullscreen_control.gd" id="6_dnggf"]
 [ext_resource type="Script" uid="uid://b33kh6nsorqq5" path="res://Scripts/Menu/Main/armadietto.gd" id="7_7q4lt"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://dn3yky45vvisx" path="res://Sprites/Buttons/Game1_SS.png" id="20_5664y"]
 [ext_resource type="Texture2D" uid="uid://cfv01qyvlvmes" path="res://Sprites/Buttons/Game3_SS.png" id="21_5664y"]
 [ext_resource type="Texture2D" uid="uid://bbyeqi7qtdcrq" path="res://Sprites/Buttons/pngtree-star-pixel-png-image_21050156-removebg-preview.png" id="23_apcd8"]
+[ext_resource type="Script" uid="uid://04j402qqbuqt" path="res://Scripts/Menu/leaderboard_menu.gd" id="25_q3361"]
 
 [sub_resource type="Theme" id="Theme_lrj6p"]
 default_font = ExtResource("2_t8dpg")
@@ -1011,6 +1012,69 @@ theme_override_constants/shadow_offset_x = 40
 theme_override_fonts/font = ExtResource("2_t8dpg")
 theme_override_font_sizes/font_size = 60
 text = "Tempera Biscotti"
+
+[node name="LeaderboardMenu" type="Control" parent="." unique_id=33104913]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("25_q3361")
+
+[node name="Panel" type="Panel" parent="LeaderboardMenu" unique_id=179121015]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeaderboardMenu/Panel" unique_id=872283047]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -89.0
+offset_top = -115.0
+offset_right = 89.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Titolo" type="Label" parent="LeaderboardMenu/Panel/VBoxContainer" unique_id=287861322]
+layout_mode = 2
+
+[node name="Lbl_Mode1" type="Label" parent="LeaderboardMenu/Panel/VBoxContainer" unique_id=1622062035]
+layout_mode = 2
+
+[node name="Lbl_Mode2" type="Label" parent="LeaderboardMenu/Panel/VBoxContainer" unique_id=1555108110]
+layout_mode = 2
+
+[node name="Lbl_Mode3" type="Label" parent="LeaderboardMenu/Panel/VBoxContainer" unique_id=1059325941]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="LeaderboardMenu/Panel/VBoxContainer" unique_id=716448636]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_nmst4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
+text = "Indietro"
 
 [connection signal="pressed" from="MainButtons/Button1" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MainButtons/Button2" to="." method="_on_settings2_pressed"]

@@ -87,7 +87,6 @@ func spawn_bullet(part: Node2D):
 	# Usa transform.x perché il nemico sta già guardando il player grazie a look_at() nel process
 	bullet.direction = transform.x.normalized() 
 	
-	# Assegna lo "shooter" per gestire il fuoco amico (se hai implementato quella logica)
 	# bullet.shooter = self 
 	
 	get_tree().get_current_scene().add_child(bullet)

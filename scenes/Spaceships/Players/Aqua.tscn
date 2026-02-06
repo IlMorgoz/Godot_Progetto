@@ -254,6 +254,7 @@ texture = ExtResource("4_ilcya")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1156067779]
 light_mask = 2
 visibility_layer = 2
+texture_filter = 1
 rotation = 1.5737354
 sprite_frames = SubResource("SpriteFrames_hwmf2")
 autoplay = "default"

@@ -80,6 +80,20 @@ func _update_monete_label():
 	if monete_label:
 		monete_label.text = ": %d" % MoneteManager.monete_stella
 
+# Aggiungi questa funzione per gestire la morte del player
+func _on_player_died():
+	game_timer.stop()
+	spawner.set_process(false)
+	_game_over()
+
 func _game_over():
 	print("Gioco terminato! Monete: %d" % MoneteManager.monete_stella)
-	get_tree().change_scene_to_file("res://scenes/Menu/Main_Menu.tscn")
+	
+	# SALVATAGGIO RECORD
+	ScoreManager.check_and_save_record("mode_1", current_time)
+	# --------------------------
+
+	if has_node("res://scenes/AnimationAddOn/fade_transition.tscn"):
+		FadeTransition.change_scene("res://scenes/Menu/Main_Menu.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/Menu/Main_Menu.tscn")

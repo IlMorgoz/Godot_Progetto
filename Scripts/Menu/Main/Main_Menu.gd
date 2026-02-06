@@ -1,5 +1,4 @@
 extends Control
-
 @onready var main_buttons: VBoxContainer = $MainButtons
 @onready var musica = $AudioStreamPlayer2D
 @onready var options: Panel = $Options
@@ -8,6 +7,8 @@ extends Control
 @onready var monete_label := $MoneteLabel
 @onready var back := $Back
 @onready var selection := $Gioca
+@onready var statistiche := $LeaderboardMenu
+@onready var user := $PlayerInfo
 
 func _ready() -> void:
 	# Porta in primo piano i pulsanti
@@ -29,6 +30,7 @@ func _ready() -> void:
 	armadietto.visible = false
 	back.visible = false
 	selection.visible = false
+	statistiche.visible=false
 	
 	# Stato upgrade attivo
 	upgrade_button.button_pressed = Global.triple_shot_enabled
@@ -60,7 +62,9 @@ func _on_back_options_pressed() -> void:
 	options.visible = false
 	back.visible=false
 	main_buttons.visible=true
-	
+	statistiche.visible=false
+	user.visible=true
+
 func _on_mod_1_pressed() -> void:
 	fade_out_music(0.5) # Consiglio una durata più breve (0.5s) per transizioni rapide
 	FadeTransition.change_scene("res://scenes/Game/Game.tscn")
@@ -72,7 +76,7 @@ func _on_mod_2_pressed() -> void:
 func _on_mod_3_pressed() -> void:
 	fade_out_music(0.5)
 	FadeTransition.change_scene("res://scenes/Game/Game_Endless.tscn")
-	
+
 # --- FUNZIONE CORRETTA ---
 func fade_out_music(duration: float = 1.0):
 	var tween = create_tween()
@@ -80,3 +84,12 @@ func fade_out_music(duration: float = 1.0):
 	tween.tween_property(musica, "volume_db", -80.0, duration)
 	# Solo QUANDO HA FINITO, ferma il player
 	tween.tween_callback(musica.stop)
+
+func _on_player_info_pressed() -> void:
+	main_buttons.visible = false
+	options.visible = false
+	armadietto.visible = false
+	back.visible = true
+	selection.visible = false
+	statistiche.visible=true
+	user.visible=false

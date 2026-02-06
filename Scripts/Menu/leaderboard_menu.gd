@@ -27,10 +27,3 @@ func update_scores():
 	# MODALITÀ 3 (INFINITA):
 	# Stessa logica della modalità 1, ma pesca il record "mode_3"
 	label_mode_3.text = "Record Infinito: " + ScoreManager.format_time(ScoreManager.records["mode_3"])
-
-func _on_btn_back_pressed():
-	# Codice per tornare al menu principale
-	if has_node("/root/FadeTransition"):
-		FadeTransition.change_scene("res://scenes/Menu/Main_Menu.tscn")
-	else:
-		get_tree().change_scene_to_file("res://scenes/Menu/Main_Menu.tscn")

@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://cfv01qyvlvmes" path="res://Sprites/Buttons/Game3_SS.png" id="21_5664y"]
 [ext_resource type="Texture2D" uid="uid://bbyeqi7qtdcrq" path="res://Sprites/Buttons/pngtree-star-pixel-png-image_21050156-removebg-preview.png" id="23_apcd8"]
 [ext_resource type="Script" uid="uid://04j402qqbuqt" path="res://Scripts/Menu/leaderboard_menu.gd" id="25_q3361"]
+[ext_resource type="Texture2D" uid="uid://dyt62ybo172d2" path="res://Sprites/Buttons/Player_icon.png" id="26_bt8s7"]
 
 [sub_resource type="Theme" id="Theme_lrj6p"]
 default_font = ExtResource("2_t8dpg")
@@ -515,11 +516,12 @@ script = ExtResource("3_5664y")
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=308732386]
 texture_filter = 1
-position = Vector2(762, 325)
-scale = Vector2(0.242, 0.242)
+position = Vector2(766.828, 325.624)
+scale = Vector2(0.2420543, 0.24227977)
 texture = ExtResource("4_apcd8")
 
 [node name="MainButtons" type="VBoxContainer" parent="." unique_id=1695438600]
+visible = false
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -595,6 +597,7 @@ autoplay = true
 bus = &"Music"
 
 [node name="Options" type="Panel" parent="." unique_id=1171406860]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -645,6 +648,7 @@ text = "Schermo intero
 script = ExtResource("6_dnggf")
 
 [node name="Armadietto" type="Panel" parent="." unique_id=310373314]
+visible = false
 layout_mode = 0
 offset_left = 460.0
 offset_top = 365.0
@@ -869,6 +873,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
 text = "Miglioramenti"
 
 [node name="Gioca" type="Panel" parent="." unique_id=2011787286]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -957,22 +962,6 @@ offset_top = -328.94736
 offset_right = 168.42102
 offset_bottom = 331.57895
 
-[node name="Back" type="Button" parent="." unique_id=1504927406]
-layout_mode = 0
-offset_left = 414.0
-offset_top = 364.0
-offset_right = 741.0
-offset_bottom = 395.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_nmst4")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
-theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
-text = "Indietro"
-
 [node name="ShipSpawner" type="Node2D" parent="." unique_id=78565655]
 script = ExtResource("8_0edrc")
 
@@ -1008,10 +997,18 @@ offset_right = 389.5
 offset_bottom = 145.0
 grow_horizontal = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 40
+theme_override_constants/shadow_offset_x = 9
 theme_override_fonts/font = ExtResource("2_t8dpg")
 theme_override_font_sizes/font_size = 60
 text = "Tempera Biscotti"
+
+[node name="PlayerInfo" type="Button" parent="." unique_id=393074336]
+layout_mode = 0
+offset_left = 1066.0
+offset_top = -1.0
+offset_right = 1154.0
+offset_bottom = 87.0
+theme_override_icons/icon = ExtResource("26_bt8s7")
 
 [node name="LeaderboardMenu" type="Control" parent="." unique_id=33104913]
 layout_mode = 1
@@ -1020,9 +1017,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
+offset_left = -169.0
+offset_top = -491.0
+offset_right = 179.0
+offset_bottom = -235.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("25_q3361")
@@ -1034,10 +1032,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -179.0
+offset_top = -36.5
+offset_right = 177.0
+offset_bottom = 80.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1066,8 +1064,14 @@ layout_mode = 2
 [node name="Lbl_Mode3" type="Label" parent="LeaderboardMenu/Panel/VBoxContainer" unique_id=1059325941]
 layout_mode = 2
 
-[node name="Back" type="Button" parent="LeaderboardMenu/Panel/VBoxContainer" unique_id=716448636]
-layout_mode = 2
+[node name="Back" type="Button" parent="." unique_id=1504927406]
+layout_mode = 0
+offset_left = 414.0
+offset_top = 364.0
+offset_right = 741.0
+offset_bottom = 395.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
@@ -1097,4 +1101,5 @@ text = "Indietro"
 [connection signal="pressed" from="Gioca/HBoxContainer/AnimatedSprite2D/Mod1" to="." method="_on_mod_1_pressed"]
 [connection signal="pressed" from="Gioca/HBoxContainer/AnimatedSprite2D2/Mod2" to="." method="_on_mod_2_pressed"]
 [connection signal="pressed" from="Gioca/HBoxContainer/AnimatedSprite2D3/Mod3" to="." method="_on_mod_3_pressed"]
+[connection signal="pressed" from="PlayerInfo" to="." method="_on_player_info_pressed"]
 [connection signal="pressed" from="Back" to="." method="_on_back_options_pressed"]

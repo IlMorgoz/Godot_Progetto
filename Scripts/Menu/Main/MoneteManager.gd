@@ -1,10 +1,13 @@
 extends Node
-var monete_stella: int = 5
-@onready var monete_label=$MoneteLabel
-func add_monete(amount: int) -> void:
-	monete_stella += amount
-	_update_monete_label()
 
-func _update_monete_label():
-	if monete_label:
-		monete_label.text = ": %d" % monete_stella
+# Definiamo un segnale per avvisare le scene quando i soldi cambiano
+signal monete_aggiornate(nuovo_valore)
+var monete_stella: int = 0
+
+func _ready():
+	GameData.load_data() # Se hai una funzione di caricamento
+
+func add_monete(amount: int):
+	monete_stella += amount
+	GameData.save_data()
+	monete_aggiornate.emit(monete_stella)

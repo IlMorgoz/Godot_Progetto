@@ -21,10 +21,9 @@ config/icon="uid://byu5j8qpj1hv8"
 
 [autoload]
 
-Global="*res://Scripts/Menu/Main/Global.gd"
 MoneteManager="*res://Scripts/Menu/Main/MoneteManager.gd"
 FadeTransition="*uid://d0cn3cmhxuujy"
-ScoreManager="*uid://bufsr1nix6ou"
+GameData="*uid://bi5ych4cvtdch"
 
 [display]
 

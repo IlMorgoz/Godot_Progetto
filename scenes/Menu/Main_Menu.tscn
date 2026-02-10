@@ -14,8 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://36bnpyemjad3" path="res://Sprites/Buttons/Button_disabled_3x.png" id="11_pfocr"]
 [ext_resource type="Texture2D" uid="uid://bx3pgdgf1rwwp" path="res://Sprites/Buttons/Button_enabled_spd.png" id="12_x26ma"]
 [ext_resource type="Texture2D" uid="uid://dygm058dn02aq" path="res://Sprites/Buttons/Button_disabled_spd.png" id="13_lwwlo"]
-[ext_resource type="Texture2D" uid="uid://bk8m7toqldnk2" path="res://Sprites/Buttons/Bottone 1.png" id="14_fb642"]
-[ext_resource type="Texture2D" uid="uid://0eswjr2f77r6" path="res://Sprites/Buttons/Bottone 2.png" id="15_agrvx"]
 [ext_resource type="Script" uid="uid://c7jot6njhhrem" path="res://Scripts/Menu/Main/skin.gd" id="16_1xdl7"]
 [ext_resource type="Texture2D" uid="uid://byu5j8qpj1hv8" path="res://Sprites/Buttons/ship1_background.png" id="16_ptjyf"]
 [ext_resource type="Texture2D" uid="uid://5ys73oi10ejs" path="res://Sprites/Buttons/ship2_background(1).png" id="17_5664y"]
@@ -69,11 +67,6 @@ thickness = 6
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_uxoih"]
 color = Color(1, 1, 1, 1)
 thickness = 6
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_allfm"]
-grow_begin = -300.0
-grow_end = 300.0
-thickness = 0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmst4"]
 bg_color = Color(1, 1, 1, 1)
@@ -659,16 +652,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9_dsoak")
 
-[node name="Label" type="Label" parent="Armadietto/Miglioramenti" unique_id=758715876]
+[node name="Label" type="Label" parent="Armadietto/Miglioramenti" unique_id=235346556]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -195.5
-offset_top = 23.0
-offset_right = 197.5
-offset_bottom = 64.0
+offset_left = -196.0
+offset_top = 35.0
+offset_right = 197.0
+offset_bottom = 76.0
 grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0.36862746, 0.21176471, 0.49411765, 1)
+theme_override_constants/shadow_offset_x = 9
+theme_override_fonts/font = ExtResource("2_t8dpg")
 theme_override_font_sizes/font_size = 40
 text = "Miglioramenti"
 
@@ -693,26 +689,6 @@ theme_override_colors/icon_disabled_color = Color(0.996078, 0, 0, 1)
 theme_override_icons/checked = ExtResource("12_x26ma")
 theme_override_icons/unchecked = ExtResource("13_lwwlo")
 
-[node name="Button" type="Button" parent="Armadietto/Miglioramenti" unique_id=522177018]
-z_index = 1
-layout_mode = 0
-offset_left = 49.0
-offset_top = 84.0
-offset_right = 177.0
-offset_bottom = 213.0
-theme_override_icons/icon = ExtResource("14_fb642")
-theme_override_styles/normal = SubResource("StyleBoxLine_allfm")
-
-[node name="Button2" type="Button" parent="Armadietto/Miglioramenti" unique_id=531309757]
-z_index = 2
-layout_mode = 0
-offset_left = 251.0
-offset_top = 85.0
-offset_right = 379.0
-offset_bottom = 214.0
-theme_override_icons/icon = ExtResource("15_agrvx")
-theme_override_styles/normal = SubResource("StyleBoxLine_allfm")
-
 [node name="Ritorno" type="Button" parent="Armadietto/Miglioramenti" unique_id=565849994]
 layout_mode = 1
 anchors_preset = 7
@@ -736,86 +712,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
 text = "Indietro"
 
-[node name="Skin" type="Panel" parent="Armadietto" unique_id=2057082505]
-layout_mode = 0
-offset_left = -198.0
-offset_top = -169.0
-offset_right = 420.0
-offset_bottom = 138.0
-script = ExtResource("16_1xdl7")
-
-[node name="Label" type="Label" parent="Armadietto/Skin" unique_id=1834958635]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -139.5
-offset_top = 26.0
-offset_right = 142.5
-offset_bottom = 67.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 40
-text = "Navicelle"
-
-[node name="Seleziona" type="Button" parent="Armadietto/Skin" unique_id=862201303]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -274.0
-offset_top = -77.5
-offset_right = -138.0
-offset_bottom = 58.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_icons/icon = ExtResource("16_ptjyf")
-
-[node name="Seleziona2" type="Button" parent="Armadietto/Skin" unique_id=1433369228]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -68.0
-offset_top = -78.5
-offset_right = 68.0
-offset_bottom = 57.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_icons/icon = ExtResource("17_5664y")
-
-[node name="Back" type="Button" parent="Armadietto/Skin" unique_id=1580077535]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -155.5
-offset_top = -71.0
-offset_right = 169.5
-offset_bottom = -29.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_nmst4")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
-theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
-text = "Indietro"
-
-[node name="Seleziona3" type="Button" parent="Armadietto/Skin" unique_id=1640363329]
-layout_mode = 0
-offset_left = 445.0
-offset_top = 76.0
-offset_right = 581.0
-offset_bottom = 212.0
-theme_override_icons/icon = ExtResource("19_bbop2")
-
 [node name="Icons" type="Panel" parent="Armadietto" unique_id=212177481]
 layout_mode = 1
 anchors_preset = 7
@@ -831,7 +727,7 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("20_geude")
 
-[node name="Label" type="Label" parent="Armadietto/Icons" unique_id=2047782600]
+[node name="LabelIcone" type="Label" parent="Armadietto/Icons" unique_id=1157173497]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -841,6 +737,9 @@ offset_top = 35.0
 offset_right = 77.0
 offset_bottom = 76.0
 grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0.36862746, 0.21176471, 0.49411765, 1)
+theme_override_constants/shadow_offset_x = 9
+theme_override_fonts/font = ExtResource("2_t8dpg")
 theme_override_font_sizes/font_size = 40
 text = "Icone"
 
@@ -991,6 +890,118 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_nmst4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
 text = "Miglioramenti"
+
+[node name="Skin" type="Panel" parent="Armadietto" unique_id=1026666020]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -473.0
+offset_top = -204.0
+offset_right = 483.0
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("16_1xdl7")
+
+[node name="LabelNavicelle" type="Label" parent="Armadietto/Skin" unique_id=1077186944]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -76.0
+offset_top = 35.0
+offset_right = 77.0
+offset_bottom = 76.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0.36862746, 0.21176471, 0.49411765, 1)
+theme_override_constants/shadow_offset_x = 9
+theme_override_fonts/font = ExtResource("2_t8dpg")
+theme_override_font_sizes/font_size = 40
+text = "Navicelle"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Armadietto/Skin" unique_id=1899215586]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.0
+offset_top = -54.0
+offset_right = 166.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 117
+alignment = 1
+
+[node name="Seleziona" type="Button" parent="Armadietto/Skin/HBoxContainer" unique_id=561472656]
+layout_mode = 2
+theme_override_icons/icon = ExtResource("16_ptjyf")
+
+[node name="Seleziona2" type="Button" parent="Armadietto/Skin/HBoxContainer" unique_id=1278425406]
+layout_mode = 2
+icon = ExtResource("17_5664y")
+
+[node name="Seleziona3" type="Button" parent="Armadietto/Skin/HBoxContainer" unique_id=1947614773]
+layout_mode = 2
+icon = ExtResource("19_bbop2")
+
+[node name="Back" type="Button" parent="Armadietto/Skin" unique_id=111821065]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -155.5
+offset_top = -71.0
+offset_right = 169.5
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_nmst4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
+text = "Indietro"
+
+[node name="Sprite2D3" type="Sprite2D" parent="Armadietto/Skin" unique_id=1595444952]
+texture_filter = 1
+position = Vector2(443.083, 243.1499)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("23_apcd8")
+
+[node name="MoneteLabel" type="Label" parent="Armadietto/Skin" unique_id=2054529847]
+texture_filter = 1
+layout_mode = 0
+offset_left = 456.0
+offset_top = 236.0
+offset_right = 506.0
+offset_bottom = 253.0
+theme_override_colors/font_color = Color(1, 0.81960785, 0.1254902, 1)
+text = ": 80"
+
+[node name="Sprite2D4" type="Sprite2D" parent="Armadietto/Skin" unique_id=323966222]
+texture_filter = 1
+position = Vector2(667.9951, 244.1499)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("23_apcd8")
+
+[node name="MoneteLabel2" type="Label" parent="Armadietto/Skin" unique_id=1479430765]
+texture_filter = 1
+layout_mode = 0
+offset_left = 683.0
+offset_top = 239.0
+offset_right = 744.0
+offset_bottom = 256.0
+theme_override_colors/font_color = Color(1, 0.81960785, 0.1254902, 1)
+text = ": 140"
 
 [node name="Gioca" type="Panel" parent="." unique_id=2011787286]
 layout_mode = 1
@@ -1220,13 +1231,7 @@ text = "Indietro"
 [connection signal="toggled" from="Options/VBoxContainer/FullscreenControl" to="Options/VBoxContainer/FullscreenControl" method="_on_toggled"]
 [connection signal="toggled" from="Armadietto/Miglioramenti/Upgrade1" to="Armadietto/Miglioramenti" method="_on_upgrade_1_toggled"]
 [connection signal="toggled" from="Armadietto/Miglioramenti/Upgrade2" to="Armadietto/Miglioramenti" method="_on_upgrade_2_toggled"]
-[connection signal="pressed" from="Armadietto/Miglioramenti/Button" to="Armadietto/Miglioramenti" method="_on_button_pressed"]
-[connection signal="pressed" from="Armadietto/Miglioramenti/Button2" to="Armadietto/Miglioramenti" method="_on_button_2_pressed"]
 [connection signal="pressed" from="Armadietto/Miglioramenti/Ritorno" to="Armadietto/Miglioramenti" method="_on_ritorno_pressed"]
-[connection signal="pressed" from="Armadietto/Skin/Seleziona" to="Armadietto/Skin" method="_on_seleziona_pressed"]
-[connection signal="pressed" from="Armadietto/Skin/Seleziona2" to="Armadietto/Skin" method="_on_seleziona_2_pressed"]
-[connection signal="pressed" from="Armadietto/Skin/Back" to="Armadietto/Skin" method="_on_back_pressed"]
-[connection signal="pressed" from="Armadietto/Skin/Seleziona3" to="Armadietto/Skin" method="_on_seleziona_3_pressed"]
 [connection signal="pressed" from="Armadietto/Icons/HBoxContainer/Btn1" to="Armadietto/Icons" method="_on_btn_1_pressed"]
 [connection signal="pressed" from="Armadietto/Icons/HBoxContainer/Btn2" to="Armadietto/Icons" method="_on_btn_2_pressed"]
 [connection signal="pressed" from="Armadietto/Icons/HBoxContainer/Btn3" to="Armadietto/Icons" method="_on_btn_3_pressed"]
@@ -1234,6 +1239,11 @@ text = "Indietro"
 [connection signal="pressed" from="Armadietto/Icone" to="Armadietto" method="_on_icone_pressed"]
 [connection signal="pressed" from="Armadietto/Costumi" to="Armadietto" method="_on_costumi_pressed"]
 [connection signal="pressed" from="Armadietto/Upgrades" to="Armadietto" method="_on_upgrades_pressed"]
+[connection signal="pressed" from="Armadietto/Skin/HBoxContainer/Seleziona" to="Armadietto/Skin" method="_on_seleziona_pressed"]
+[connection signal="pressed" from="Armadietto/Skin/HBoxContainer/Seleziona2" to="Armadietto/Skin" method="_on_seleziona_2_pressed"]
+[connection signal="pressed" from="Armadietto/Skin/HBoxContainer/Seleziona3" to="Armadietto/Skin" method="_on_btn_3_pressed"]
+[connection signal="pressed" from="Armadietto/Skin/HBoxContainer/Seleziona3" to="Armadietto/Skin" method="_on_seleziona_3_pressed"]
+[connection signal="pressed" from="Armadietto/Skin/Back" to="Armadietto/Skin" method="_on_back_pressed"]
 [connection signal="pressed" from="Gioca/Back" to="." method="_on_back_options_pressed"]
 [connection signal="pressed" from="Gioca/HBoxContainer/AnimatedSprite2D/Mod1" to="." method="_on_mod_1_pressed"]
 [connection signal="pressed" from="Gioca/HBoxContainer/AnimatedSprite2D2/Mod2" to="." method="_on_mod_2_pressed"]

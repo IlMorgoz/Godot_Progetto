@@ -19,7 +19,7 @@ var rewarded_minutes := []
 func _ready():
 	musica.play()
 	# Setup iniziale
-	_update_monete_label()
+	MoneteManager._update_monete_label()
 	if time_label:
 		time_label.text = "Tempo: 03:00"
 
@@ -60,7 +60,7 @@ func _on_timer_tick():
 		if current_time == time_check and time_check not in rewarded_minutes:
 			var reward = REWARD_TIMINGS[time_check]
 			MoneteManager.add_monete(reward)
-			_update_monete_label()
+			MoneteManager._update_monete_label()
 			print("Hai ricevuto %d monete!" % reward)
 			rewarded_minutes.append(time_check)
 
@@ -76,9 +76,6 @@ func _update_timer_label():
 	if time_label:
 		time_label.text = "Tempo: %02d:%02d" % [minutes, seconds]
 
-func _update_monete_label():
-	if monete_label:
-		monete_label.text = ": %d" % MoneteManager.monete_stella
 
 # Aggiungi questa funzione per gestire la morte del player
 func _on_player_died():

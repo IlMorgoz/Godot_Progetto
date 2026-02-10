@@ -1,5 +1,5 @@
 extends Node
-
+#C:\Users\masel\AppData\Roaming\Godot\app_userdata\Shooter
 const SAVE_PATH = "user://records.save"
 
 # Struttura: 

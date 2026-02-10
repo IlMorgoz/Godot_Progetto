@@ -22,7 +22,11 @@
 [ext_resource type="Texture2D" uid="uid://tg30pp6mfjo3" path="res://Sprites/Buttons/ship3_background.png" id="19_bbop2"]
 [ext_resource type="Texture2D" uid="uid://cxgl0xyw04b2u" path="res://Sprites/Buttons/Game2_SS.png" id="19_ptjyf"]
 [ext_resource type="Texture2D" uid="uid://dn3yky45vvisx" path="res://Sprites/Buttons/Game1_SS.png" id="20_5664y"]
+[ext_resource type="Script" uid="uid://05gmnp0220wk" path="res://Scripts/Menu/Main/icons.gd" id="20_geude"]
+[ext_resource type="Texture2D" uid="uid://ov7bai3xdisy" path="res://Sprites/Buttons/#TEMP3.png" id="20_nsoon"]
 [ext_resource type="Texture2D" uid="uid://cfv01qyvlvmes" path="res://Sprites/Buttons/Game3_SS.png" id="21_5664y"]
+[ext_resource type="Texture2D" uid="uid://b2jcmg1urslmo" path="res://Sprites/Buttons/#TEMP1.png" id="21_geude"]
+[ext_resource type="Texture2D" uid="uid://s7sb400dg6x5" path="res://Sprites/Buttons/#TEMP2.png" id="22_uj7oi"]
 [ext_resource type="Texture2D" uid="uid://bbyeqi7qtdcrq" path="res://Sprites/Buttons/pngtree-star-pixel-png-image_21050156-removebg-preview.png" id="23_apcd8"]
 [ext_resource type="Script" uid="uid://04j402qqbuqt" path="res://Scripts/Menu/leaderboard_menu.gd" id="25_q3361"]
 [ext_resource type="Texture2D" uid="uid://dyt62ybo172d2" path="res://Sprites/Buttons/Player_icon.png" id="26_bt8s7"]
@@ -812,24 +816,160 @@ offset_right = 581.0
 offset_bottom = 212.0
 theme_override_icons/icon = ExtResource("19_bbop2")
 
+[node name="Icons" type="Panel" parent="Armadietto" unique_id=212177481]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -473.0
+offset_top = -204.0
+offset_right = 483.0
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("20_geude")
+
+[node name="Label" type="Label" parent="Armadietto/Icons" unique_id=2047782600]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -76.0
+offset_top = 35.0
+offset_right = 77.0
+offset_bottom = 76.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+text = "Icone"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Armadietto/Icons" unique_id=1114374522]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.0
+offset_top = -54.0
+offset_right = 166.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 117
+alignment = 1
+
+[node name="Btn1" type="Button" parent="Armadietto/Icons/HBoxContainer" unique_id=1322747302]
+layout_mode = 2
+theme_override_icons/icon = ExtResource("21_geude")
+
+[node name="Btn2" type="Button" parent="Armadietto/Icons/HBoxContainer" unique_id=562838]
+layout_mode = 2
+icon = ExtResource("22_uj7oi")
+
+[node name="Btn3" type="Button" parent="Armadietto/Icons/HBoxContainer" unique_id=242260650]
+layout_mode = 2
+icon = ExtResource("20_nsoon")
+
+[node name="Back" type="Button" parent="Armadietto/Icons" unique_id=1610904380]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -155.5
+offset_top = -71.0
+offset_right = 169.5
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_nmst4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
+text = "Indietro"
+
+[node name="Sprite2D2" type="Sprite2D" parent="Armadietto/Icons" unique_id=1444296287]
+texture_filter = 1
+position = Vector2(218, 244)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("23_apcd8")
+
+[node name="MoneteLabel3" type="Label" parent="Armadietto/Icons" unique_id=398071999]
+texture_filter = 1
+layout_mode = 0
+offset_left = 231.0
+offset_top = 238.0
+offset_right = 266.0
+offset_bottom = 255.0
+theme_override_colors/font_color = Color(1, 0.81960785, 0.1254902, 1)
+text = ": 5"
+
+[node name="Sprite2D3" type="Sprite2D" parent="Armadietto/Icons" unique_id=2131597290]
+texture_filter = 1
+position = Vector2(443.083, 243.1499)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("23_apcd8")
+
+[node name="MoneteLabel" type="Label" parent="Armadietto/Icons" unique_id=129666776]
+texture_filter = 1
+layout_mode = 0
+offset_left = 455.0
+offset_top = 236.0
+offset_right = 505.0
+offset_bottom = 253.0
+theme_override_colors/font_color = Color(1, 0.81960785, 0.1254902, 1)
+text = ": 20"
+
+[node name="Sprite2D4" type="Sprite2D" parent="Armadietto/Icons" unique_id=1875616596]
+texture_filter = 1
+position = Vector2(667.9951, 244.1499)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("23_apcd8")
+
+[node name="MoneteLabel2" type="Label" parent="Armadietto/Icons" unique_id=1882448830]
+texture_filter = 1
+layout_mode = 0
+offset_left = 681.0
+offset_top = 236.0
+offset_right = 742.0
+offset_bottom = 253.0
+theme_override_colors/font_color = Color(1, 0.81960785, 0.1254902, 1)
+text = ": 100"
+
 [node name="Label" type="Label" parent="Armadietto" unique_id=580380742]
 layout_mode = 0
 offset_left = -46.0
-offset_top = -112.0
+offset_top = -147.0
 offset_right = 281.0
-offset_bottom = -71.0
-grow_horizontal = 2
+offset_bottom = -106.0
 theme_override_font_sizes/font_size = 40
 text = "Armadietto"
 
+[node name="Icone" type="Button" parent="Armadietto" unique_id=422332455]
+layout_mode = 0
+offset_left = -45.0
+offset_top = -34.0
+offset_right = 282.0
+offset_bottom = -5.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = SubResource("StyleBoxFlat_nmst4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fqffm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
+text = "Icone"
+
 [node name="Costumi" type="Button" parent="Armadietto" unique_id=139431671]
 layout_mode = 0
-offset_left = -46.0
-offset_top = -67.0
-offset_right = 281.0
-offset_bottom = -38.0
-grow_horizontal = 2
-grow_vertical = 0
+offset_left = -47.0
+offset_top = -102.0
+offset_right = 280.0
+offset_bottom = -73.0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 28
@@ -841,11 +981,9 @@ text = "Navicelle"
 [node name="Upgrades" type="Button" parent="Armadietto" unique_id=323238705]
 layout_mode = 0
 offset_left = -46.0
-offset_top = -34.0
+offset_top = -68.0
 offset_right = 281.0
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 0
+offset_bottom = -39.0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 28
@@ -1089,6 +1227,11 @@ text = "Indietro"
 [connection signal="pressed" from="Armadietto/Skin/Seleziona2" to="Armadietto/Skin" method="_on_seleziona_2_pressed"]
 [connection signal="pressed" from="Armadietto/Skin/Back" to="Armadietto/Skin" method="_on_back_pressed"]
 [connection signal="pressed" from="Armadietto/Skin/Seleziona3" to="Armadietto/Skin" method="_on_seleziona_3_pressed"]
+[connection signal="pressed" from="Armadietto/Icons/HBoxContainer/Btn1" to="Armadietto/Icons" method="_on_btn_1_pressed"]
+[connection signal="pressed" from="Armadietto/Icons/HBoxContainer/Btn2" to="Armadietto/Icons" method="_on_btn_2_pressed"]
+[connection signal="pressed" from="Armadietto/Icons/HBoxContainer/Btn3" to="Armadietto/Icons" method="_on_btn_3_pressed"]
+[connection signal="pressed" from="Armadietto/Icons/Back" to="Armadietto/Icons" method="_on_back_pressed"]
+[connection signal="pressed" from="Armadietto/Icone" to="Armadietto" method="_on_icone_pressed"]
 [connection signal="pressed" from="Armadietto/Costumi" to="Armadietto" method="_on_costumi_pressed"]
 [connection signal="pressed" from="Armadietto/Upgrades" to="Armadietto" method="_on_upgrades_pressed"]
 [connection signal="pressed" from="Gioca/Back" to="." method="_on_back_options_pressed"]

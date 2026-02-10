@@ -9,6 +9,7 @@ extends Control
 @onready var selection := $Gioca
 @onready var statistiche := $LeaderboardMenu
 @onready var user := $PlayerInfo
+@onready var icons := $Armadietto/Icons
 
 func _ready() -> void:
 	# Porta in primo piano i pulsanti
@@ -31,7 +32,7 @@ func _ready() -> void:
 	back.visible = false
 	selection.visible = false
 	statistiche.visible=false
-	
+	icons.visible=false
 	# Stato upgrade attivo
 	upgrade_button.button_pressed = Global.triple_shot_enabled
 

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bc4xmb6vpums4" path="res://Sprites/Backgrounds/Main_Background2.png" id="4_apcd8"]
 [ext_resource type="Script" uid="uid://dhd21hwxt6e2r" path="res://Scripts/audio_control.gd" id="5_m17uk"]
 [ext_resource type="Script" uid="uid://b33wv112jwaoh" path="res://Scripts/Menu/Main/fullscreen_control.gd" id="6_dnggf"]
-[ext_resource type="AudioStream" uid="uid://dkcqmmalxdduc" path="res://audio/Main Screen.wav" id="7_2ppkp"]
+[ext_resource type="AudioStream" uid="uid://bxb7fffm8jpgw" path="res://audio/Main Screen.mp3" id="7_2ppkp"]
 [ext_resource type="Script" uid="uid://b33kh6nsorqq5" path="res://Scripts/Menu/Main/armadietto.gd" id="7_7q4lt"]
 [ext_resource type="Script" uid="uid://blniingo8w2rp" path="res://Scripts/AnimationsAddOn/MainMenuAnimations/ship_spawner.gd" id="8_0edrc"]
 [ext_resource type="Script" uid="uid://bphev5uy11o6" path="res://Scripts/Menu/Main/miglioramenti.gd" id="9_dsoak"]

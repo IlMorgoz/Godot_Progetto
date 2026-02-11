@@ -1,13 +1,10 @@
 extends Node
 
-# Segnali
 signal monete_aggiornate(nuovo_valore)
 signal profile_icon_changed
 
 const SAVE_PATH = "user://game_data.save"
 
-# --- NUOVO: LISTA DELLE NAVI ---
-# Mettiamo qui le scene per caricarle facilmente tramite indice (0, 1, 2)
 var ship_scenes: Array[PackedScene] = [
 	preload("res://scenes/Spaceships/Players/StarChaser_Player.tscn"), # Index 0
 	preload("res://scenes/Spaceships/Players/Flash_Player.tscn"),      # Index 1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b62ma6vgmgqjc"
-path="res://.godot/imported/Kamikaze_Enemy.png-925adb4ac80a107d08b9cd5c07967358.ctex"
+uid="uid://bpe0hgjvsanyo"
+path="res://.godot/imported/Evil ass skeleton2.png-c8b2dc1d9e59ebd0698e91f4e9694028.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Spaceships/Enemies/Kamikaze_Enemy.png"
-dest_files=["res://.godot/imported/Kamikaze_Enemy.png-925adb4ac80a107d08b9cd5c07967358.ctex"]
+source_file="res://Sprites/Spaceships/Enemies/Evil ass skeleton2.png"
+dest_files=["res://.godot/imported/Evil ass skeleton2.png-c8b2dc1d9e59ebd0698e91f4e9694028.ctex"]
 
 [params]
 

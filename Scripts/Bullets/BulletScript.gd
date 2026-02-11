@@ -50,25 +50,14 @@ func set_parameters(spd: int, dmg: int):
 	speed = spd
 	damage = dmg
 
-# --- NUOVA FUNZIONE PER IL COLPO CARICATO (Chiamata dal Player) ---
+# --- NUOVA FUNZIONE PER IL COLPO CARICATO (Chiamata dal Playwer) ---
 func setup_charged_shot():
-	# 1. Rendi il proiettile GIGANTE
 	scale = Vector2(3.0, 3.0)
-	
-	# 2. Aumenta drasticamente il danno (es. 10x danno base)
 	damage = 6
-	
-	# 3. Attiva l'Homing
 	is_homing_active = true
-	turn_speed = 5.0 # Meno agile perché è pesante
-	
-	# 4. Velocità ridotta per dare senso di pesantezza
-	speed = 400.0 
-	
-	# 5. Effetto grafico: Luminosità aumentata (Modulate > 1 fa effetto 'Glow')
+	turn_speed = 5.0 
+	speed = 700.0 
 	modulate = Color(2, 2, 2) 
-	
-	# Assicuriamoci che il gioco sappia che è del player
 	is_it_player = true
 
 func _physics_process(delta: float) -> void:

@@ -1,53 +1,47 @@
 extends Panel
 
-@onready var panel1 : Panel =  $Miglioramenti
-@onready var panel2 : Panel = $Skin
-@onready var bottone1 : Button = $Upgrades
-@onready var bottone2 : Button = $Costumi
-@onready var bottone3 : Button = $Icone
-@onready var back := $"../Back"
-@onready var title := $Label
-@onready var panel3 : Panel= $Icons
+# Mappiamo i nomi dei nodi (Bottoni) alle chiavi dei pannelli [cite: 1]
+@onready var panels = {
+	"Costumi": $Skin,      # Assicurati che il nome del bottone sia 'Costumi'
+	"Upgrades": $Miglioramenti,
+	"Icone": $Icons
+}
+
+@onready var ui_elements = {
+	"buttons": $VBoxContainer,
+	"back": $VBoxContainer/Back,
+	"title": $Label
+}
+
 func _ready() -> void:
-	panel1.visible=false
-	panel2.visible=false
-	bottone1.visible=true
-	bottone2.visible=true
-	bottone3.visible=true
-	back.visible=true
+	# Nascondi i pannelli all'avvio [cite: 1]
+	for key in panels:
+		panels[key].visible = false
+	_toggle_main_ui(true)
 	
-func _on_costumi_pressed() -> void:
-	panel2.visible=true
-	turn_off()
+	# Collega automaticamente tutti i bottoni dentro il VBoxContainer
+	for button in $VBoxContainer.get_children():
+		if button is Button:
+			# Passiamo il bottone stesso come argomento al segnale 
+			button.pressed.connect(_on_menu_button_pressed.bind(button))
 
-func _on_upgrades_pressed() -> void:
-	panel1.visible=true
-	turn_off()
-	
-func _on_icone_pressed() -> void:
-	panel3.visible=true
-	turn_off()
+# Funzione universale per aprire i sottomenu
+func _on_menu_button_pressed(btn: Button) -> void:
+	var button_name = btn.name
+	if panels.has(button_name):
+		panels[button_name].visible = true
+		_toggle_main_ui(false)
 
-func turn_off() -> void:
-	bottone1.visible=false
-	bottone2.visible=false
-	bottone3.visible=false
-	back.visible=false
-	title.visible=false
-	
-func turn_on(pannello) -> void:
-	bottone1.visible=true
-	bottone2.visible=true
-	bottone3.visible=true
-	back.visible=true
-	title.visible=true
-	pannello.visible=false
+# Gestione delle Scene (Modalità di gioco)
+# Puoi rinominare i bottoni mod in: "Game", "Waves", "Endless"
+func _on_mod_pressed(scene_path: String) -> void:
+	# Usa il FadeTransition se presente nel tuo Main_Menu [cite: 8]
+	FadeTransition.change_scene(scene_path)
 
-func _on_mod_1_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
+func _toggle_main_ui(is_visible: bool) -> void:
+	for element in ui_elements.values():
+		element.visible = is_visible
 
-func _on_mod_2_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/Game/game_mode_waves.tscn")
-
-func _on_mod_3_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/Game/Game_Endless.tscn")
+func turn_on(closed_panel) -> void:
+	closed_panel.visible = false
+	_toggle_main_ui(true)

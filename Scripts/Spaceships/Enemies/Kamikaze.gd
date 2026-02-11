@@ -7,6 +7,7 @@ const SPEED = 400
 var health: int = 6
 
 func _ready():
+	add_to_group("enemies")
 	# Inizializza la barra vita
 	healthbar.init_healt(health)
 

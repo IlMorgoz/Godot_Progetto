@@ -10,20 +10,19 @@ extends Control
 @onready var selection := $Gioca
 @onready var statistiche := $LeaderboardMenu
 @onready var user := $PlayerInfo
+@export var profile_textures: Array[Texture2D]
 @onready var icons := $Armadietto/Icons
 
 func _ready() -> void:
-	# Porta in primo piano i pulsanti
+	# UI Setup
 	$MainButtons/Button1.z_index = 10
 	$MainButtons/Button2.z_index = 10
 	$MainButtons/Button3.z_index = 10
 	$Label.z_index = 10
 	
-	# Reset audio
 	musica.volume_db = 0 
 	musica.play()
 	
-	# Impostazioni visibilità
 	main_buttons.visible = true
 	options.visible = false
 	armadietto.visible = false
@@ -32,22 +31,20 @@ func _ready() -> void:
 	statistiche.visible = false
 	icons.visible = false
 
-	# --- MODIFICA 1: Caricamento stato Upgrade da GameData ---
-	# Usa GameData invece di Global
+	# Caricamento stato Upgrade
 	upgrade_button.button_pressed = GameData.triple_shot_enabled
 
-	# --- MODIFICA 2: Aggiornamento Monete ---
+	# Aggiornamento Monete
 	_update_monete_label()
-	
-	# Colleghiamo il segnale: se GameData cambia i soldi, la label si aggiorna da sola
 	GameData.monete_aggiornate.connect(_on_monete_aggiornate_signal)
 
-# Funzione chiamata manualmente o dal segnale
+	# Aggiornamento Icona Profilo
+	GameData.profile_icon_changed.connect(_update_player_icon)
+	_update_player_icon() # Imposta subito l'icona salvata
+	
 func _update_monete_label():
-	# Usa GameData invece di MoneteManager
 	monete_label.text = ": %d" % GameData.monete_stella
 
-# Funzione helper per gestire il segnale (che passa il nuovo valore come argomento)
 func _on_monete_aggiornate_signal(_nuovo_valore):
 	_update_monete_label()
 
@@ -56,12 +53,12 @@ func _on_start_pressed():
 	back.visible = false
 	selection.visible = true
 
-func _on_settings1_pressed(): # Opzioni
+func _on_settings1_pressed():
 	main_buttons.visible = false
 	options.visible = true
 	back.visible = true
 
-func _on_settings2_pressed(): # Armadietto
+func _on_settings2_pressed():
 	main_buttons.visible = false
 	armadietto.visible = true
 	back.visible = true
@@ -100,3 +97,9 @@ func _on_player_info_pressed() -> void:
 	selection.visible = false
 	statistiche.visible = true
 	user.visible = false
+
+func _update_player_icon():
+	if GameData.current_icon_index < profile_textures.size():
+		user.icon = profile_textures[GameData.current_icon_index]
+	else:
+		print("Errore: Indice icona non trovato nell'array!")

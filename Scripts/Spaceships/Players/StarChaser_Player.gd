@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const BASE_SPEED = 200 # Ho aumentato leggermente la base, 100 è molto lento
+const BASE_SPEED = 200  # Ho aumentato leggermente la base, 100 è molto lento
 const EXTRA_SPEED = 100
 const FIRE_RATE = 0.3 # secondi
 var bullet_scene = preload("res://scenes/Bullets/Player/Bullet_Yellow_StarChaser.tscn")
@@ -11,9 +11,11 @@ var bullet_scene = preload("res://scenes/Bullets/Player/Bullet_Yellow_StarChaser
 @onready var healthbar = $HealtBar
 
 var time_since_last_shot := 0.0
-var health: int = 6
+var health: int = 12
 
 func _ready():
+	# Inizializza la barra vita
+	healthbar.init_healt(health)
 	add_to_group("player")
 	
 func _physics_process(delta: float) -> void:
@@ -69,13 +71,7 @@ func spawn_bullet(part: Node2D):
 # Funzione per gestire il danno
 func take_damage(amount: int) -> void:
 	health -= amount
-	
-	# Aggiorna la barra della vita se il nodo ha una proprietà 'value' o 'health'
-	if healthbar and "value" in healthbar:
-		healthbar.value = health
-	elif healthbar and "health" in healthbar:
-		healthbar.health = health
-		
+	healthbar.health = health
 	if health <= 0:
 		die()
 

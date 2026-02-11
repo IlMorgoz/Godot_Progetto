@@ -2,16 +2,9 @@ extends Panel
 
 @onready var upgrade1 = $Upgrade1 # CheckBox per attivare Triple Shot
 @onready var upgrade2 = $Upgrade2 # CheckBox per attivare Speed Boost
-@onready var paywall1 = $Button   # Bottone acquisto (500)
-@onready var paywall2 = $Button2  # Bottone acquisto (750)
 @onready var nodo = get_parent()
 
 func _ready():
-	# 1. Gestione visibilità bottoni acquisto
-	# Se lo abbiamo già comprato, nascondiamo il tasto "Paga"
-	paywall1.visible = not GameData.triple_shot_purchased
-	paywall2.visible = not GameData.speed_boost_purchased
-	
 	# 2. Gestione stato attivazione (CheckBox)
 	# Impostiamo la spunta se l'upgrade è attivo
 	upgrade1.button_pressed = GameData.triple_shot_enabled
@@ -32,7 +25,6 @@ func _on_button_pressed() -> void:
 		GameData.save_data()
 		
 		# Aggiorna UI
-		paywall1.visible = false
 		upgrade1.disabled = false
 		upgrade1.button_pressed = true
 	else:
@@ -49,7 +41,6 @@ func _on_button_2_pressed() -> void:
 		GameData.save_data()
 		
 		# Aggiorna UI
-		paywall2.visible = false
 		upgrade2.disabled = false
 		upgrade2.button_pressed = true
 	else:

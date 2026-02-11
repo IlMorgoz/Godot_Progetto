@@ -33,15 +33,15 @@ func _ready() -> void:
 		is_it_player = false # Nemico
 		
 	elif bullet_name == "Bullet_Yellow_Flesh":
-		set_parameters(750, 2)
+		set_parameters(900, 2)
 		is_it_player = true  # Giocatore
 		
 	elif bullet_name == "Bullet_Yellow_StarChaser":
-		set_parameters(750, 2)
+		set_parameters(900, 2)
 		is_it_player = true  # Giocatore
 		
 	elif bullet_name == "Bullet_Yellow_Aqua":
-		set_parameters(750, 2)
+		set_parameters(900, 2)
 		is_it_player = true  # Giocatore
 		
 	# Orienta graficamente il proiettile verso la direzione di movimento

@@ -18,7 +18,7 @@ var selected_ship_index: int = 0
 
 # --- GESTIONE SKIN E NAVI ---
 var current_icon_index: int = 0
-var unlocked_icons: Array = [true, false, false, false] 
+var unlocked_icons: Array = [true, false, false, false,false] 
 
 # NUOVO: Array per le navi sbloccate (0=StarChaser, 1=Flash, 2=Aqua)
 var unlocked_ships: Array = [true, false, false] 

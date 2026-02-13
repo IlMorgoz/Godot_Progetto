@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://b33wv112jwaoh" path="res://Scripts/Menu/Main/fullscreen_control.gd" id="6_dnggf"]
 [ext_resource type="AudioStream" uid="uid://bxb7fffm8jpgw" path="res://audio/Main Screen.mp3" id="7_2ppkp"]
 [ext_resource type="Script" uid="uid://b33kh6nsorqq5" path="res://Scripts/Menu/Main/armadietto.gd" id="7_7q4lt"]
+[ext_resource type="Texture2D" uid="uid://decovfmk1roo2" path="res://Sprites/Buttons/#TEMP4.png" id="7_nsoon"]
 [ext_resource type="Script" uid="uid://blniingo8w2rp" path="res://Scripts/AnimationsAddOn/MainMenuAnimations/ship_spawner.gd" id="8_0edrc"]
 [ext_resource type="Script" uid="uid://bphev5uy11o6" path="res://Scripts/Menu/Main/miglioramenti.gd" id="9_dsoak"]
 [ext_resource type="Texture2D" uid="uid://4w1bvcgvv88n" path="res://Sprites/Buttons/Button_enabled_3x.png" id="10_yx677"]
@@ -510,7 +511,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = SubResource("Theme_lrj6p")
 script = ExtResource("1_8bt37")
-profile_textures = Array[Texture2D]([ExtResource("26_bt8s7"), ExtResource("21_geude"), ExtResource("22_uj7oi"), ExtResource("20_nsoon")])
+profile_textures = Array[Texture2D]([ExtResource("26_bt8s7"), ExtResource("21_geude"), ExtResource("22_uj7oi"), ExtResource("20_nsoon"), ExtResource("7_nsoon")])
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=356308363]
 position = Vector2(0, 30)
@@ -569,6 +570,7 @@ theme_override_font_sizes/font_size = 60
 text = "Tempera Biscotti"
 
 [node name="MainButtons" type="VBoxContainer" parent="." unique_id=1695438600]
+visible = false
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -625,6 +627,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_6pknk")
 text = "Opzioni"
 
 [node name="Gioca" type="Panel" parent="." unique_id=2011787286]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -724,6 +727,7 @@ offset_bottom = 395.0
 script = ExtResource("7_7q4lt")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Armadietto" unique_id=714552269]
+visible = false
 layout_mode = 0
 offset_left = -45.0
 offset_top = -116.0
@@ -771,6 +775,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
 text = "Indietro"
 
 [node name="Label" type="Label" parent="Armadietto" unique_id=1203549049]
+visible = false
 layout_mode = 0
 offset_left = -46.0
 offset_top = -163.0
@@ -783,6 +788,7 @@ theme_override_font_sizes/font_size = 40
 text = "Armadietto"
 
 [node name="Skin" type="Panel" parent="Armadietto" unique_id=1026666020]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -895,6 +901,7 @@ theme_override_colors/font_color = Color(1, 0.81960785, 0.1254902, 1)
 text = ": 140"
 
 [node name="Miglioramenti" type="Panel" parent="Armadietto" unique_id=212013024]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1026,6 +1033,10 @@ theme_override_icons/icon = ExtResource("21_geude")
 layout_mode = 2
 icon = ExtResource("22_uj7oi")
 
+[node name="Btn4" type="Button" parent="Armadietto/Icons/HBoxContainer" unique_id=1408427299]
+layout_mode = 2
+icon = ExtResource("7_nsoon")
+
 [node name="Btn3" type="Button" parent="Armadietto/Icons/HBoxContainer" unique_id=242260650]
 layout_mode = 2
 icon = ExtResource("20_nsoon")
@@ -1053,53 +1064,70 @@ text = "Indietro"
 
 [node name="Sprite2D2" type="Sprite2D" parent="Armadietto/Icons" unique_id=1444296287]
 texture_filter = 1
-position = Vector2(218, 244)
+position = Vector2(120, 241)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("23_apcd8")
 
 [node name="MoneteLabel3" type="Label" parent="Armadietto/Icons" unique_id=398071999]
 texture_filter = 1
 layout_mode = 0
-offset_left = 231.0
-offset_top = 238.0
-offset_right = 266.0
-offset_bottom = 255.0
+offset_left = 133.0
+offset_top = 235.0
+offset_right = 168.0
+offset_bottom = 252.0
 theme_override_colors/font_color = Color(1, 0.81960785, 0.1254902, 1)
 text = ": 5"
 
 [node name="Sprite2D3" type="Sprite2D" parent="Armadietto/Icons" unique_id=2131597290]
 texture_filter = 1
-position = Vector2(443.083, 243.1499)
+position = Vector2(342, 241)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("23_apcd8")
+
+[node name="MoneteLabel4" type="Label" parent="Armadietto/Icons" unique_id=1890128996]
+texture_filter = 1
+layout_mode = 0
+offset_left = 574.917
+offset_top = 236.8501
+offset_right = 624.917
+offset_bottom = 253.8501
+theme_override_colors/font_color = Color(1, 0.81960785, 0.1254902, 1)
+text = ": 35"
+
+[node name="Sprite2D5" type="Sprite2D" parent="Armadietto/Icons" unique_id=1491631058]
+texture_filter = 1
+position = Vector2(563, 244)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("23_apcd8")
 
 [node name="MoneteLabel" type="Label" parent="Armadietto/Icons" unique_id=129666776]
 texture_filter = 1
 layout_mode = 0
-offset_left = 455.0
-offset_top = 236.0
-offset_right = 505.0
-offset_bottom = 253.0
+offset_left = 353.917
+offset_top = 233.8501
+offset_right = 403.917
+offset_bottom = 250.8501
 theme_override_colors/font_color = Color(1, 0.81960785, 0.1254902, 1)
 text = ": 20"
 
 [node name="Sprite2D4" type="Sprite2D" parent="Armadietto/Icons" unique_id=1875616596]
 texture_filter = 1
-position = Vector2(667.9951, 244.1499)
+position = Vector2(785, 242)
 scale = Vector2(0.06, 0.06)
 texture = ExtResource("23_apcd8")
 
 [node name="MoneteLabel2" type="Label" parent="Armadietto/Icons" unique_id=1882448830]
 texture_filter = 1
 layout_mode = 0
-offset_left = 681.0
-offset_top = 236.0
-offset_right = 742.0
-offset_bottom = 253.0
+offset_left = 797.0049
+offset_top = 235.8501
+offset_right = 858.0049
+offset_bottom = 252.8501
 theme_override_colors/font_color = Color(1, 0.81960785, 0.1254902, 1)
 text = ": 100"
 
 [node name="Options" type="Panel" parent="." unique_id=1171406860]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1167,6 +1195,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
 text = "Indietro"
 
 [node name="LeaderboardMenu" type="Control" parent="." unique_id=33104913]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1261,7 +1290,7 @@ text = "©MEMBERS ONLY"
 [connection signal="pressed" from="MainButtons/Button1" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MainButtons/Button2" to="." method="_on_settings2_pressed"]
 [connection signal="pressed" from="MainButtons/Button3" to="." method="_on_settings1_pressed"]
-[connection signal="pressed" from="Gioca/Back" to="." method="_on_back_options_pressed"]
+[connection signal="pressed" from="Gioca/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Gioca/HBoxContainer/AnimatedSprite2D/Mod1" to="." method="_on_mod_pressed" binds= [""]]
 [connection signal="pressed" from="Gioca/HBoxContainer/AnimatedSprite2D2/Mod2" to="." method="_on_mod_pressed" binds= ["2"]]
 [connection signal="pressed" from="Gioca/HBoxContainer/AnimatedSprite2D3/Mod3" to="." method="_on_mod_pressed" binds= ["3"]]
@@ -1278,6 +1307,7 @@ text = "©MEMBERS ONLY"
 [connection signal="pressed" from="Armadietto/Miglioramenti/Ritorno" to="Armadietto/Miglioramenti" method="_on_ritorno_pressed"]
 [connection signal="pressed" from="Armadietto/Icons/HBoxContainer/Btn1" to="Armadietto/Icons" method="_on_btn_pressed" binds= [1]]
 [connection signal="pressed" from="Armadietto/Icons/HBoxContainer/Btn2" to="Armadietto/Icons" method="_on_btn_pressed" binds= [2]]
+[connection signal="pressed" from="Armadietto/Icons/HBoxContainer/Btn4" to="Armadietto/Icons" method="_on_btn_pressed" binds= [4]]
 [connection signal="pressed" from="Armadietto/Icons/HBoxContainer/Btn3" to="Armadietto/Icons" method="_on_btn_pressed" binds= [3]]
 [connection signal="pressed" from="Armadietto/Icons/Back" to="Armadietto/Icons" method="_on_back_pressed"]
 [connection signal="value_changed" from="Options/VBoxContainer/VBoxContainer/AudioControl" to="." method="_on_audio_control_value_changed"]

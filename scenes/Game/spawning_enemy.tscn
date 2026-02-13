@@ -623,7 +623,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_2p3qr"]
 resource_name = "spawn"
-length = 1.56
+length = 1.52
 step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -644,7 +644,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.45, 1.5),
+"times": PackedFloat32Array(1.44, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -661,7 +661,7 @@ tracks/2/path = NodePath("Enemy:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.12, 1.03),
+"times": PackedFloat32Array(0.049999997, 0.84),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0, 82]
@@ -679,7 +679,7 @@ script = ExtResource("1_u6ir2")
 [node name="Hole" type="Sprite2D" parent="." unique_id=1780821010]
 self_modulate = Color(1, 0, 0.050980393, 1)
 position = Vector2(1.0006962, -4.999999)
-scale = Vector2(1.001358e-05, 1.001358e-05)
+scale = Vector2(0.297101, 0.318841)
 texture = ExtResource("1_f5ya7")
 
 [node name="Enemy" type="AnimatedSprite2D" parent="." unique_id=1014046443]
@@ -689,9 +689,9 @@ scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_57p57")
 animation = &"spawn"
 autoplay = "spawn"
-frame = 82
 speed_scale = 10.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=493033711]
 reset_on_save = false
 libraries/ = SubResource("AnimationLibrary_d3xbk")
+autoplay = &"spawn"

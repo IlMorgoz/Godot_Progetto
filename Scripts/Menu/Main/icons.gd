@@ -6,7 +6,8 @@ extends Panel
 @onready var icon_slots = {
 	1: {"btn": $HBoxContainer/Btn1, "lock": $Sprite2D2, "price": $MoneteLabel3, "cost": 5},
 	2: {"btn": $HBoxContainer/Btn2, "lock": $Sprite2D3, "price": $MoneteLabel, "cost": 20},
-	3: {"btn": $HBoxContainer/Btn3, "lock": $Sprite2D4, "price": $MoneteLabel2, "cost": 100}
+	3: {"btn": $HBoxContainer/Btn3, "lock": $Sprite2D4, "price": $MoneteLabel2, "cost": 100},
+	4: {"btn": $HBoxContainer/Btn4, "lock": $Sprite2D5, "price": $MoneteLabel4, "cost": 35}
 }
 
 func _ready():

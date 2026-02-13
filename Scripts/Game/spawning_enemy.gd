@@ -5,10 +5,9 @@ const ENEMY = preload("res://scenes/Spaceships/Enemies/Kamikaze.tscn")
 @onready var anim = $AnimationPlayer
 
 func _ready():
+	anim.stop()
 	anim.play("spawn")
-	# Non serve connettere il segnale, ci pensa l'AnimationPlayer a chiamare le funzioni
-
-# Questa funzione viene chiamata dall'AnimationPlayer al momento giusto
+	
 func spawn_enemy():
 	var enemy = ENEMY.instantiate()
 	enemy.global_position = global_position
@@ -18,6 +17,5 @@ func spawn_enemy():
 	
 	get_parent().add_child(enemy)
 
-# Questa funzione viene chiamata dall'AnimationPlayer alla fine per pulire
 func kill():
 	queue_free()

@@ -1,8 +1,8 @@
 extends Panel
 
-# Mappiamo i nomi dei nodi (Bottoni) alle chiavi dei pannelli [cite: 1]
+# Mappiamo i nomi dei nodi (Bottoni) alle chiavi dei pannelli
 @onready var panels = {
-	"Costumi": $Skin,      # Assicurati che il nome del bottone sia 'Costumi'
+	"Costumi": $Skin,      # Assicurati che il nome del bottone sia esattamente 'Costumi'
 	"Upgrades": $Miglioramenti,
 	"Icone": $Icons
 }
@@ -14,7 +14,7 @@ extends Panel
 }
 
 func _ready() -> void:
-	# Nascondi i pannelli all'avvio [cite: 1]
+	# Nascondi i pannelli all'avvio
 	for key in panels:
 		panels[key].visible = false
 	_toggle_main_ui(true)
@@ -30,12 +30,17 @@ func _on_menu_button_pressed(btn: Button) -> void:
 	var button_name = btn.name
 	if panels.has(button_name):
 		panels[button_name].visible = true
+		
+		# AGGIORNAMENTO: Richiamiamo la nuova funzione che abbiamo creato nel pannello Upgrades
+		if button_name == "Upgrades":
+			if panels[button_name].has_method("update_ui_elements"):
+				panels[button_name].update_ui_elements()
+				
 		_toggle_main_ui(false)
 
 # Gestione delle Scene (Modalità di gioco)
-# Puoi rinominare i bottoni mod in: "Game", "Waves", "Endless"
 func _on_mod_pressed(scene_path: String) -> void:
-	# Usa il FadeTransition se presente nel tuo Main_Menu [cite: 8]
+	# Usa il FadeTransition se presente nel tuo Main_Menu
 	FadeTransition.change_scene(scene_path)
 
 func _toggle_main_ui(is_visible: bool) -> void:

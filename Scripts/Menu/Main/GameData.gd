@@ -11,27 +11,29 @@ var ship_scenes: Array[PackedScene] = [
 	preload("res://scenes/Spaceships/Players/Aqua.tscn")               # Index 2
 ]
 
-# Variabile che il gioco usa per sapere quale nave spawnare
 var selected_ship_scene: PackedScene = ship_scenes[0]
-# Variabile per salvare l'INDICE della nave (più facile da salvare in JSON)
 var selected_ship_index: int = 0
 
 # --- GESTIONE SKIN E NAVI ---
 var current_icon_index: int = 0
-var unlocked_icons: Array = [true, false, false, false,false] 
+var unlocked_icons: Array = [true, false, false, false, false] 
 
-# NUOVO: Array per le navi sbloccate (0=StarChaser, 1=Flash, 2=Aqua)
 var unlocked_ships: Array = [true, false, false] 
 
 # --- DATI DI GIOCO ---
 var monete_stella: int = 0
 var records = { "mode_1": 0, "mode_2": 0, "mode_3": 0.0 }
 
-# Upgrades
-var triple_shot_enabled := false
-var speed_boost_enabled := false
-var triple_shot_purchased := false
-var speed_boost_purchased := false
+# --- NUOVO SISTEMA UPGRADES ---
+# Tutte le info sugli upgrade sono raggruppate qui!
+var upgrades = {
+	"triple_shot": {"purchased": false, "enabled": false},
+	"speed_boost": {"purchased": false, "enabled": false},
+	"homing":      {"purchased": false, "enabled": false},
+	"big_bullet":  {"purchased": false, "enabled": false},
+	"shield":      {"purchased": false, "enabled": false},
+	"super_shield":{"purchased": false, "enabled": false}
+}
 
 func _ready():
 	load_data()
@@ -43,19 +45,11 @@ func save_data():
 		var data = {
 			"monete_stella": monete_stella,
 			"records": records,
-			# Salvataggio Icone Profilo
 			"current_icon_index": current_icon_index,
 			"unlocked_icons": unlocked_icons,
-			# Salvataggio Navi
-			"selected_ship_index": selected_ship_index, # Salviamo l'indice (es. 1), non la scena intera
-			"unlocked_ships": unlocked_ships,           # Salviamo quali possiedi
-			# Salvataggio Upgrade
-			"upgrades": {
-				"triple_shot_enabled": triple_shot_enabled,
-				"speed_boost_enabled": speed_boost_enabled,
-				"triple_shot_purchased": triple_shot_purchased,
-				"speed_boost_purchased": speed_boost_purchased
-			}
+			"selected_ship_index": selected_ship_index,
+			"unlocked_ships": unlocked_ships,
+			"upgrades": upgrades # Ora salviamo direttamente l'intero dizionario!
 		}
 		file.store_string(JSON.stringify(data))
 		file.close()
@@ -75,33 +69,31 @@ func load_data():
 			
 			monete_stella = data.get("monete_stella", 5)
 			
-			# Carica Icone
 			current_icon_index = data.get("current_icon_index", 0)
 			var loaded_icons = data.get("unlocked_icons", [])
 			if loaded_icons.size() > 0: unlocked_icons = loaded_icons
 			
-			# Carica Navi
 			selected_ship_index = data.get("selected_ship_index", 0)
-			# Impostiamo la scena corretta in base all'indice salvato
 			if selected_ship_index < ship_scenes.size():
 				selected_ship_scene = ship_scenes[selected_ship_index]
 			
 			var loaded_ships = data.get("unlocked_ships", [])
 			if loaded_ships.size() > 0: unlocked_ships = loaded_ships
 			
-			# Carica Records
 			if data.has("records"):
 				var loaded_records = data["records"]
 				for key in records.keys():
 					if loaded_records.has(key): records[key] = loaded_records[key]
 			
-			# Carica Upgrades
+			# Caricamento dinamico degli Upgrade
 			if data.has("upgrades"):
-				var u = data["upgrades"]
-				triple_shot_enabled = u.get("triple_shot_enabled", false)
-				speed_boost_enabled = u.get("speed_boost_enabled", false)
-				triple_shot_purchased = u.get("triple_shot_purchased", false)
-				speed_boost_purchased = u.get("speed_boost_purchased", false)
+				var loaded_upgrades = data["upgrades"]
+				# Iteriamo sulle chiavi di default, così se aggiungi una nuova nave
+				# in futuro, non crasherà caricando un vecchio salvataggio senza di essa.
+				for key in upgrades.keys():
+					if loaded_upgrades.has(key):
+						upgrades[key]["purchased"] = loaded_upgrades[key].get("purchased", false)
+						upgrades[key]["enabled"] = loaded_upgrades[key].get("enabled", false)
 				
 		file.close()
 
@@ -132,11 +124,9 @@ func format_time(seconds) -> String:
 	var s = int(seconds) % 60
 	return "%02d:%02d" % [m, s]
 
-# Helper per ottenere la scena
 func get_selected_player_scene() -> PackedScene:
 	return selected_ship_scene
 
-# Helper per impostare la nave (chiamato dal menu shop)
 func set_player_ship(index: int):
 	if index < ship_scenes.size():
 		selected_ship_index = index

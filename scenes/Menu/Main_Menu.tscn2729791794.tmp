@@ -949,30 +949,13 @@ theme_override_icons/unchecked_disabled_mirrored = ExtResource("21_bt8s7")
 text = "
 "
 
-[node name="Sprite2D" type="Sprite2D" parent="Armadietto/Miglioramenti/Upgrade1" unique_id=1633997208]
-texture_filter = 1
-position = Vector2(26, 130)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("23_apcd8")
-
-[node name="Price1" type="Label" parent="Armadietto/Miglioramenti/Upgrade1" unique_id=70429224]
-texture_filter = 1
-layout_mode = 0
-offset_left = 50.0
-offset_top = 122.0
-offset_right = 164.0
-offset_bottom = 135.0
-scale = Vector2(2, 2)
-theme_override_colors/font_color = Color(1, 0.81960785, 0.1254902, 1)
-theme_override_font_sizes/font_size = 12
-text = ": 0"
-
 [node name="Upgrade2" type="CheckButton" parent="Armadietto/Miglioramenti" unique_id=543490884]
 layout_mode = 0
 offset_left = 245.0
 offset_top = 83.0
 offset_right = 385.0
 offset_bottom = 219.0
+theme_override_colors/icon_disabled_color = Color(0.996078, 0, 0, 1)
 theme_override_icons/icon = ExtResource("21_bt8s7")
 theme_override_icons/checked = ExtResource("21_bt8s7")
 theme_override_icons/unchecked = ExtResource("21_bt8s7")
@@ -981,24 +964,6 @@ theme_override_icons/unchecked_disabled = ExtResource("21_bt8s7")
 theme_override_icons/checked_mirrored = ExtResource("21_bt8s7")
 theme_override_icons/unchecked_mirrored = ExtResource("21_bt8s7")
 theme_override_icons/checked_disabled_mirrored = ExtResource("21_bt8s7")
-
-[node name="Sprite2D" type="Sprite2D" parent="Armadietto/Miglioramenti/Upgrade2" unique_id=276911655]
-texture_filter = 1
-position = Vector2(26, 128)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("23_apcd8")
-
-[node name="Price2" type="Label" parent="Armadietto/Miglioramenti/Upgrade2" unique_id=1368148590]
-texture_filter = 1
-layout_mode = 0
-offset_left = 50.0
-offset_top = 118.5
-offset_right = 164.0
-offset_bottom = 131.5
-scale = Vector2(2, 2)
-theme_override_colors/font_color = Color(1, 0.81960785, 0.1254902, 1)
-theme_override_font_sizes/font_size = 12
-text = ": 0"
 
 [node name="Ritorno" type="Button" parent="Armadietto/Miglioramenti" unique_id=565849994]
 layout_mode = 1

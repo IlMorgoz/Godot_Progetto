@@ -1,63 +1,76 @@
 extends Panel
 
-@onready var upgrade1 = $Upgrade1 # CheckBox per attivare Triple Shot
-@onready var upgrade2 = $Upgrade2 # CheckBox per attivare Speed Boost
+@onready var upgrade1 = $Upgrade1
+@onready var upgrade2 = $Upgrade2
 @onready var nodo = get_parent()
 
+# Dizionario unico: contiene Nomi, Costi, Chiavi Salvataggio e Icone
+var ship_data = {
+	0: {
+		"u1": {"nome": "Triple Shot", "costo": 500, "key": "triple_shot", "icon": preload("res://Sprites/Buttons/Button_disabled_3x.png")},
+		"u2": {"nome": "Speed Boost", "costo": 750, "key": "speed_boost", "icon": preload("res://Sprites/Buttons/Button_disabled_spd.png")}
+	},
+	1: {
+		"u1": {"nome": "Homing", "costo": 500, "key": "homing", "icon": preload("res://Sprites/Buttons/#TEMP1.png")},
+		"u2": {"nome": "Big Bullet", "costo": 750, "key": "big_bullet", "icon": preload("res://Sprites/Buttons/#TEMP2.png")}
+	},
+	2: {
+		"u1": {"nome": "Shield", "costo": 500, "key": "shield", "icon": preload("res://Sprites/Buttons/#TEMP3.png")},
+		"u2": {"nome": "Super Shield", "costo": 750, "key": "super_shield", "icon": preload("res://Sprites/Buttons/#TEMP4.png")}
+	}
+}
+
 func _ready():
-	# 2. Gestione stato attivazione (CheckBox)
-	# Impostiamo la spunta se l'upgrade è attivo
-	upgrade1.button_pressed = GameData.triple_shot_enabled
-	upgrade2.button_pressed = GameData.speed_boost_enabled
+	update_ui_elements()
+
+func update_ui_elements():
+	var ship_idx = GameData.selected_ship_index
+	var data = ship_data[ship_idx]
 	
-	# (Opzionale) Disabilitiamo la possibilità di cliccare la spunta se non è comprato
-	upgrade1.disabled = not GameData.triple_shot_purchased
-	upgrade2.disabled = not GameData.speed_boost_purchased
+	# Applichiamo icone e stati usando un piccolo ciclo o riferimenti diretti
+	_setup_button(upgrade1, data["u1"])
+	_setup_button(upgrade2, data["u2"])
+	$Upgrade1/Price1.text=str(data["u1"]["costo"])
+	$Upgrade2/Price2.text=str(data["u2"]["costo"])
 
 func _on_button_pressed() -> void:
-	# Acquisto Triple Shot (Costo 500)
-	if GameData.spend_monete(500):
-		print("Acquisto Triple Shot Riuscito")
-		
-		# Aggiorna dati
-		GameData.triple_shot_purchased = true
-		GameData.triple_shot_enabled = true # Lo attiviamo subito per comodità
-		GameData.save_data()
-		
-		# Aggiorna UI
-		upgrade1.disabled = false
-		upgrade1.button_pressed = true
-	else:
-		print("Monete Insufficienti (Serve 500)")
+	_process_purchase("u1")
 
 func _on_button_2_pressed() -> void:
-	# Acquisto Speed Boost (Costo 750)
-	if GameData.spend_monete(750):
-		print("Acquisto Speed Boost Riuscito")
-		
-		# Aggiorna dati
-		GameData.speed_boost_purchased = true
-		GameData.speed_boost_enabled = true
-		GameData.save_data()
-		
-		# Aggiorna UI
-		upgrade2.disabled = false
-		upgrade2.button_pressed = true
-	else:
-		print("Monete Insufficienti (Serve 750)")
+	_process_purchase("u2")
 
+# Quando configuri i bottoni a schermo:
+func _setup_button(btn, info: Dictionary):
+	btn.icon = info["icon"]
+	var key = info["key"] # es: "triple_shot"
+	btn.button_pressed = GameData.upgrades[key]["enabled"]
+	btn.disabled = not GameData.upgrades[key]["purchased"]
+
+# Quando compri l'upgrade:
+func _process_purchase(upgrade_id: String):
+	var data = ship_data[GameData.selected_ship_index][upgrade_id]
+	var key = data["key"]
+	
+	if GameData.spend_monete(data["costo"]):
+		GameData.upgrades[key]["purchased"] = true
+		GameData.upgrades[key]["enabled"] = true
+		GameData.save_data()
+		update_ui_elements()
+	else:
+		print("Monete insufficienti per: ", data["nome"])
+
+# Quando clicchi la spunta per attivare/disattivare:
 func _on_upgrade_1_toggled(toggled_on: bool) -> void:
-	# Questa funzione scatta quando clicchi la checkbox (dopo averla comprata)
-	GameData.triple_shot_enabled = toggled_on
+	var key = ship_data[GameData.selected_ship_index]["u1"]["key"]
+	GameData.upgrades[key]["enabled"] = toggled_on
 	GameData.save_data()
 
 func _on_upgrade_2_toggled(toggled_on: bool) -> void:
-	GameData.speed_boost_enabled = toggled_on
+	var key = ship_data[GameData.selected_ship_index]["u2"]["key"]
+	GameData.set(key + "_enabled", toggled_on)
 	GameData.save_data()
-	print("NUOVO STATO VELOCITÀ BOOST:", toggled_on)
-	
+
 func _on_ritorno_pressed() -> void:
-	# Chiama la funzione del genitore per chiudere il pannello
 	if nodo.has_method("turn_on"):
 		nodo.turn_on(self)
 	else:

@@ -42,6 +42,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("shoot") and time_since_last_shot >= FIRE_RATE:
 		fire()
 		time_since_last_shot = 0.0
+		GameData.sblocca_achievement("primo_sparo")
 
 	move_and_slide()
 

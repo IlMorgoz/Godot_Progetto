@@ -87,6 +87,6 @@ func die() -> void:
 	var explosion = ExplosionScene.instantiate()
 	explosion.global_position = global_position
 	get_parent().add_child(explosion)
-
 	emit_signal("died")
+	GameData.aggiungi_kill_ufo()
 	queue_free()

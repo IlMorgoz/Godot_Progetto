@@ -901,6 +901,7 @@ theme_override_colors/font_color = Color(1, 0.81960785, 0.1254902, 1)
 text = ": 140"
 
 [node name="Miglioramenti" type="Panel" parent="Armadietto" unique_id=212013024]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1241,7 +1242,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_cc4n5")
 text = "Indietro"
 
 [node name="LeaderboardMenu" type="Control" parent="." unique_id=33104913]
-visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1256,52 +1256,94 @@ grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("25_q3361")
 
-[node name="Panel" type="Panel" parent="LeaderboardMenu" unique_id=179121015]
+[node name="PanelContainer" type="HBoxContainer" parent="LeaderboardMenu" unique_id=783633689]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -174.0
-offset_top = -26.0
-offset_right = 182.0
-offset_bottom = 115.0
+offset_left = -378.5
+offset_top = -78.0
+offset_right = 378.5
+offset_bottom = 236.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="LeaderboardMenu/Panel" unique_id=872283047]
+[node name="Panel" type="Panel" parent="LeaderboardMenu/PanelContainer" unique_id=179121015]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LeaderboardMenu/PanelContainer/Panel" unique_id=872283047]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -89.0
-offset_top = -131.0
-offset_right = 89.0
-offset_bottom = -51.0
+anchor_bottom = 0.5
+offset_left = -83.75
+offset_top = -40.5
+offset_right = 83.75
+offset_bottom = 40.5
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 
-[node name="Titolo" type="Label" parent="LeaderboardMenu/Panel/VBoxContainer" unique_id=287861322]
+[node name="Titolo" type="Label" parent="LeaderboardMenu/PanelContainer/Panel/VBoxContainer" unique_id=287861322]
 layout_mode = 2
 
-[node name="Lbl_Mode1" type="Label" parent="LeaderboardMenu/Panel/VBoxContainer" unique_id=1622062035]
+[node name="Lbl_Mode1" type="Label" parent="LeaderboardMenu/PanelContainer/Panel/VBoxContainer" unique_id=1622062035]
 layout_mode = 2
 
-[node name="Lbl_Mode2" type="Label" parent="LeaderboardMenu/Panel/VBoxContainer" unique_id=1555108110]
+[node name="Lbl_Mode2" type="Label" parent="LeaderboardMenu/PanelContainer/Panel/VBoxContainer" unique_id=1555108110]
 layout_mode = 2
 
-[node name="Lbl_Mode3" type="Label" parent="LeaderboardMenu/Panel/VBoxContainer" unique_id=1059325941]
+[node name="Lbl_Mode3" type="Label" parent="LeaderboardMenu/PanelContainer/Panel/VBoxContainer" unique_id=1059325941]
 layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="LeaderboardMenu/PanelContainer" unique_id=884431523]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Achievement" type="VBoxContainer" parent="LeaderboardMenu/PanelContainer/Panel2" unique_id=1431267860]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 221.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="A1" type="Label" parent="LeaderboardMenu/PanelContainer/Panel2/Achievement" unique_id=2077134037]
+layout_mode = 2
+
+[node name="A2" type="Label" parent="LeaderboardMenu/PanelContainer/Panel2/Achievement" unique_id=164706423]
+layout_mode = 2
+
+[node name="A3" type="Label" parent="LeaderboardMenu/PanelContainer/Panel2/Achievement" unique_id=1560138407]
+layout_mode = 2
+
+[node name="A1_Image" type="TextureRect" parent="LeaderboardMenu/PanelContainer/Panel2/Achievement" unique_id=1318348099]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("21_geude")
+expand_mode = 1
+
+[node name="A2_Image" type="TextureRect" parent="LeaderboardMenu/PanelContainer/Panel2/Achievement" unique_id=496146630]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("22_uj7oi")
+expand_mode = 1
+
+[node name="A3_Image" type="TextureRect" parent="LeaderboardMenu/PanelContainer/Panel2/Achievement" unique_id=952148336]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("20_nsoon")
+expand_mode = 1
 
 [node name="Back" type="Button" parent="LeaderboardMenu" unique_id=1961597543]
 layout_mode = 0
-offset_left = 15.0
-offset_top = 207.0
-offset_right = 342.0
-offset_bottom = 238.0
+offset_left = 14.0
+offset_top = 302.0
+offset_right = 341.0
+offset_bottom = 333.0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30

@@ -36,5 +36,5 @@ func die() -> void:
 	var explosion = preload("res://scenes/AnimationAddOn/Explosion.tscn").instantiate()
 	get_parent().add_child(explosion)
 	explosion.global_position = global_position
-
+	GameData.aggiungi_kill_kamikaze()
 	queue_free()

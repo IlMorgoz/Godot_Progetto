@@ -2,6 +2,7 @@ extends Node
 
 signal monete_aggiornate(nuovo_valore)
 signal profile_icon_changed
+signal achievement_sbloccato(nome_achievement) # Segnale per gli achievements
 
 const SAVE_PATH = "user://game_data.save"
 
@@ -24,8 +25,7 @@ var unlocked_ships: Array = [true, false, false]
 var monete_stella: int = 0
 var records = { "mode_1": 0, "mode_2": 0, "mode_3": 0.0 }
 
-# --- NUOVO SISTEMA UPGRADES ---
-# Tutte le info sugli upgrade sono raggruppate qui!
+# --- SISTEMA UPGRADES ---
 var upgrades = {
 	"triple_shot": {"purchased": false, "enabled": false},
 	"speed_boost": {"purchased": false, "enabled": false},
@@ -35,10 +35,20 @@ var upgrades = {
 	"super_shield":{"purchased": false, "enabled": false}
 }
 
+# ACHIEVEMENTS E STATISTICHE
+var nemici_uccisi_mode_1: int = 0 # Conta le kill nella modalità kamikaze
+var nemici_uccisi_mode_2: int = 0 # Conta le kill nella modalità ufo
+
+var achievements = {
+	"primo_sparo": false,
+	"killer_kamikaze": false, # 10 nemici uccisi
+	"killer_ufo": false # 10 nemici uccisi
+}
+
 func _ready():
 	load_data()
 
-# --- SALVATAGGIO ---
+# SALVATAGGIO
 func save_data():
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file:
@@ -49,14 +59,20 @@ func save_data():
 			"unlocked_icons": unlocked_icons,
 			"selected_ship_index": selected_ship_index,
 			"unlocked_ships": unlocked_ships,
-			"upgrades": upgrades # Ora salviamo direttamente l'intero dizionario!
+			"upgrades": upgrades,
+			
+			# Salviamo le statistiche e gli achievements
+			"nemici_uccisi_mode_1": nemici_uccisi_mode_1,
+			"nemici_uccisi_mode_2": nemici_uccisi_mode_2,
+			"achievements": achievements,
 		}
 		file.store_string(JSON.stringify(data))
 		file.close()
 
-# --- CARICAMENTO ---
+# CARICAMENTO
 func load_data():
 	if not FileAccess.file_exists(SAVE_PATH):
+		save_data()
 		return 
 		
 	var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
@@ -85,19 +101,55 @@ func load_data():
 				for key in records.keys():
 					if loaded_records.has(key): records[key] = loaded_records[key]
 			
-			# Caricamento dinamico degli Upgrade
 			if data.has("upgrades"):
 				var loaded_upgrades = data["upgrades"]
-				# Iteriamo sulle chiavi di default, così se aggiungi una nuova nave
-				# in futuro, non crasherà caricando un vecchio salvataggio senza di essa.
 				for key in upgrades.keys():
 					if loaded_upgrades.has(key):
 						upgrades[key]["purchased"] = loaded_upgrades[key].get("purchased", false)
 						upgrades[key]["enabled"] = loaded_upgrades[key].get("enabled", false)
+						
+			# --- Caricamento Statistiche e Achievements ---
+			nemici_uccisi_mode_1 = data.get("nemici_uccisi_mode_1", 0)
+			if data.has("achievements"):
+				var loaded_achievements = data["achievements"]
+				for key in achievements.keys():
+					if loaded_achievements.has(key): 
+						achievements[key] = loaded_achievements[key]
+
+			nemici_uccisi_mode_2 = data.get("nemici_uccisi_mode_2", 0)
+			if data.has("achievements"):
+				var loaded_achievements = data["achievements"]
+				for key in achievements.keys():
+					if loaded_achievements.has(key): 
+						achievements[key] = loaded_achievements[key]
 				
 		file.close()
 
-# --- LOGICA MONETE ---
+# ACHIEVEMENTS
+func sblocca_achievement(id_achievement: String):
+	if achievements.has(id_achievement) and achievements[id_achievement] == false:
+		achievements[id_achievement] = true
+		save_data() 
+		emit_signal("achievement_sbloccato", id_achievement)
+		print("🏆 ACHIEVEMENT SBLOCCATO: ", id_achievement, "!")
+
+# Usa questa funzione quando uccidi un nemico nella Modalità 1
+func aggiungi_kill_kamikaze():
+	nemici_uccisi_mode_1 += 1
+	save_data() 
+	
+	if nemici_uccisi_mode_1 >= 10:
+		sblocca_achievement("killer_kamikaze")
+
+func aggiungi_kill_ufo():
+	nemici_uccisi_mode_2 += 1
+	save_data() 
+	
+	if nemici_uccisi_mode_2 >= 10:
+		sblocca_achievement("killer_ufo")
+
+
+# MONETE
 func add_monete(amount: int) -> void:
 	monete_stella += amount
 	save_data()
@@ -113,7 +165,7 @@ func spend_monete(amount: int) -> bool:
 		print("Non hai abbastanza monete!")
 		return false
 
-# --- LOGICA RECORDS ---
+# RECORDS
 func check_and_save_record(mode: String, value):
 	if value > records.get(mode, 0):
 		records[mode] = value

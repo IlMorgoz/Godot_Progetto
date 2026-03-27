@@ -2,7 +2,7 @@ extends Node
 
 signal monete_aggiornate(nuovo_valore)
 signal profile_icon_changed
-signal achievement_sbloccato(nome_achievement) # Segnale per gli achievements
+signal achievement_sbloccato(nome_achievement)
 
 const SAVE_PATH = "user://game_data.save"
 
@@ -23,6 +23,7 @@ var unlocked_ships: Array = [true, false, false]
 
 # --- DATI DI GIOCO ---
 var monete_stella: int = 0
+var stelle_totali_ottenute: int = 0 # Serve per l'achievement delle 1000 stelle
 var records = { "mode_1": 0, "mode_2": 0, "mode_3": 0.0 }
 
 # --- SISTEMA UPGRADES ---
@@ -35,25 +36,35 @@ var upgrades = {
 	"super_shield":{"purchased": false, "enabled": false}
 }
 
-# ACHIEVEMENTS E STATISTICHE
-var nemici_uccisi_mode_1: int = 0 # Conta le kill nella modalità kamikaze
-var nemici_uccisi_mode_2: int = 0 # Conta le kill nella modalità ufo
+# ACHIEVEMENTS E STATISTICHE (Contatori Kill separati per nemico)
+var kill_kamikaze: int = 0
+var kill_ufo: int = 0
+var kill_tartarughe: int = 0
+var kill_purpleDevil: int = 0
 
 var achievements = {
 	"primo_sparo": false,
-	"killer_kamikaze": false, # 10 nemici uccisi
-	"killer_ufo": false # 10 nemici uccisi
+	"killer_kamikaze": false, 
+	"killer_ufo": false, 
+	"killer_tartarughe": false, 
+	"killer_purpleDevil": false,  
+	"primaMod_MaiColpito": false, 
+	"stella_diamante": false,  
+	"primoAcquisto": false,
+	"tutteLeNavicelle": false, 
+	"tutteLeIcone": false # Corretto il testo che dava errore
 }
 
 func _ready():
 	load_data()
 
-# SALVATAGGIO
+# --- SALVATAGGIO ---
 func save_data():
 	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	if file:
 		var data = {
 			"monete_stella": monete_stella,
+			"stelle_totali_ottenute": stelle_totali_ottenute,
 			"records": records,
 			"current_icon_index": current_icon_index,
 			"unlocked_icons": unlocked_icons,
@@ -61,15 +72,18 @@ func save_data():
 			"unlocked_ships": unlocked_ships,
 			"upgrades": upgrades,
 			
-			# Salviamo le statistiche e gli achievements
-			"nemici_uccisi_mode_1": nemici_uccisi_mode_1,
-			"nemici_uccisi_mode_2": nemici_uccisi_mode_2,
-			"achievements": achievements,
+			# Salvataggio Statistiche Kill
+			"kill_kamikaze": kill_kamikaze,
+			"kill_ufo": kill_ufo,
+			"kill_tartarughe": kill_tartarughe,
+			"kill_purpleDevil": kill_purpleDevil,
+			
+			"achievements": achievements
 		}
 		file.store_string(JSON.stringify(data))
 		file.close()
 
-# CARICAMENTO
+# --- CARICAMENTO ---
 func load_data():
 	if not FileAccess.file_exists(SAVE_PATH):
 		save_data()
@@ -84,6 +98,7 @@ func load_data():
 			var data = json.get_data()
 			
 			monete_stella = data.get("monete_stella", 5)
+			stelle_totali_ottenute = data.get("stelle_totali_ottenute", monete_stella)
 			
 			current_icon_index = data.get("current_icon_index", 0)
 			var loaded_icons = data.get("unlocked_icons", [])
@@ -108,15 +123,12 @@ func load_data():
 						upgrades[key]["purchased"] = loaded_upgrades[key].get("purchased", false)
 						upgrades[key]["enabled"] = loaded_upgrades[key].get("enabled", false)
 						
-			# --- Caricamento Statistiche e Achievements ---
-			nemici_uccisi_mode_1 = data.get("nemici_uccisi_mode_1", 0)
-			if data.has("achievements"):
-				var loaded_achievements = data["achievements"]
-				for key in achievements.keys():
-					if loaded_achievements.has(key): 
-						achievements[key] = loaded_achievements[key]
-
-			nemici_uccisi_mode_2 = data.get("nemici_uccisi_mode_2", 0)
+			# Caricamento Statistiche Kill
+			kill_kamikaze = data.get("kill_kamikaze", 0)
+			kill_ufo = data.get("kill_ufo", 0)
+			kill_tartarughe = data.get("kill_tartarughe", 0)
+			kill_purpleDevil = data.get("kill_purpleDevil", 0)
+			
 			if data.has("achievements"):
 				var loaded_achievements = data["achievements"]
 				for key in achievements.keys():
@@ -125,7 +137,7 @@ func load_data():
 				
 		file.close()
 
-# ACHIEVEMENTS
+# --- ACHIEVEMENTS ---
 func sblocca_achievement(id_achievement: String):
 	if achievements.has(id_achievement) and achievements[id_achievement] == false:
 		achievements[id_achievement] = true
@@ -133,31 +145,38 @@ func sblocca_achievement(id_achievement: String):
 		emit_signal("achievement_sbloccato", id_achievement)
 		print("🏆 ACHIEVEMENT SBLOCCATO: ", id_achievement, "!")
 
-# Usa questa funzione quando uccidi un nemico nella Modalità 1
-func aggiungi_kill_kamikaze():
-	nemici_uccisi_mode_1 += 1
-	save_data() 
-	
-	if nemici_uccisi_mode_1 >= 10:
-		sblocca_achievement("killer_kamikaze")
+# Funzione Universale per le Kill
+func aggiungi_kill(tipo_nemico: String):
+	if tipo_nemico == "kamikaze":
+		kill_kamikaze += 1
+		if kill_kamikaze >= 10: sblocca_achievement("killer_kamikaze")
+	elif tipo_nemico == "ufo":
+		kill_ufo += 1
+		if kill_ufo >= 10: sblocca_achievement("killer_ufo")
+	elif tipo_nemico == "tartaruga":
+		kill_tartarughe += 1
+		if kill_tartarughe >= 10: sblocca_achievement("killer_tartarughe")
+	elif tipo_nemico == "purple_devil":
+		kill_purpleDevil += 1
+		if kill_purpleDevil >= 10: sblocca_achievement("killer_purpleDevil")
+		
+	save_data()
 
-func aggiungi_kill_ufo():
-	nemici_uccisi_mode_2 += 1
-	save_data() 
-	
-	if nemici_uccisi_mode_2 >= 10:
-		sblocca_achievement("killer_ufo")
-
-
-# MONETE
+# --- MONETE ---
 func add_monete(amount: int) -> void:
 	monete_stella += amount
+	stelle_totali_ottenute += amount # Aggiorna il record totale
+	
+	if stelle_totali_ottenute >= 1000:
+		sblocca_achievement("stella_diamante")
+		
 	save_data()
 	emit_signal("monete_aggiornate", monete_stella)
 
 func spend_monete(amount: int) -> bool:
 	if monete_stella >= amount:
 		monete_stella -= amount
+		sblocca_achievement("primoAcquisto") # Sblocca achievement spesa
 		save_data()
 		emit_signal("monete_aggiornate", monete_stella)
 		return true
@@ -165,7 +184,7 @@ func spend_monete(amount: int) -> bool:
 		print("Non hai abbastanza monete!")
 		return false
 
-# RECORDS
+# --- RECORDS ---
 func check_and_save_record(mode: String, value):
 	if value > records.get(mode, 0):
 		records[mode] = value
@@ -176,6 +195,7 @@ func format_time(seconds) -> String:
 	var s = int(seconds) % 60
 	return "%02d:%02d" % [m, s]
 
+# --- PLAYER ---
 func get_selected_player_scene() -> PackedScene:
 	return selected_ship_scene
 

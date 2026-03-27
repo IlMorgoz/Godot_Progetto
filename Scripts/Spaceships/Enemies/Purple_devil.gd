@@ -103,4 +103,7 @@ func die() -> void:
 	get_parent().add_child(explosion)
 
 	emit_signal("died")
+	
+	GameData.aggiungi_kill("purple_devil") # Aggiunto
+	
 	queue_free()

@@ -31,10 +31,10 @@ func take_damage(amount: int) -> void:
 		die()
 
 # Quando la vita finisce
-func die() -> void:
-	# istanzia particelle esplosione
-	var explosion = preload("res://scenes/AnimationAddOn/Explosion.tscn").instantiate()
-	get_parent().add_child(explosion)
-	explosion.global_position = global_position
-	GameData.aggiungi_kill_kamikaze()
+func die() -> void: 	
+	# istanzia particelle esplosione 	
+	var explosion = preload("res://scenes/AnimationAddOn/Explosion.tscn").instantiate() 	
+	get_parent().add_child(explosion) 	
+	explosion.global_position = global_position 	 	
+	GameData.aggiungi_kill("kamikaze") # Aggiunge
 	queue_free()

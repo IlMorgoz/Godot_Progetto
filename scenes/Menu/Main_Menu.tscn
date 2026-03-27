@@ -1269,6 +1269,7 @@ offset_right = 378.5
 offset_bottom = 236.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 0
 
 [node name="Panel" type="Panel" parent="LeaderboardMenu/PanelContainer" unique_id=179121015]
 layout_mode = 2
@@ -1281,10 +1282,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -83.75
-offset_top = -40.5
-offset_right = 83.75
-offset_bottom = 40.5
+offset_left = -78.75
+offset_top = -63.5
+offset_right = 88.75
+offset_bottom = 17.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1304,12 +1305,38 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="Achievement2" type="VBoxContainer" parent="LeaderboardMenu/PanelContainer/Panel2" unique_id=764649800]
+layout_mode = 0
+offset_left = 11.5
+offset_top = 3.0
+offset_right = 111.5
+offset_bottom = 311.0
+scale = Vector2(0.5, 0.5)
+alignment = 1
+
+[node name="A1_Image" type="TextureRect" parent="LeaderboardMenu/PanelContainer/Panel2/Achievement2" unique_id=1318348099]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("21_geude")
+
+[node name="A2_Image" type="TextureRect" parent="LeaderboardMenu/PanelContainer/Panel2/Achievement2" unique_id=496146630]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("22_uj7oi")
+
+[node name="A3_Image" type="TextureRect" parent="LeaderboardMenu/PanelContainer/Panel2/Achievement2" unique_id=952148336]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("20_nsoon")
+
 [node name="Achievement" type="VBoxContainer" parent="LeaderboardMenu/PanelContainer/Panel2" unique_id=1431267860]
 layout_mode = 0
-offset_right = 50.0
-offset_bottom = 221.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 70.5
+offset_top = 8.0
+offset_right = 355.5
+offset_bottom = 157.0
+theme_override_constants/separation = 35
+alignment = 1
 
 [node name="A1" type="Label" parent="LeaderboardMenu/PanelContainer/Panel2/Achievement" unique_id=2077134037]
 layout_mode = 2
@@ -1319,24 +1346,6 @@ layout_mode = 2
 
 [node name="A3" type="Label" parent="LeaderboardMenu/PanelContainer/Panel2/Achievement" unique_id=1560138407]
 layout_mode = 2
-
-[node name="A1_Image" type="TextureRect" parent="LeaderboardMenu/PanelContainer/Panel2/Achievement" unique_id=1318348099]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("21_geude")
-expand_mode = 1
-
-[node name="A2_Image" type="TextureRect" parent="LeaderboardMenu/PanelContainer/Panel2/Achievement" unique_id=496146630]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("22_uj7oi")
-expand_mode = 1
-
-[node name="A3_Image" type="TextureRect" parent="LeaderboardMenu/PanelContainer/Panel2/Achievement" unique_id=952148336]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-texture = ExtResource("20_nsoon")
-expand_mode = 1
 
 [node name="Back" type="Button" parent="LeaderboardMenu" unique_id=1961597543]
 layout_mode = 0

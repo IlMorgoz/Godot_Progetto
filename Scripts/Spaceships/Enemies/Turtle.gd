@@ -74,4 +74,6 @@ func die() -> void:
 	explosion.emitting = true
 	get_parent().add_child(explosion)
 
+	GameData.aggiungi_kill("tartaruga") # Aggiunto
+
 	queue_free()

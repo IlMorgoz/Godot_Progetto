@@ -28,6 +28,7 @@ func update_ui_state():
 			slot.btn.disabled = (GameData.monete_stella < slot.cost)
 
 # Unica funzione per tutti i tasti (passa l'indice dall'Editor)
+# Unica funzione per tutti i tasti (passa l'indice dall'Editor)
 func _on_seleziona_generic(index: int) -> void:
 	var slot = ship_slots[index]
 	
@@ -38,7 +39,16 @@ func _on_seleziona_generic(index: int) -> void:
 			GameData.unlocked_ships[index] = true
 			update_ui_state()
 			GameData.set_player_ship(index)
-
+			
+			# ACHIEVEMENT NAVICELLE
+			var tutte_sbloccate = true
+			for sbloccata in GameData.unlocked_ships:
+				if sbloccata == false:
+					tutte_sbloccate = false
+					break # Trovata una bloccata, smette di cercare
+					
+			if tutte_sbloccate:
+				GameData.sblocca_achievement("tutteLeNavicelle")
 func _on_back_pressed() -> void:
 	# Chiama la funzione del genitore per chiudere il pannello
 	if nodo.has_method("turn_on"):

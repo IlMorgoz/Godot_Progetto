@@ -102,6 +102,10 @@ func _update_timer_label():
 # Funzione per gestire la morte del player
 func _on_player_died():
 	game_timer.stop()
+	$AudioStreamPlayer.pitch_scale=0.4
+	Engine.time_scale=0.1
+	await get_tree().create_timer(3*Engine.time_scale).timeout
+	Engine.time_scale=1
 	if spawner: spawner.set_process(false)
 	_game_over()
 

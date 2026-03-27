@@ -5,23 +5,29 @@ extends CanvasLayer
 @onready var lbl_descrizione = $Contenitore/HBoxContainer/VBoxContainer/Descrizione
 @onready var icona_achievement = $Contenitore/HBoxContainer/TextureRect
 
-# Aggiorniamo il dizionario aggiungendo la voce "icona"
+# dizionario
 var testi_achievements = {
-	"primo_sparo": {
-		"titolo": "Primo Sangue", 
-		"desc": "Hai sparato il tuo primo proiettile!",
-		"icona": preload("res://Sprites/Buttons/#TEMP1.png") 
-	},
-	"killer_kamikaze": {
-		"titolo": "Sterminatore di ", 
-		"desc": "Hai eliminato 10 Kamikaze!",
-		"icona": preload("res://Sprites/Buttons/#TEMP4.png")
-	},
-	"killer_ufo": {
-		"titolo": "Sterminatore di ufo", 
-		"desc": "Hai eliminato 10 ufo!",
-		"icona": preload("res://Sprites/Buttons/#TEMP2.png")
-	}
+
+"primo_sparo": {"titolo": "Pew Pew!", "desc": "Hai sparato il tuo primo proiettile!", "icona": null},
+
+"killer_kamikaze": {"titolo": "Esplosivo", "desc": "Hai eliminato 10 Kamikaze!", "icona": preload("res://Sprites/Buttons/#TEMP2.png")},
+
+"killer_ufo": {"titolo": "Area 51", "desc": "Hai distrutto 10 UFO!", "icona": null},
+
+"killer_tartarughe": {"titolo": "Donatello", "desc": "Hai eliminato 10 Tartarughe spaziali!", "icona": null},
+
+"killer_purpleDevil": {"titolo": "Esorcista Spaziale", "desc": "Hai rimandato a casa 10 Purple Devil!", "icona": null},
+
+"secondaMod_MaiColpito": {"titolo": "Intoccabile", "desc": "Hai completato le Ondate senza subire danni!", "icona": null},
+
+"stella_diamante": {"titolo": "Zio Paperone", "desc": "Hai raccolto 1000 Stelle totali!", "icona": null},
+
+"primoAcquisto": {"titolo": "Dollaroni", "desc": "Hai fatto il tuo primo acquisto nel negozio!", "icona": null},
+
+"tutteLeNavicelle": {"titolo": "Concessionario Stellare", "desc": "Hai sbloccato tutte le navicelle!", "icona": null},
+
+"tutteLeIcone": {"titolo": "Profilato", "desc": "Hai sbloccato tutte le icone profilo!", "icona": null}
+
 }
 
 func _ready():

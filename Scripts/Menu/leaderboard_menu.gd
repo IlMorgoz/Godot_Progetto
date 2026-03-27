@@ -34,29 +34,29 @@ func update_scores():
 	
 	# Achievement 1: Primo Sparo
 	if GameData.achievements["primo_sparo"] == true:
-		lbl_a1.text = "Primo Sangue (Sbloccato)"
+		lbl_a1.text = "Pew Pew! (Sbloccato)"
 		lbl_a1.modulate = Color(0, 1, 0) # Verde
 	else:
 		lbl_a1.text = "Spara il tuo primo proiettile"
 		lbl_a1.modulate = Color(0.6, 0.6, 0.6) # Grigio
 		
-	# Achievement 2: 10 Kamikaze
+	# Achievement 2: 10 Kamikaze ("Esplosivo")
 	if GameData.achievements["killer_kamikaze"] == true:
-		lbl_a2.text = "Sterminatore di Kamikaze!"
+		lbl_a2.text = "Esplosivo (Sbloccato)"
 		lbl_a2.modulate = Color(0, 1, 0) # Verde
 	else:
-		# Mostriamo le kill attuali
-		var kill_attuali = GameData.nemici_uccisi_mode_1
+		# Mostriamo le kill attuali con la NUOVA variabile
+		var kill_attuali = GameData.kill_kamikaze
 		lbl_a2.text = "Elimina 10 Kamikaze (" + str(kill_attuali) + "/10)"
 		lbl_a2.modulate = Color(0.6, 0.6, 0.6) # Grigio
 		
-	# Achievement 3: 10 Ufo
+	# Achievement 3: 10 Ufo ("Area 51")
 	if GameData.achievements["killer_ufo"] == true:
-		lbl_a3.text = "Sterminatore di Ufo!"
+		lbl_a3.text = "Area 51 (Sbloccato)"
 		lbl_a3.modulate = Color(0, 1, 0) # Verde
 	else:
-		# Mostriamo le kill attuali
-		var kill_attuali = GameData.nemici_uccisi_mode_2
+		# Mostriamo le kill attuali con la NUOVA variabile
+		var kill_attuali = GameData.kill_ufo
 		lbl_a3.text = "Elimina 10 Ufo (" + str(kill_attuali) + "/10)"
 		lbl_a3.modulate = Color(0.6, 0.6, 0.6) # Grigio
 

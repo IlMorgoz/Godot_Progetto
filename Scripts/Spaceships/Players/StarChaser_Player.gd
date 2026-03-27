@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	
 	# --- CORREZIONE DIPENDENZA ---
 	# Usiamo GameData invece di Global
-	if GameData.speed_boost_enabled:
+	if GameData.upgrades.speed_boost.enabled:
 		speed += EXTRA_SPEED
 
 	# Movimento fluido
@@ -52,7 +52,7 @@ func fire():
 
 	# --- CORREZIONE DIPENDENZA ---
 	# Usiamo GameData invece di Global
-	if GameData.triple_shot_enabled:
+	if GameData.upgrades.triple_shot.enabled:
 		spawn_bullet(shooty_part2)
 		spawn_bullet(shooty_part3)
 

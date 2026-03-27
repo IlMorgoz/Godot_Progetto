@@ -35,28 +35,22 @@ func _spawn_player() -> void:
 		player.tree_exited.connect(_on_player_died)
 
 func _on_player_died():
-	# 1. Evita doppi richiami (se il player muore più volte nello stesso frame)
-	if not is_game_active: 
-		return
-		
-	is_game_active = false
-	
-	print("Game Over Endless! Tempo: %.2f" % time_survived)
-	
-	# 2. Salva il punteggio (Record Modalità 3) tramite GameData
-	GameData.check_and_save_record("mode_3", time_survived)
-	
-	# 3. Controllo se siamo ancora nell'albero della scena (sicurezza)
-	if not is_inside_tree() or get_tree() == null:
-		return
+	#$AudioStreamPlayer.pitch_scale=0.4
+	Engine.time_scale=0.1
+	await $".".create_timer(3*Engine.time_scale).timeout
+	Engine.time_scale=1
+	_game_over()
 
-	# Ora è sicuro creare il timer
-	await get_tree().create_timer(2.0).timeout
+func _game_over():
+	print("Gioco terminato! Monete totali: %d" % GameData.monete_stella)
 	
-	# 4. Ricontrolliamo prima di cambiare scena
-	if get_tree():
-		# Se esiste il singleton FadeTransition usiamo quello, altrimenti cambio standard
-		if has_node("/root/FadeTransition"):
-			FadeTransition.change_scene("res://scenes/Menu/Main_Menu.tscn")
-		else:
-			get_tree().change_scene_to_file("res://scenes/Menu/Main_Menu.tscn")
+	# DIPENDENZA CORRETTA: Salva il record su GameData
+	GameData.check_and_save_record("mode_3", time_survived)
+	# --------------------------
+
+	# Gestione transizione scena
+	if FileAccess.file_exists("res://scenes/AnimationAddOn/fade_transition.tscn"):
+		# Se hai il singleton FadeTransition attivato
+		FadeTransition.change_scene("res://scenes/Menu/Main_Menu.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/Menu/Main_Menu.tscn")

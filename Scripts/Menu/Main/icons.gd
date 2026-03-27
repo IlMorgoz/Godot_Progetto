@@ -40,6 +40,16 @@ func _on_btn_pressed(id: int) -> void:
 			GameData.save_data()
 			update_ui_state()
 			_equip_icon(id)
+			
+			# --- NUOVO: CONTROLLO ACHIEVEMENT ICONE ---
+			var tutte_sbloccate = true
+			for sbloccata in GameData.unlocked_icons:
+				if sbloccata == false:
+					tutte_sbloccate = false
+					break # Trovata una bloccata, smette di cercare
+					
+			if tutte_sbloccate:
+				GameData.sblocca_achievement("tutteLeIcone")
 
 func _equip_icon(id: int):
 	GameData.current_icon_index = id

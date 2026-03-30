@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bx3pgdgf1rwwp"
-path="res://.godot/imported/Button_enabled_spd.png-289c932ad7b1fdd87d4d0471bbdca1c0.ctex"
+uid="uid://d0pftj1pvqw8h"
+path="res://.godot/imported/triple_shoot_off.png-3b9de5f151b73e6cdbda770253a7386a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Buttons/Button_enabled_spd.png"
-dest_files=["res://.godot/imported/Button_enabled_spd.png-289c932ad7b1fdd87d4d0471bbdca1c0.ctex"]
+source_file="res://Sprites/Buttons/triple_shoot_off.png"
+dest_files=["res://.godot/imported/triple_shoot_off.png-3b9de5f151b73e6cdbda770253a7386a.ctex"]
 
 [params]
 

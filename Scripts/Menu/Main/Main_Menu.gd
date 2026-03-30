@@ -8,7 +8,7 @@ extends Control
 	"options": $Options,
 	"armadietto": $Armadietto,
 	"selection": $Gioca,
-	"leaderboard": $LeaderboardMenu
+	"leaderboard": $LeaderboardAndAchievementsMenu
 }
 
 func _ready() -> void:
@@ -35,16 +35,42 @@ func _update_player_icon():
 	else:
 		print("Errore: Indice icona non trovato nell'array!")
 
+# ... existing Main_Menu.gd code ...
+
+# Dictionary of background elements to hide selectively
+# ATTENZIONE: Assicurati che questi percorsi coincidano esattamente con i nomi dei nodi nel tuo albero del menu principale!
+@onready var background_elements = {
+	"title": $Title,          # "Tempera Biscotti"
+	"profile_info": $PlayerInfo,   # icona profilo
+	"coins": $MoneteLabel      # monete
+	# ... aggiungi altri nodi del background se necessario ...
+}
+
 func switch_view(view_name: String) -> void:
 	for key in views:
 		views[key].visible = (key == view_name)
-	# Gestione speciale per il tasto "Back" che non è una vista intera
+		
+	# Gestione speciale per il tasto "Back" (se la sua posizione è ok, lascialo così)
 	$Options/VBoxContainer/Back.visible = (view_name != "main")
 
+	# --- NASCONDERE SELETTIVAMENTE GLI ELEMENTI DEL BACKGROUND ---
+	# Nascondi gli elementi se siamo nella schermata leaderboard, mostrali altrimenti
+	var is_on_leaderboard = (view_name == "leaderboard")
+	for key in background_elements:
+		# Se l'elemento esiste, lo nascondiamo o lo mostriamo
+		if background_elements[key]:
+			background_elements[key].visible = !is_on_leaderboard
+
+	# --- Opzione per nascondere anche MainButtons se preferisci ---
+	# $MainButtons.visible = !is_on_leaderboard
+
+# ... the rest of the Main_Menu.gd code ...
 func fade_out_music(duration: float = 1.0):
 	var tween = create_tween()
 	tween.tween_property(musica, "volume_db", -80.0, duration)
 	tween.tween_callback(musica.stop)
+
+
 
 func _on_start_pressed(): switch_view("selection")
 func _on_settings1_pressed(): switch_view("options")

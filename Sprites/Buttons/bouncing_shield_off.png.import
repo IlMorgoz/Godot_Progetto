@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bha8fh7rexqj0"
-path="res://.godot/imported/black-red-target_78370-6507.png-d77df6a1b039d8a75ef912665f982859.ctex"
+uid="uid://c6scfeuioqhu4"
+path="res://.godot/imported/bouncing_shield_off.png-1123269d87f12062606d6a3257b15ba9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Buttons/black-red-target_78370-6507.png"
-dest_files=["res://.godot/imported/black-red-target_78370-6507.png-d77df6a1b039d8a75ef912665f982859.ctex"]
+source_file="res://Sprites/Buttons/bouncing_shield_off.png"
+dest_files=["res://.godot/imported/bouncing_shield_off.png-1123269d87f12062606d6a3257b15ba9.ctex"]
 
 [params]
 

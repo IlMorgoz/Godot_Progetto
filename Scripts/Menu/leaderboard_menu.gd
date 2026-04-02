@@ -1,14 +1,16 @@
 extends Control
 
-
 @onready var label_tempo: Label = $ScrollContainer/ContenitoreScorrevole/Stats/Lbl_Mode1
 @onready var label_ondate: Label = $ScrollContainer/ContenitoreScorrevole/Stats/Lbl_Mode2
 @onready var label_record: Label = $ScrollContainer/ContenitoreScorrevole/Stats/Lbl_Mode3
+@onready var scroll_container = $ScrollContainer
+@onready var v_slider = $VSlider # Assicurati che il nome corrisponda al nodo nella scena
+@onready var scroll_bar = scroll_container.get_v_scroll_bar()
 
 # Il contenitore vuoto dove inseriremo la lista
 @onready var contenitore_achievements: VBoxContainer = $ScrollContainer/ContenitoreScorrevole/ListaObiettivi
 
-# Carichiamo la scena del mattoncino che abbiamo creato (ATTENZIONE: controlla che il percorso sia giusto!)
+# Carichiamo la scena del mattoncino che abbiamo creato
 const SCENA_ENTRY = preload("res://scenes/Menu/EntryAchievement.tscn")
 
 # Dizionario dei testi
@@ -26,12 +28,32 @@ var testi_achievements = {
 }
 
 func _ready():
+	# Nasconde visivamente la barra predefinita, lasciando attiva la funzionalità
+	scroll_container.vertical_scroll_mode = ScrollContainer.SCROLL_MODE_SHOW_NEVER
+	
 	update_scores()
 	visibility_changed.connect(_on_visibility_changed)
+	
+	# Attende il calcolo delle dimensioni della lista
+	await get_tree().process_frame
+	_aggiorna_limiti_slider()
+	
+	if scroll_bar:
+		# Quando si usa la rotellina, aggiorna lo slider
+		scroll_bar.value_changed.connect(_on_scroll_container_scrolled)
+		# Se la lista cambia dimensione, ricalcola i limiti
+		scroll_bar.changed.connect(_aggiorna_limiti_slider)
+		
+	if v_slider:
+		# Quando si trascina lo slider, aggiorna la lista
+		v_slider.value_changed.connect(_on_vslider_dragged)
 
 func _on_visibility_changed():
 	if visible:
 		update_scores()
+		# Ricalcola in caso di nuovi sblocchi
+		await get_tree().process_frame
+		_aggiorna_limiti_slider()
 
 func update_scores():
 	# --- 1. AGGIORNA I RECORD ---
@@ -40,40 +62,53 @@ func update_scores():
 	label_record.text = "Record Infinito: " + GameData.format_time(GameData.records["mode_3"])
 
 	# --- 2. AGGIORNA GLI ACHIEVEMENTS ---
-	
-	# Pulisce la lista prima di rigenerarla
 	for entry in contenitore_achievements.get_children():
 		entry.queue_free()
 		
-	# Cicla attraverso il dizionario
 	for id_achievement in testi_achievements.keys():
 		var dati = testi_achievements[id_achievement]
 		var is_sbloccato = GameData.achievements.get(id_achievement, false)
 		
-		# Crea una copia della scena EntryAchievement
 		var nuova_entry = SCENA_ENTRY.instantiate()
-		
-		# IMPOSTA I TESTI E L'IMMAGINE
 		nuova_entry.get_node("Testi/Titolo").text = dati["titolo"]
 		
-		# INSERISCI QUI IL PERCORSO DI UN'IMMAGINE PROVVISORIA (es. il tuo asteroide)
-		# Assicurati che il percorso tra le virgolette sia corretto e punti a un'immagine che esiste!
 		var immagine_default = load("res://Sprites/Asteroids/AsteroidBase.png")
 		nuova_entry.get_node("Icona").texture = immagine_default
 		
-		# Se sbloccato mostra la descrizione vera
 		if is_sbloccato:
 			nuova_entry.get_node("Testi/Descrizione").text = dati["desc"]
-			nuova_entry.modulate = Color(1, 1, 1) # Colore normale
+			nuova_entry.modulate = Color(1, 1, 1)
 		else:
 			nuova_entry.get_node("Testi/Titolo").text += " (Bloccato)"
 			nuova_entry.get_node("Testi/Descrizione").text = "Continua a giocare per sbloccare!"
-			nuova_entry.modulate = Color(0.4, 0.4, 0.4) # Grigio scuro per i bloccati
+			nuova_entry.modulate = Color(0.4, 0.4, 0.4)
 			
-		# Aggiunge la voce alla lista visibile
 		contenitore_achievements.add_child(nuova_entry)
+
+# --- FUNZIONI DI SINCRONIZZAZIONE SCROLLCONTAINER <-> VSLIDER ---
+
+func _aggiorna_limiti_slider():
+	if not scroll_bar or not v_slider:
+		return
+		
+	var max_scroll = scroll_bar.max_value - scroll_bar.page
+	
+	if max_scroll <= 0:
+		v_slider.hide()
+	else:
+		v_slider.show()
+		v_slider.max_value = max_scroll
+		v_slider.page = scroll_bar.page
+
+func _on_scroll_container_scrolled(value: float):
+	if v_slider:
+		# Evita che l'impostazione generi un segnale di ritorno (loop)
+		v_slider.set_value_no_signal(value)
+
+func _on_vslider_dragged(value: float):
+	if scroll_container:
+		scroll_container.scroll_vertical = int(value)
 
 # --- TASTO INDIETRO ---
 func _on_back_pressed() -> void:
-	# Chiama la funzione switch_view del tuo Main_Menu.gd per tornare alla Home!
 	get_parent().switch_view("main")

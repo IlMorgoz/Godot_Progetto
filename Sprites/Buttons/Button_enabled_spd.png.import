@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuky44cvcnb8f"
-path="res://.godot/imported/Evil ass nigger.png-de718a279d87aa1f030e9e2e3638d9a0.ctex"
+uid="uid://bx3pgdgf1rwwp"
+path="res://.godot/imported/Button_enabled_spd.png-289c932ad7b1fdd87d4d0471bbdca1c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Spaceships/Enemies/Evil ass nigger.png"
-dest_files=["res://.godot/imported/Evil ass nigger.png-de718a279d87aa1f030e9e2e3638d9a0.ctex"]
+source_file="res://Sprites/Buttons/Button_enabled_spd.png"
+dest_files=["res://.godot/imported/Button_enabled_spd.png-289c932ad7b1fdd87d4d0471bbdca1c0.ctex"]
 
 [params]
 

@@ -2,9 +2,26 @@
 
 [ext_resource type="Script" uid="uid://b8g867pv2mfet" path="res://Scripts/Spaceships/Players/StarChaser_Player.gd" id="1_a85rf"]
 [ext_resource type="Texture2D" uid="uid://dlq7ua5g3asiw" path="res://Sprites/Spaceships/Players/StarChaser_Player.png" id="1_tiq2k"]
+[ext_resource type="Texture2D" uid="uid://j6q2r13ya7mp" path="res://Sprites/Spaceships/Players/mille.png" id="2_vc3on"]
 [ext_resource type="PackedScene" uid="uid://d3dj7xyf2qnss" path="res://scenes/AnimationAddOn/HealtBar.tscn" id="3_cgtb6"]
 [ext_resource type="Texture2D" uid="uid://dbf23gie0dvx" path="res://Sprites/Buttons/Charge_Circle_Empty.png" id="4_sk2sb"]
 [ext_resource type="Texture2D" uid="uid://cbect8ffh86fe" path="res://Sprites/Buttons/Charge_Circle_Full.png" id="5_vc3on"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsngp"]
+atlas = ExtResource("2_vc3on")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_duqa3"]
+atlas = ExtResource("2_vc3on")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iphik"]
+atlas = ExtResource("2_vc3on")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfjq0"]
+atlas = ExtResource("2_vc3on")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hf6o8"]
 atlas = ExtResource("1_tiq2k")
@@ -26,6 +43,23 @@ region = Rect2(96, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_nsngp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_duqa3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iphik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfjq0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_hf6o8")
 }, {
 "duration": 1.0,
@@ -38,7 +72,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_y5uqm")
 }],
 "loop": true,
-"name": &"default",
+"name": &"star",
 "speed": 5.0
 }]
 
@@ -66,7 +100,6 @@ script = ExtResource("1_a85rf")
 rotation = 1.57776
 sprite_frames = SubResource("SpriteFrames_u2ftd")
 autoplay = "default"
-frame_progress = 0.404439
 speed_scale = 0.8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=549258155]

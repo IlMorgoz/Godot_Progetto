@@ -44,6 +44,8 @@ animations = [{
 radius = 12.1655
 
 [node name="Enemy_Ufo" type="CharacterBody2D" unique_id=822089251]
+collision_layer = 4
+collision_mask = 71
 script = ExtResource("1_g4an1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1738272896]

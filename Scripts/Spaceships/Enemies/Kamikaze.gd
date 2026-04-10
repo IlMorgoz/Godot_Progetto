@@ -1,4 +1,5 @@
 extends CharacterBody2D
+signal kamikazeDeath
 
 var explosion_radius : float = 65.0 # Raggio dell'esplosione 
 @export var explosion_damage: int = 3       # Danno causato dall'esplosione
@@ -64,6 +65,7 @@ func take_damage(amount: int) -> void:
 	health -= amount
 	healthbar.health = health
 	if health <= 0:
+		kamikazeDeath.emit()
 		GameData.aggiungi_kill("kamikaze") # Aggiunge la kill se lo uccidiamo con i proiettili
 		trigger_explosion()
 

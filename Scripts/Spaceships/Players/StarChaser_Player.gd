@@ -1,5 +1,6 @@
 extends CharacterBody2D
 signal preso_danno
+signal died
 
 # ==========================================
 # COSTANTI E MODIFICATORI DI VELOCITÀ
@@ -264,7 +265,8 @@ func take_damage(amount: int) -> void:
 	health -= amount
 	healthbar.health = health 
 	if health <= 0:
-		die()
+		died.emit()
+		#die()
 		
 func heal(amount: int) -> void:
 	var max_health = 25 

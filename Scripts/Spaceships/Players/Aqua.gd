@@ -1,5 +1,6 @@
 extends CharacterBody2D
 signal preso_danno
+signal died
 
 # ==========================================
 # COSTANTI E PARAMETRI
@@ -254,7 +255,10 @@ func take_damage(amount: int) -> void:
 	if healthbar:
 		healthbar.health = health 
 	if health <= 0:
+		died.emit()
 		die()
 
 func die() -> void:
-	get_tree().call_deferred("change_scene_to_file", "res://scenes/Menu/Main_Menu.tscn")
+	visible = false
+	set_process(false)
+	set_physics_process(false)

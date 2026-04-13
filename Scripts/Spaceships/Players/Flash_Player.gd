@@ -2,7 +2,7 @@ extends CharacterBody2D
 signal preso_danno
 signal died
 
-const SPEED = 500
+const SPEED = 550
 var bullet_scene = preload("res://scenes/Bullets/Player/Bullet_Green_Flesh.tscn")
 
 @onready var Shooty_part = $ShootyPart

@@ -19,6 +19,7 @@ var offset := 0.5
 var current_time := 0
 var rewarded_minutes := []
 var enemies_killed := 0
+var monete_ottenute_partita := 0
 
 # --- Tempi in cui spawna l'Ancora Gravitazionale ---
 var grav_well_spawn_times = [60] 
@@ -118,6 +119,7 @@ func _on_timer_tick():
 	if current_time in REWARD_TIMINGS and current_time not in rewarded_minutes:
 		var reward = REWARD_TIMINGS[current_time]
 		GameData.add_monete(reward)
+		monete_ottenute_partita += reward
 		print("Hai ricevuto %d monete!" % reward)
 		rewarded_minutes.append(current_time)
 		
@@ -202,6 +204,8 @@ func _on_player_died():
 	spawn_timer.stop()
 	if musica: musica.pitch_scale = 0.4
 	
+	get_tree().call_group("enemies", "queue_free") # Questo comando dice a tutti i nodi nel gruppo "enemies" di autodistruggersi!
+	
 	# Rallenta il tempo al 10%
 	Engine.time_scale = 0.1
 	
@@ -224,8 +228,8 @@ func _game_over(survived: bool):
 	# Passiamo i dati alla UI di Game Over e la rendiamo visibile
 	if game_over_screen and game_over_screen.has_method("setup_game_over"):
 		game_over_screen.visible = true
-		print(typeof(tempo_finale),typeof(GameData.monete_stella),typeof(enemies_killed),typeof(survived))
-		game_over_screen.setup_game_over(GameData.monete_stella, enemies_killed, tempo_finale, survived)
+		print(typeof(tempo_finale),typeof(monete_ottenute_partita),typeof(enemies_killed),typeof(survived))
+		game_over_screen.setup_game_over(monete_ottenute_partita, enemies_killed, tempo_finale, survived)
 	else:
 		print(typeof(tempo_finale),typeof(GameData.monete_stella),typeof(enemies_killed),typeof(survived))
 		push_error("Il nodo Game Over non è stato trovato o non ha il metodo setup_game_over")

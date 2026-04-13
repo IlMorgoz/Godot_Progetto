@@ -5,7 +5,7 @@ signal died
 # ==========================================
 # COSTANTI E PARAMETRI
 # ==========================================
-const SPEED = 450
+const SPEED = 500
 const CHARGE_DELAY: float = 0.00  # Tempo per distinguere "click" da "tieni premuto"
 const SHIELD_DURATION: float = 8.0 # Quanto dura lo scudo acceso
 const SHIELD_COOLDOWN: float = 8.0 # Tempo di ricarica dello scudo

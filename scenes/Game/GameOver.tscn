@@ -31,7 +31,7 @@ corner_radius_bottom_left = 16
 shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
 
-[node name="GameOver" type="Node2D" unique_id=1619941871]
+[node name="GameOver" type="CanvasLayer" unique_id=1102079020]
 script = ExtResource("1_icbwp")
 
 [node name="Panel" type="Panel" parent="." unique_id=2068700200]
@@ -46,45 +46,123 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(350, 354)
 texture = ExtResource("1_p7owx")
 
-[node name="Game Over" type="Label" parent="Panel" unique_id=1999818846]
-layout_mode = 0
-offset_left = 99.0
-offset_top = 99.0
-offset_right = 603.0
-offset_bottom = 160.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1191014557]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -327.99997
+offset_top = -308.37503
+offset_right = 333.24988
+offset_bottom = 232.625
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="TitoloLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1999818846]
+layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0.36862746, 0.21176471, 0.49411765, 1)
 theme_override_constants/shadow_offset_x = 9
 theme_override_fonts/font = ExtResource("2_px800")
 theme_override_font_sizes/font_size = 60
 text = "GAME OVER	"
 horizontal_alignment = 1
+
+[node name="Spacer1" type="Control" parent="Panel/VBoxContainer" unique_id=1863182432]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="FraseLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1006949553]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_px800")
+theme_override_font_sizes/font_size = 26
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Phrase" type="Label" parent="Panel" unique_id=1006949553]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.16405131
-anchor_top = 0.042432815
-anchor_right = 0.048502184
-anchor_bottom = 0.04314005
-offset_left = 330.0
-offset_top = 169.0
-offset_right = 457.0
-offset_bottom = 192.0
+[node name="Spacer2" type="Control" parent="Panel/VBoxContainer" unique_id=1748701556]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="StatisticheLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1099415800]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_px800")
+theme_override_font_sizes/font_size = 28
+text = "STATISTICHE"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TempoLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1674148821]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("2_px800")
 theme_override_font_sizes/font_size = 21
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Stats" type="Label" parent="Panel" unique_id=836328703]
-layout_mode = 1
-anchors_preset = -1
-anchor_bottom = 0.16265912
-offset_left = 131.25006
-offset_top = 249.99991
-offset_right = 582.49994
-offset_bottom = 448.75
+[node name="UccisioniLabel" type="Label" parent="Panel/VBoxContainer" unique_id=826832572]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_px800")
+theme_override_font_sizes/font_size = 21
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="MoneteLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1113940484]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_px800")
+theme_override_font_sizes/font_size = 21
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Spacer3" type="Control" parent="Panel/VBoxContainer" unique_id=1045465556]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="TeaserContainer" type="VBoxContainer" parent="Panel/VBoxContainer" unique_id=876169986]
+layout_mode = 2
+
+[node name="TeaserFrase" type="Label" parent="Panel/VBoxContainer/TeaserContainer" unique_id=1959635098]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_px800")
+theme_override_font_sizes/font_size = 21
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BoxCostume" type="HBoxContainer" parent="Panel/VBoxContainer/TeaserContainer" unique_id=138907888]
+layout_mode = 2
+
+[node name="BtnCostume" type="TextureButton" parent="Panel/VBoxContainer/TeaserContainer/BoxCostume" unique_id=1511144524]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TestoCostume" type="Label" parent="Panel/VBoxContainer/TeaserContainer/BoxCostume" unique_id=1482686699]
+layout_mode = 2
+
+[node name="BoxUpgrade" type="HBoxContainer" parent="Panel/VBoxContainer/TeaserContainer" unique_id=1329235339]
+layout_mode = 2
+
+[node name="BtnUpgrade" type="TextureButton" parent="Panel/VBoxContainer/TeaserContainer/BoxUpgrade" unique_id=353311648]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TestoUpgrade" type="Label" parent="Panel/VBoxContainer/TeaserContainer/BoxUpgrade" unique_id=769262223]
+layout_mode = 2
+
+[node name="BoxIcona" type="HBoxContainer" parent="Panel/VBoxContainer/TeaserContainer" unique_id=1262840638]
+layout_mode = 2
+
+[node name="BtnIcona" type="TextureButton" parent="Panel/VBoxContainer/TeaserContainer/BoxIcona" unique_id=1147293843]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TestoIcona" type="Label" parent="Panel/VBoxContainer/TeaserContainer/BoxIcona" unique_id=839358978]
+layout_mode = 2
 
 [node name="Replay" type="Button" parent="Panel" unique_id=873250927]
 light_mask = 2
@@ -120,5 +198,8 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_u6c8m")
 theme_override_styles/hover = SubResource("StyleBoxFlat_8cl4t")
 text = "Menu"
 
+[connection signal="pressed" from="Panel/VBoxContainer/TeaserContainer/BoxCostume/BtnCostume" to="." method="_on_btn_costume_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/TeaserContainer/BoxUpgrade/BtnUpgrade" to="." method="_on_btn_upgrade_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/TeaserContainer/BoxIcona/BtnIcona" to="." method="_on_btn_icona_pressed"]
 [connection signal="pressed" from="Panel/Replay" to="." method="_on_replay_pressed"]
 [connection signal="pressed" from="Panel/Menu" to="." method="_on_menu_pressed"]

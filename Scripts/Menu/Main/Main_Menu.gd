@@ -77,7 +77,8 @@ func switch_view(view_name: String) -> void:
 		views[key].visible = (key == view_name)
 		
 	$Options/VBoxContainer/Back.visible = (view_name != "main")
-
+	$Title.visible = (view_name != "main")
+	
 	var is_on_leaderboard = (view_name == "leaderboard")
 	for key in background_elements:
 		if background_elements[key]:

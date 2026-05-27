@@ -524,10 +524,9 @@ theme = SubResource("Theme_lrj6p")
 script = ExtResource("1_8bt37")
 profile_textures = Array[Texture2D]([ExtResource("26_bt8s7"), ExtResource("21_geude"), ExtResource("22_uj7oi"), ExtResource("20_nsoon"), ExtResource("7_nsoon")])
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=356308363]
-position = Vector2(0, 30)
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="." unique_id=1034507133]
 stream = ExtResource("7_2ppkp")
-volume_db = 24.0
+volume_db = 3.379
 bus = &"Music"
 
 [node name="Parallax2D" type="Parallax2D" parent="." unique_id=2144513771]
@@ -575,10 +574,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -375.5
-offset_top = 114.0
-offset_right = 389.5
-offset_bottom = 175.0
+offset_left = -379.0
+offset_top = 118.0
+offset_right = 386.0
+offset_bottom = 185.0
 grow_horizontal = 2
 theme_override_colors/font_shadow_color = Color(0.36862746, 0.21176471, 0.49411765, 1)
 theme_override_constants/shadow_offset_x = 9
@@ -587,6 +586,7 @@ theme_override_font_sizes/font_size = 60
 text = "Tempera Biscotti"
 
 [node name="MainButtons" type="VBoxContainer" parent="." unique_id=1695438600]
+visible = false
 light_mask = 2
 visibility_layer = 2
 layout_mode = 1
@@ -596,11 +596,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -163.5
-offset_top = -41.0
+offset_top = -51.0
 offset_right = 163.5
-offset_bottom = 101.0
+offset_bottom = 127.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 14
 
 [node name="Button1" type="Button" parent="MainButtons" unique_id=1285798801]
 light_mask = 2
@@ -676,10 +677,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -269.0
-offset_top = -48.0
-offset_right = 265.0
-offset_bottom = 37.0
+offset_left = -140.0
+offset_top = -54.0
+offset_right = 161.0
+offset_bottom = -9.0
 grow_horizontal = 2
 theme_override_colors/font_shadow_color = Color(0.36862746, 0.21176471, 0.49411765, 1)
 theme_override_constants/shadow_offset_x = 9
@@ -696,9 +697,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -148.0
-offset_top = 21.0
+offset_top = 28.0
 offset_right = 177.0
-offset_bottom = 63.0
+offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 3
@@ -712,8 +713,10 @@ text = "Indietro"
 [node name="HBoxContainer" type="HBoxContainer" parent="Gioca" unique_id=1745307490]
 texture_filter = 1
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 19.0
+offset_top = 9.0
+offset_right = 394.0
+offset_bottom = 260.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Gioca/HBoxContainer" unique_id=1033113763]
 position = Vector2(54, 126)
@@ -755,7 +758,6 @@ offset_right = 168.42102
 offset_bottom = 331.57895
 
 [node name="Armadietto" type="Panel" parent="." unique_id=310373314]
-visible = false
 layout_mode = 0
 offset_left = 460.0
 offset_top = 395.0
@@ -766,9 +768,10 @@ script = ExtResource("7_7q4lt")
 [node name="VBoxContainer" type="VBoxContainer" parent="Armadietto" unique_id=714552269]
 layout_mode = 0
 offset_left = -45.0
-offset_top = -116.0
+offset_top = -105.0
 offset_right = 278.0
-offset_bottom = -4.0
+offset_bottom = 55.0
+theme_override_constants/separation = 10
 
 [node name="Costumi" type="Button" parent="Armadietto/VBoxContainer" unique_id=139431671]
 layout_mode = 2
@@ -813,9 +816,9 @@ text = "Indietro"
 [node name="Label" type="Label" parent="Armadietto" unique_id=1203549049]
 layout_mode = 0
 offset_left = -46.0
-offset_top = -163.0
+offset_top = -171.0
 offset_right = 281.0
-offset_bottom = -122.0
+offset_bottom = -126.0
 theme_override_colors/font_shadow_color = Color(0.36862746, 0.21176471, 0.49411765, 1)
 theme_override_constants/shadow_offset_x = 9
 theme_override_fonts/font = ExtResource("2_t8dpg")
@@ -939,6 +942,7 @@ theme_override_colors/font_color = Color(1, 0.81960785, 0.1254902, 1)
 text = ": 80"
 
 [node name="Miglioramenti" type="Panel" parent="Armadietto" unique_id=212013024]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1214,6 +1218,7 @@ theme_override_colors/font_color = Color(1, 0.81960785, 0.1254902, 1)
 text = ": 100"
 
 [node name="Options" type="Panel" parent="." unique_id=1171406860]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

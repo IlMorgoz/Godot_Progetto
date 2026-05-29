@@ -215,7 +215,7 @@ func _spawn_grav_well():
 		return
 		
 	var viewport_size = get_viewport_rect().size
-	var margin = 80 
+	var margin = 360
 	
 	# Sceglie a caso l'asse da cui arrivano: 0 = Verticale (Su/Giù), 1 = Orizzontale (Sinistra/Destra)
 	var asse_spawn = randi() % 2 

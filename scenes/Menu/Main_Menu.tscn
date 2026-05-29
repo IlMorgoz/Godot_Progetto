@@ -766,6 +766,7 @@ offset_bottom = 395.0
 script = ExtResource("7_7q4lt")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Armadietto" unique_id=714552269]
+visible = false
 layout_mode = 0
 offset_left = -45.0
 offset_top = -105.0
@@ -911,9 +912,9 @@ text = "Indietro"
 
 [node name="Sprite2D3" type="Sprite2D" parent="Armadietto/Skin" unique_id=1595444952]
 texture_filter = 1
-position = Vector2(443.083, 243.1499)
-scale = Vector2(0.06, 0.06)
-texture = ExtResource("23_apcd8")
+position = Vector2(441.083, 245.1499)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("11_nsoon")
 
 [node name="MoneteLabel" type="Label" parent="Armadietto/Skin" unique_id=2054529847]
 texture_filter = 1
@@ -927,22 +928,21 @@ text = ": 60"
 
 [node name="Sprite2D4" type="Sprite2D" parent="Armadietto/Skin" unique_id=323966222]
 texture_filter = 1
-position = Vector2(667.9951, 244.1499)
-scale = Vector2(0.06, 0.06)
-texture = ExtResource("23_apcd8")
+position = Vector2(691.99506, 248.1499)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("11_nsoon")
 
 [node name="MoneteLabel2" type="Label" parent="Armadietto/Skin" unique_id=1479430765]
 texture_filter = 1
 layout_mode = 0
-offset_left = 683.0
-offset_top = 239.0
-offset_right = 744.0
-offset_bottom = 256.0
+offset_left = 710.0
+offset_top = 240.0
+offset_right = 760.0
+offset_bottom = 259.0
 theme_override_colors/font_color = Color(1, 0.81960785, 0.1254902, 1)
 text = ": 80"
 
 [node name="Miglioramenti" type="Panel" parent="Armadietto" unique_id=212013024]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -995,9 +995,9 @@ text = "
 
 [node name="Sprite2D" type="Sprite2D" parent="Armadietto/Miglioramenti/Upgrade1" unique_id=1633997208]
 texture_filter = 1
-position = Vector2(26, 130)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("23_apcd8")
+position = Vector2(28, 132)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("11_nsoon")
 
 [node name="Price1" type="Label" parent="Armadietto/Miglioramenti/Upgrade1" unique_id=70429224]
 texture_filter = 1
@@ -1029,9 +1029,9 @@ theme_override_icons/checked_disabled_mirrored = ExtResource("21_bt8s7")
 
 [node name="Sprite2D" type="Sprite2D" parent="Armadietto/Miglioramenti/Upgrade2" unique_id=276911655]
 texture_filter = 1
-position = Vector2(24, 128)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("23_apcd8")
+position = Vector2(26, 130)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("11_nsoon")
 
 [node name="Price2" type="Label" parent="Armadietto/Miglioramenti/Upgrade2" unique_id=1368148590]
 texture_filter = 1

@@ -41,13 +41,13 @@ func _on_seleziona_generic(index: int) -> void:
 	if GameData.unlocked_ships[index]:
 		GameData.set_player_ship(index)
 	else:
-		if GameData.spend_monete(slot.cost):
+		if GameData.spend_biscotti(slot.cost):
 			GameData.unlocked_ships[index] = true
 			update_ui_state()
 			GameData.set_player_ship(index)
 			
 			# AGGIUNTA: Chiamata alla funzione universale che controlla sia le navi che le icone!
-			GameData.check_completamento_acquisti()
+			#GameData.check_completamento_acquisti()
 
 func _on_back_pressed() -> void:
 	# Chiama la funzione del genitore per chiudere il pannello

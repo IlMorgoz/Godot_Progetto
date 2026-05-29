@@ -33,8 +33,8 @@ var frasi_sconfitta = [
 	"Non sbriciolarti ora!", 
 	"La frolla cosmica si e' spezzata!", 
 	"Troppo inzuppo gravitazionale!",
-	"Il tuo biscotto è andato in frantumi!",
-	"Un pasticciere spaziale non \nsi arrende mai!"
+	"Il tuo biscotto\ne' andato in frantumi!",
+	"Un pasticciere spaziale non\nsi arrende mai!"
 ]
 var frasi_vittoria = [
 	"Biscotto temperato alla perfezione!", "Hai salvato la frolla cosmica!"

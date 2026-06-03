@@ -160,7 +160,7 @@ func load_data():
 			biscotti_totali_ottenuti = data.get("biscotti_totali_ottenuti", biscotti)
 			current_icon_index = data.get("current_icon_index", 0)
 			unlocked_icons = data.get("unlocked_icons", [true, false, false, false, false])
-			selected_ship_index = data.get("selected_ship_index", 0)
+			selected_ship_index = int(data.get("selected_ship_index", 0))
 			
 			if selected_ship_index < ship_scenes.size():
 				selected_ship_scene = ship_scenes[selected_ship_index]
@@ -270,6 +270,22 @@ func spend_biscotti(amount: int) -> bool:
 		emit_signal("biscotti_aggiornati", biscotti)
 		return true
 	return false
+
+# --- GESTIONE STATO UPGRADE ---
+func imposta_stato_upgrade(id_upgrade: String, abilitato: bool) -> void:
+	if upgrades.has(id_upgrade):
+		# Controlliamo che il giocatore lo abbia effettivamente comprato prima di poterlo attivare
+		if abilitato and not upgrades[id_upgrade]["purchased"]:
+			print("Errore: Impossibile attivare un upgrade non acquistato.")
+			return
+			
+		upgrades[id_upgrade]["enabled"] = abilitato
+		
+		# IL SEGRETO: Salviamo e inviamo immediatamente il nuovo stato al Cloud!
+		save_data(true) 
+		print("Upgrade '", id_upgrade, "' impostato su: ", abilitato)
+	else:
+		push_error("L'upgrade '" + id_upgrade + "' non esiste nel database!")
 
 func check_and_save_record(mode: String, value):
 	if value > records.get(mode, 0):

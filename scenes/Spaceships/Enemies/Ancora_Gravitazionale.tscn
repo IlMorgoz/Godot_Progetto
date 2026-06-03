@@ -36,7 +36,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_drnnq"]
-radius = 93.04838
+radius = 200.0
 
 [node name="GravWell" type="CharacterBody2D" unique_id=81165076]
 collision_layer = 8
@@ -54,7 +54,6 @@ autoplay = "default"
 frame_progress = 0.28040388
 
 [node name="GravityAura" type="Area2D" parent="." unique_id=1453787485]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GravityAura" unique_id=1570707966]
 shape = SubResource("CircleShape2D_drnnq")
